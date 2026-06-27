@@ -164,6 +164,61 @@
   }
   .btn-secondary:hover { border-color: var(--cyan); color: var(--white); background: rgba(34, 211, 238, 0.06); }
 
+  /* ── VIDEO SECTION ── */
+  .video-intro { font-size: 0.98rem; color: var(--white-dim); line-height: 1.95; max-width: 560px; margin-bottom: 3rem; }
+  .video-main { margin-bottom: 1.5rem; }
+  .video-embed {
+    position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: 0 20px 50px -20px rgba(59, 130, 246, 0.4);
+  }
+  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .video-sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .video-thumb {
+    display: block; text-decoration: none; border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(96, 165, 250, 0.12); background: var(--navy);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .video-thumb:hover { transform: translateY(-5px); border-color: rgba(34, 211, 238, 0.45); box-shadow: 0 16px 40px -18px rgba(59,130,246,0.5); }
+  .video-thumb-img {
+    position: relative; aspect-ratio: 16/9; background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-thumb-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,4,14,0.1), rgba(4,4,14,0.5)); }
+  .play-btn {
+    position: relative; z-index: 1; width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(120deg, var(--blue-neon), var(--magenta));
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    box-shadow: 0 6px 24px rgba(59,130,246,0.5); transition: transform 0.3s;
+  }
+  .video-thumb:hover .play-btn { transform: scale(1.12); }
+  .video-thumb-meta { padding: 1.1rem 1.3rem; }
+  .video-thumb-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.4rem; }
+  .video-thumb-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--white); }
+
+  .video-more {
+    display: flex; align-items: center; text-decoration: none; border-radius: 16px;
+    border: 1px solid rgba(244, 114, 182, 0.15);
+    background: linear-gradient(135deg, rgba(45, 33, 104, 0.4), rgba(10, 14, 36, 0.3));
+    padding: 1.5rem; transition: transform 0.3s, border-color 0.3s;
+  }
+  .video-more:hover { transform: translateY(-5px); border-color: rgba(244, 114, 182, 0.4); }
+  .video-more-inner { text-align: left; }
+  .video-more-icon {
+    font-size: 1.4rem; color: var(--pink); margin-bottom: 0.8rem;
+    width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(244,114,182,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-more-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+  .video-more-sub { font-size: 0.82rem; color: var(--white-dim); line-height: 1.6; margin-bottom: 1rem; }
+  .video-more-cta { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--cyan); text-transform: uppercase; }
+
+  @media (max-width: 768px) {
+    .video-sub-grid { grid-template-columns: 1fr; }
+  }
+
   .neon-line {
     width: 100%; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), rgba(244, 114, 182, 0.4), rgba(34, 211, 238, 0.3), transparent);
@@ -422,6 +477,7 @@
   <a href="#" class="nav-logo">HB BLUE</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#video">Video</a></li>
     <li><a href="#artists">Artists</a></li>
     <li><a href="#join">Join</a></li>
   </ul>
@@ -432,7 +488,7 @@
   <div class="hero-orb orb-1"></div>
   <div class="hero-orb orb-2"></div>
   <div class="hero-orb orb-3"></div>
-  <p class="hero-tag">🍹 연합 취미밴드 — Seoul, 2024</p>
+  <p class="hero-tag">🍹 연합 취미밴드 — Seoul, 2025</p>
   <h1 class="hero-title"><span class="l1">HIGHBALL</span><br><span class="l2">BLUE</span></h1>
   <p class="hero-subtitle">일상에 청량한 한 잔의 휴식을 더하는<br>20대 연합 취미밴드</p>
   <div class="hero-cta-group">
@@ -479,6 +535,42 @@
           <p class="class-desc">정기 공연, 버스킹, 자작곡 제작까지. 하이볼 블루만의 색깔을 무대 위에서 만들어갑니다.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
+<section class="video-section" id="video">
+  <div class="container">
+    <p class="section-eyebrow">// Live & Video</p>
+    <h2 class="section-title fade-in">무대 위의<br>하이볼 블루</h2>
+    <p class="video-intro fade-in">방구석 연주를 넘어, 실제 무대와 버스킹으로. 하이볼 블루의 합주와 공연 영상을 만나보세요.</p>
+
+    <div class="video-main fade-in">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/pq8gn-D2MSk" title="하이볼 블루 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="video-sub-grid fade-in">
+      <a class="video-thumb" href="https://youtu.be/t1WBpwAW6yM" target="_blank" rel="noopener">
+        <div class="video-thumb-img" style="background-image:url('https://img.youtube.com/vi/t1WBpwAW6yM/maxresdefault.jpg')">
+          <div class="play-btn"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-thumb-meta">
+          <p class="video-thumb-label">// Watch on YouTube</p>
+          <p class="video-thumb-title">하이볼 블루 공연 영상</p>
+        </div>
+      </a>
+      <a class="video-more" href="https://www.youtube.com/@highballblue" target="_blank" rel="noopener">
+        <div class="video-more-inner">
+          <p class="video-more-icon">▶</p>
+          <p class="video-more-title">전체 영상 보기</p>
+          <p class="video-more-sub">YouTube @highballblue 채널에서<br>더 많은 합주·공연 영상을 확인하세요</p>
+          <span class="video-more-cta">채널 바로가기 ↗</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -534,7 +626,7 @@
       <a href="https://www.youtube.com/@highballblue" target="_blank">YouTube</a>
       <a href="https://forms.gle/GhSdqaFbskyRk88a8" target="_blank">지원 폼</a>
     </div>
-    <p class="footer-copy">© 2024 Highball Blue. All rights reserved.</p>
+    <p class="footer-copy">© 2025 Highball Blue. All rights reserved.</p>
   </div>
 </footer>
 
