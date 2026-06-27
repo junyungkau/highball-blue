@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIGHBALL BLUE — 청량한 20대 연합 취미밴드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #04040E;
+    --ink: #080A1A;
+    --navy-deep: #0A0E24;
+    --navy: #11163A;
+    --indigo: #1B1F52;
+    --violet: #2D2168;
+    --blue-mid: #1E3A8A;
+    --blue-neon: #3B82F6;
+    --blue-glow: #60A5FA;
+    --blue-bright: #93C5FD;
+    --cyan: #22D3EE;
+    --pink: #F472B6;
+    --pink-soft: #FBCFE8;
+    --magenta: #C026D3;
+    --amber: #FBBF24;
+    --white: #F1F5FF;
+    --white-dim: #A5B4D4;
+    --white-muted: #5A6691;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(45, 33, 104, 0.5) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 90% 20%, rgba(192, 38, 211, 0.12) 0%, transparent 50%),
+      var(--black);
+    color: var(--white);
+    font-family: 'Noto Serif KR', serif;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--pink); color: var(--black); }
+
+  /* ── BACKGROUND COLLAGE ── */
+  .bg-collage {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  }
+  .bg-img {
+    position: absolute; width: 220px; height: 220px;
+    background-size: cover; background-position: center;
+    border-radius: 16px;
+    opacity: 0.10;
+    filter: blur(2px) saturate(1.2);
+    transform: rotate(var(--rot, 0deg));
+    animation: drift 22s ease-in-out infinite;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes drift {
+    0%, 100% { transform: rotate(var(--rot,0deg)) translateY(0); }
+    50% { transform: rotate(var(--rot,0deg)) translateY(-26px); }
+  }
+  nav, section, footer, .neon-line { position: relative; z-index: 2; }
+  @media (max-width: 768px) {
+    .bg-img { width: 140px; height: 140px; opacity: 0.07; }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(4, 4, 14, 0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(96, 165, 250, 0.12);
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: 0.28em;
+    background: linear-gradient(90deg, var(--blue-glow), var(--cyan));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.2em; color: var(--white-dim);
+    text-decoration: none; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(circle 600px at 50% 55%, rgba(59, 130, 246, 0.18) 0%, transparent 70%),
+      radial-gradient(circle 300px at 28% 38%, rgba(34, 211, 238, 0.14) 0%, transparent 70%),
+      radial-gradient(circle 320px at 72% 62%, rgba(244, 114, 182, 0.14) 0%, transparent 70%);
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%; filter: blur(80px);
+    opacity: 0.5; animation: float 14s ease-in-out infinite;
+  }
+  .orb-1 { width: 300px; height: 300px; background: var(--blue-mid); top: 15%; left: 10%; }
+  .orb-2 { width: 240px; height: 240px; background: var(--magenta); bottom: 18%; right: 12%; animation-delay: -5s; }
+  .orb-3 { width: 200px; height: 200px; background: var(--cyan); top: 50%; left: 60%; animation-delay: -9s; opacity: 0.3; }
+  @keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-30px) scale(1.1); }
+    66% { transform: translate(-20px,20px) scale(0.95); }
+  }
+  .hero-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.3em; color: var(--cyan); text-transform: uppercase;
+    margin-bottom: 2rem; position: relative; z-index: 1;
+  }
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3.5rem, 13vw, 10rem); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 0.85; position: relative; z-index: 1;
+  }
+  .hero-title .l1 {
+    background: linear-gradient(180deg, var(--white) 30%, var(--blue-bright) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-title .l2 {
+    background: linear-gradient(90deg, var(--blue-glow), var(--cyan) 50%, var(--pink));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 60px rgba(96, 165, 250, 0.3);
+  }
+  .hero-subtitle {
+    font-size: 1.05rem; font-weight: 300; color: var(--white-dim);
+    margin-top: 2.25rem; letter-spacing: 0.04em; line-height: 1.9;
+    max-width: 480px; position: relative; z-index: 1;
+  }
+  .hero-cta-group {
+    display: flex; gap: 1rem; margin-top: 3rem; flex-wrap: wrap;
+    justify-content: center; position: relative; z-index: 1;
+  }
+  .btn-primary {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+    padding: 0.9rem 2.2rem; color: #fff; border: none; cursor: pointer;
+    background: linear-gradient(120deg, var(--blue-neon), var(--magenta));
+    background-size: 200% 100%; background-position: 0% 0%;
+    transition: background-position 0.4s, transform 0.15s, box-shadow 0.3s;
+    box-shadow: 0 4px 30px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover { background-position: 100% 0%; transform: translateY(-2px); box-shadow: 0 6px 40px rgba(192, 38, 211, 0.4); }
+  .btn-secondary {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+    padding: 0.9rem 2.2rem; background: transparent; color: var(--blue-glow);
+    border: 1px solid rgba(96, 165, 250, 0.35); cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--cyan); color: var(--white); background: rgba(34, 211, 238, 0.06); }
+
+  .neon-line {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), rgba(244, 114, 182, 0.4), rgba(34, 211, 238, 0.3), transparent);
+  }
+
+  section { padding: 6.5rem 2rem; position: relative; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.5rem;
+    color: var(--cyan);
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    background: linear-gradient(180deg, var(--white), var(--blue-bright));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-body { font-size: 1rem; font-weight: 300; line-height: 2; color: var(--white-dim); }
+  .about-body strong { color: var(--white); font-weight: 500; }
+  .about-body .accent { color: var(--cyan); }
+
+  .classes-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .class-card {
+    padding: 1.4rem 1.6rem; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(27, 31, 82, 0.5), rgba(10, 14, 36, 0.4));
+    border: 1px solid rgba(96, 165, 250, 0.12);
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .class-card:hover {
+    border-color: rgba(34, 211, 238, 0.4); transform: translateX(6px);
+    box-shadow: -8px 0 24px -12px rgba(34, 211, 238, 0.3);
+  }
+  .class-badge {
+    font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em;
+    padding: 0.3rem 0.7rem; border-radius: 20px; text-transform: uppercase;
+    display: inline-block; margin-bottom: 0.7rem;
+  }
+  .badge-beginner { color: var(--blue-bright); background: rgba(147, 197, 253, 0.12); }
+  .badge-mid { color: var(--cyan); background: rgba(34, 211, 238, 0.12); }
+  .badge-stage { color: var(--pink); background: rgba(244, 114, 182, 0.12); }
+  .class-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.4rem; }
+  .class-desc { font-size: 0.84rem; color: var(--white-muted); line-height: 1.65; }
+
+  /* ── ARTISTS ── */
+  .artists-intro { font-size: 0.98rem; color: var(--white-dim); line-height: 1.95; max-width: 580px; margin-bottom: 3rem; }
+  .genre-tabs { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tab-btn {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em;
+    padding: 0.45rem 1.1rem; background: transparent; color: var(--white-muted);
+    border: 1px solid rgba(90, 102, 145, 0.5); border-radius: 20px; cursor: pointer;
+    text-transform: uppercase; transition: all 0.25s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: linear-gradient(120deg, var(--blue-neon), var(--magenta));
+    color: #fff; border-color: transparent;
+  }
+
+  .artist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; }
+  .artist-card {
+    position: relative; border-radius: 16px; overflow: hidden; cursor: pointer;
+    aspect-ratio: 3 / 4; border: 1px solid rgba(96, 165, 250, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .artist-card::before {
+    content: ''; position: absolute; inset: 0; z-index: 0;
+    background: var(--card-grad);
+  }
+  .artist-card.has-img::before {
+    background-image: var(--card-img);
+    background-size: cover; background-position: center top;
+    transition: transform 0.5s;
+  }
+  .artist-card.has-img:hover::before { transform: scale(1.06); }
+  .artist-card::after {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, transparent 30%, rgba(4, 4, 14, 0.85) 100%);
+  }
+  .artist-card:hover {
+    transform: translateY(-6px); border-color: rgba(34, 211, 238, 0.45);
+    box-shadow: 0 16px 40px -16px rgba(59, 130, 246, 0.5);
+  }
+  .artist-card.has-img .artist-initial { display: none; }
+  .artist-card.hidden { display: none; }
+  .artist-initial {
+    position: absolute; top: 1.1rem; right: 1.2rem; z-index: 2;
+    font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700;
+    color: rgba(255,255,255,0.14); line-height: 1;
+  }
+  .artist-card-body { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 1.4rem; }
+  .artist-genre-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--cyan); margin-bottom: 0.6rem;
+  }
+  .artist-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 0.15rem; }
+  .artist-name-ko { font-size: 0.78rem; color: var(--white-dim); margin-bottom: 0.6rem; }
+  .artist-card-cta {
+    font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
+    color: var(--white-muted); text-transform: uppercase; display: flex; align-items: center; gap: 5px;
+  }
+  .artist-card:hover .artist-card-cta { color: var(--pink-soft); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200; display: none;
+    align-items: center; justify-content: center; padding: 2rem;
+    background: rgba(4, 4, 14, 0.85); backdrop-filter: blur(8px);
+  }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    position: relative; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto;
+    border-radius: 20px; background: var(--ink);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.8);
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal::-webkit-scrollbar { width: 6px; }
+  .modal::-webkit-scrollbar-thumb { background: rgba(96,165,250,0.3); border-radius: 3px; }
+  .modal-header {
+    position: relative; height: 280px; display: flex; align-items: flex-end;
+    padding: 2rem; overflow: hidden;
+  }
+  .modal-header::before { content: ''; position: absolute; inset: 0; background: var(--modal-grad); }
+  .modal-header.has-img::before {
+    background-image: var(--modal-img);
+    background-size: cover; background-position: center 25%;
+  }
+  .modal-header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, var(--ink) 100%); }
+  .modal-header-content { position: relative; z-index: 2; }
+  .modal-genre {
+    font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--cyan); margin-bottom: 0.5rem;
+  }
+  .modal-name { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--white); line-height: 1; }
+  .modal-name-ko { font-size: 0.95rem; color: var(--white-dim); margin-top: 0.4rem; }
+  .modal-close {
+    position: absolute; top: 1.2rem; right: 1.2rem; z-index: 3;
+    width: 38px; height: 38px; border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(4,4,14,0.6); color: var(--white); font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+  }
+  .modal-close:hover { background: var(--magenta); }
+  .modal-body { padding: 2rem; }
+  .modal-bio { font-size: 0.95rem; line-height: 1.95; color: var(--white-dim); margin-bottom: 2rem; }
+  .modal-bio strong { color: var(--white); font-weight: 500; }
+
+  .modal-section-label {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--pink); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .modal-section-label::after { content: ''; flex: 1; height: 1px; background: rgba(244, 114, 182, 0.2); }
+
+  .tracks { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; }
+  .track {
+    display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem;
+    border-radius: 10px; background: rgba(27, 31, 82, 0.3);
+    border: 1px solid rgba(96, 165, 250, 0.08); transition: background 0.2s, border-color 0.2s;
+  }
+  .track:hover { background: rgba(34, 211, 238, 0.06); border-color: rgba(34, 211, 238, 0.25); }
+  .track-num { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--blue-glow); min-width: 24px; }
+  .track-info { flex: 1; }
+  .track-title { font-size: 0.92rem; color: var(--white); font-weight: 500; }
+  .track-meta { font-size: 0.72rem; color: var(--white-muted); margin-top: 2px; }
+  .track-level {
+    font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border-radius: 12px; text-transform: uppercase;
+  }
+  .lv-easy { color: var(--blue-bright); background: rgba(147,197,253,0.12); }
+  .lv-mid { color: var(--cyan); background: rgba(34,211,238,0.12); }
+  .lv-hard { color: var(--pink); background: rgba(244,114,182,0.12); }
+
+  .albums { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; }
+  .album {
+    border-radius: 12px; overflow: hidden; border: 1px solid rgba(96,165,250,0.1);
+    transition: transform 0.25s;
+  }
+  .album:hover { transform: scale(1.04); }
+  .album-cover {
+    aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .album-cover-text {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600;
+    color: rgba(255,255,255,0.9); text-align: center; padding: 0.5rem; z-index: 1;
+    line-height: 1.2;
+  }
+  .album-meta { padding: 0.6rem 0.7rem; background: rgba(8,10,26,0.8); }
+  .album-title { font-size: 0.78rem; color: var(--white); font-weight: 500; line-height: 1.3; }
+  .album-year { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--white-muted); margin-top: 2px; }
+
+  /* ── JOIN ── */
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .info-item { border-top: 1px solid; border-image: linear-gradient(90deg, var(--blue-glow), transparent) 1; padding-top: 1.25rem; }
+  .info-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .info-value { font-size: 0.9rem; color: var(--white); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer { padding: 4rem 2rem 3rem; border-top: 1px solid rgba(96, 165, 250, 0.1); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+  .footer-logo {
+    font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 0.04em;
+    background: linear-gradient(90deg, var(--blue-glow), var(--cyan), var(--pink));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .footer-slogan { font-size: 0.85rem; color: var(--white-muted); margin-top: 0.5rem; font-weight: 300; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+  .footer-links a {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em;
+    color: var(--white-muted); text-decoration: none; text-transform: uppercase; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--cyan); }
+  .footer-copy {
+    width: 100%; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);
+    font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
+    color: var(--white-muted); text-transform: uppercase;
+  }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-links { align-items: flex-start; }
+    .modal-header { height: 160px; }
+    .modal-name { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-collage" aria-hidden="true">
+  <div class="bg-img" style="background-image:url('images/jannabi/legend.png'); top:8%; left:4%; --rot:-8deg;"></div>
+  <div class="bg-img" style="background-image:url('images/hanroro/jamong.png'); top:22%; right:6%; --rot:6deg; --d:-3s;"></div>
+  <div class="bg-img" style="background-image:url('images/jannabi/monkeyhotel.png'); top:48%; left:12%; --rot:5deg; --d:-7s;"></div>
+  <div class="bg-img" style="background-image:url('images/hanroro/home.png'); top:62%; right:10%; --rot:-6deg; --d:-2s;"></div>
+  <div class="bg-img" style="background-image:url('images/jannabi/giorbo.png'); top:80%; left:6%; --rot:9deg; --d:-9s;"></div>
+  <div class="bg-img" style="background-image:url('images/hanroro/profile2.png'); top:38%; right:24%; --rot:-4deg; --d:-5s;"></div>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">HB BLUE</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#artists">Artists</a></li>
+    <li><a href="#join">Join</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-orb orb-3"></div>
+  <p class="hero-tag">🍹 연합 취미밴드 — Seoul, 2024</p>
+  <h1 class="hero-title"><span class="l1">HIGHBALL</span><br><span class="l2">BLUE</span></h1>
+  <p class="hero-subtitle">일상에 청량한 한 잔의 휴식을 더하는<br>20대 연합 취미밴드</p>
+  <div class="hero-cta-group">
+    <a href="https://forms.gle/GhSdqaFbskyRk88a8" target="_blank" class="btn-primary">지원하기</a>
+    <a href="#artists" class="btn-secondary">아티스트 보기</a>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-in">
+        <p class="section-eyebrow">// About</p>
+        <h2 class="section-title">청춘의 색깔을<br>노래하다</h2>
+        <p class="about-body">
+          대학생과 직장인이 모여 <strong>완벽한 연주보다 부담 없는 합주</strong>를 즐기는 공간입니다.<br><br>
+          신촌 · 합정 · 서울대입구 인근 합주실에서 인디, 락, K-pop, J-pop 그리고 우리만의 자작곡까지 — <span class="accent">음악으로 일상의 스트레스를 날립니다.</span><br><br>
+          <strong>🎵 모집 파트</strong><br>
+          보컬 / 퍼스트 기타 / 세컨드 기타 / 베이스 / 드럼 / 키보드<br><br>
+          <strong>🎯 모집 대상</strong><br>
+          20대 대학생 및 직장인 (일반인 환영)
+        </p>
+        <div style="margin-top: 2rem;">
+          <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
+        </div>
+      </div>
+      <div class="classes-grid fade-in">
+        <p class="section-eyebrow">// 맞춤형 클래스</p>
+        <div class="class-card">
+          <span class="class-badge badge-beginner">🐢 초급</span>
+          <p class="class-name">거북이반</p>
+          <p class="class-desc">합주 경험이 없어도 괜찮아요. 틀려도 서로 웃으며 맞춰가는 음악 놀이터입니다.</p>
+        </div>
+        <div class="class-card">
+          <span class="class-badge badge-mid">📈 중급</span>
+          <p class="class-name">중급반</p>
+          <p class="class-desc">혼자 연주는 가능한 분들을 위한 반. 다른 파트와 호흡 맞추며 합주의 진짜 재미를 느낍니다.</p>
+        </div>
+        <div class="class-card">
+          <span class="class-badge badge-stage">🎤 공연</span>
+          <p class="class-name">공연반</p>
+          <p class="class-desc">정기 공연, 버스킹, 자작곡 제작까지. 하이볼 블루만의 색깔을 무대 위에서 만들어갑니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
+<section class="artists" id="artists">
+  <div class="container">
+    <p class="section-eyebrow">// Artist Guide</p>
+    <h2 class="section-title fade-in">우리가 사랑하는<br>아티스트들</h2>
+    <p class="artists-intro fade-in">
+      인디부터 J-pop, 하드락까지 — 하이볼 블루 멤버들이 영향받은 아티스트들을 소개합니다.
+      카드를 누르면 대표곡과 앨범을 볼 수 있어요.
+    </p>
+    <div class="genre-tabs fade-in">
+      <button class="tab-btn active" onclick="filterArtists('all', this)">All</button>
+      <button class="tab-btn" onclick="filterArtists('indie', this)">인디</button>
+      <button class="tab-btn" onclick="filterArtists('jpop', this)">J-pop</button>
+      <button class="tab-btn" onclick="filterArtists('rock', this)">락</button>
+      <button class="tab-btn" onclick="filterArtists('kpop', this)">K-pop</button>
+    </div>
+    <div class="artist-grid" id="artistGrid"></div>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
+<section class="recruit" id="join">
+  <div class="container fade-in">
+    <p class="section-eyebrow">// 2기 모집 중</p>
+    <h2 class="section-title">합류할 준비<br>됐나요?</h2>
+    <div class="info-grid">
+      <div class="info-item"><p class="info-label">모집 대상</p><p class="info-value">20대 대학생 및 직장인</p></div>
+      <div class="info-item"><p class="info-label">합주 장소</p><p class="info-value">신촌 / 합정 / 서울대입구</p></div>
+      <div class="info-item"><p class="info-label">회비</p><p class="info-value">합주실 비용 1/N<br><span style="color: var(--white-muted); font-size: 0.8rem;">인당 약 5,000원</span></p></div>
+      <div class="info-item"><p class="info-label">장르</p><p class="info-value">인디 · 락 · K-pop<br>J-pop · 자작곡</p></div>
+      <div class="info-item"><p class="info-label">모집 파트</p><p class="info-value">보컬 / 기타 ×2<br>베이스 / 드럼 / 키보드</p></div>
+      <div class="info-item"><p class="info-label">활동 영상</p><p class="info-value"><a href="https://www.youtube.com/@highballblue" target="_blank" style="color: var(--cyan); text-decoration: none;">YouTube @highballblue ↗</a></p></div>
+    </div>
+    <div style="margin-top: 3.5rem;">
+      <a href="https://forms.gle/GhSdqaFbskyRk88a8" target="_blank" class="btn-primary">구글 폼으로 지원하기 ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-logo">HIGHBALL BLUE</p>
+      <p class="footer-slogan">청량한 20대 연합 취미밴드 — 2기 모집 중</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@highballblue" target="_blank">YouTube</a>
+      <a href="https://forms.gle/GhSdqaFbskyRk88a8" target="_blank">지원 폼</a>
+    </div>
+    <p class="footer-copy">© 2024 Highball Blue. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+const artists = [
+  {
+    id: 'jannabi', genre: 'indie', genreLabel: '인디 밴드',
+    name: 'JANNABI', nameKo: '잔나비',
+    grad: 'linear-gradient(135deg, #6D4C2B, #2A1810)',
+    img: 'images/jannabi/band.png',
+    bio: '순우리말로 원숭이를 뜻하는 <strong>잔나비</strong>. 최정훈, 김도형으로 구성된 대한민국 대표 인디 록밴드입니다. 1960~90년대 레트로 사운드와 서정적인 가사로 사랑받으며, 2019년 정규 2집 <strong>전설</strong>로 메인스트림에 우뚝 섰습니다.',
+    tracks: [
+      { t: '주저하는 연인들을 위해', m: '전설 · 2019', lv: 'easy' },
+      { t: '뜨거운 여름밤은 가고 남은 건 우리 뿐', m: '2017', lv: 'mid' },
+      { t: '나의 기쁨 나의 노래', m: '전설 · 2019', lv: 'mid' },
+      { t: 'November Rain', m: '2015', lv: 'mid' }
+    ],
+    albums: [
+      { t: '전설', y: '2019', c: 'linear-gradient(135deg, #8B5A2B, #3D2817)', cover: 'images/jannabi/legend.png' },
+      { t: 'Monkey Hotel', y: '2016', c: 'linear-gradient(135deg, #6B4423, #2A1A0F)', cover: 'images/jannabi/monkeyhotel.png' },
+      { t: 'Captain Giorbo', y: '2014', c: 'linear-gradient(135deg, #A0522D, #4A2511)', cover: 'images/jannabi/giorbo.png' }
+    ]
+  },
+  {
+    id: 'hanroro', genre: 'indie', genreLabel: '인디 팝',
+    name: 'HANRORO', nameKo: '한로로',
+    grad: 'linear-gradient(135deg, #1E3A5F, #0A1628)',
+    img: 'images/hanroro/profile.png',
+    bio: '\'찰 한(寒)\'에 \'이슬 로(露)\' — <strong>차가운 이슬</strong>이라는 뜻의 한로로. 밴드 사운드 위에 투박하고 솔직한 목소리를 얹어 청춘의 불안과 작은 희망을 노래합니다. 정제되지 않은 날것의 감성이 매력.',
+    tracks: [
+      { t: '입춘', m: '입춘 · 2022', lv: 'mid' },
+      { t: '비행운', m: '2023', lv: 'mid' },
+      { t: '사랑하게 될 것', m: '2024', lv: 'mid' },
+      { t: '여름이 좋아', m: '2023', lv: 'easy' }
+    ],
+    albums: [
+      { t: '자몽살구클럽', y: '2025', c: 'linear-gradient(135deg, #E96443, #904E95)', cover: 'images/hanroro/jamong.png' },
+      { t: '집 (HOME)', y: '2024', c: 'linear-gradient(135deg, #C0392B, #1A0808)', cover: 'images/hanroro/home.png' }
+    ]
+  },
+  {
+    id: '10cm', genre: 'indie', genreLabel: '어쿠스틱 팝',
+    name: '10CM', nameKo: '십센치',
+    grad: 'linear-gradient(135deg, #2D4A7C, #131E33)',
+    bio: '권정열의 독보적인 보컬과 감성적인 가사로 사랑받는 <strong>10cm</strong>. 어쿠스틱 기반의 심플한 악기 구성으로 첫 합주에 도전하기 좋은 곡이 많습니다.',
+    tracks: [
+      { t: '폰서트', m: '4.0 · 2019', lv: 'easy' },
+      { t: '아메리카노', m: '1.0 · 2011', lv: 'easy' },
+      { t: '봄이 좋냐??', m: '2016', lv: 'easy' },
+      { t: '그라데이션', m: '2021', lv: 'mid' }
+    ],
+    albums: [
+      { t: '4.0', y: '2019', c: 'linear-gradient(135deg, #4B79A1, #283E51)' },
+      { t: '1.0', y: '2011', c: 'linear-gradient(135deg, #3A6073, #16222A)' },
+      { t: '5.0', y: '2022', c: 'linear-gradient(135deg, #5C7AAE, #1F2A3D)' }
+    ]
+  },
+  {
+    id: 'nerd', genre: 'indie', genreLabel: '인디 락',
+    name: 'NERD CONNECTION', nameKo: '너드커넥션',
+    grad: 'linear-gradient(135deg, #3D2B56, #15101F)',
+    bio: '서정적인 멜로디와 다이나믹한 밴드 사운드로 주목받는 <strong>너드커넥션</strong>. 감정의 빌드업이 강렬해 밴드 전체의 호흡이 중요한 곡들이 많습니다.',
+    tracks: [
+      { t: 'BACK IN TIME', m: '2022', lv: 'mid' },
+      { t: '그대만 있다면 (여름날 우리)', m: '2022', lv: 'mid' },
+      { t: '받아들임', m: '2021', lv: 'mid' }
+    ],
+    albums: [
+      { t: 'A Poet', y: '2021', c: 'linear-gradient(135deg, #614385, #221C3A)' },
+      { t: '여름날 우리', y: '2022', c: 'linear-gradient(135deg, #516395, #1E2746)' }
+    ]
+  },
+  {
+    id: 'hyukoh', genre: 'rock', genreLabel: '얼터너티브 락',
+    name: 'HYUKOH', nameKo: '혁오',
+    grad: 'linear-gradient(135deg, #5C2A2A, #1C0E0E)',
+    bio: '오혁 특유의 그루브와 몽환적인 기타 톤이 매력인 밴드 <strong>혁오</strong>. 국내외에서 폭넓은 사랑을 받으며 독자적인 음악 세계를 구축했습니다.',
+    tracks: [
+      { t: 'TOMBOY', m: '23 · 2017', lv: 'mid' },
+      { t: '와리가리', m: '20 · 2015', lv: 'mid' },
+      { t: 'Citizen Kane', m: '23 · 2017', lv: 'mid' },
+      { t: 'Comes And Goes', m: '2015', lv: 'hard' }
+    ],
+    albums: [
+      { t: '23', y: '2017', c: 'linear-gradient(135deg, #8E2DE2, #4A00E0)' },
+      { t: '22', y: '2015', c: 'linear-gradient(135deg, #C04848, #480048)' },
+      { t: '24', y: '2018', c: 'linear-gradient(135deg, #A83279, #311432)' }
+    ]
+  },
+  {
+    id: 'day6', genre: 'kpop', genreLabel: 'K-pop 밴드',
+    name: 'DAY6', nameKo: '데이식스',
+    grad: 'linear-gradient(135deg, #1B4D3E, #0A1E18)',
+    bio: '밴드 K-pop의 선구자 <strong>DAY6</strong>. 탄탄한 연주 실력과 중독성 있는 멜로디로 \'데박(데이식스 역주행)\' 신드롬을 일으켰습니다. 정박자 8비트 곡들은 합주 입문에 최적.',
+    tracks: [
+      { t: '한 페이지가 될 수 있게', m: 'The Book of Us · 2019', lv: 'easy' },
+      { t: 'Time of Our Life', m: '2019', lv: 'easy' },
+      { t: '예뻤어', m: '2017', lv: 'easy' },
+      { t: 'Welcome to the Show', m: '2024', lv: 'mid' }
+    ],
+    albums: [
+      { t: 'The Book of Us : Gravity', y: '2019', c: 'linear-gradient(135deg, #11998E, #38EF7D)' },
+      { t: 'Fourever', y: '2024', c: 'linear-gradient(135deg, #1D976C, #093637)' },
+      { t: 'Sunrise', y: '2017', c: 'linear-gradient(135deg, #F2994A, #2D6A4F)' }
+    ]
+  },
+  {
+    id: 'younha', genre: 'kpop', genreLabel: '인디 팝 / 록',
+    name: 'YOUNHA', nameKo: '윤하',
+    grad: 'linear-gradient(135deg, #2B3A67, #0E1326)',
+    bio: '강력한 가창력과 탄탄한 밴드 사운드를 겸비한 <strong>윤하</strong>. 데뷔 초 J-pop 진출 경력부터 \'사건의 지평선\' 역주행까지, 폭넓은 음악적 스펙트럼을 자랑합니다.',
+    tracks: [
+      { t: '사건의 지평선', m: 'END THEORY · 2022', lv: 'hard' },
+      { t: '비밀번호 486', m: '2012', lv: 'mid' },
+      { t: '오르트구름', m: '2022', lv: 'mid' },
+      { t: '기억의 습작', m: '2013', lv: 'mid' }
+    ],
+    albums: [
+      { t: 'END THEORY', y: '2021', c: 'linear-gradient(135deg, #4568DC, #1A1F3D)' },
+      { t: 'SUPERSONIC', y: '2012', c: 'linear-gradient(135deg, #3A4FB8, #14182E)' }
+    ]
+  },
+  {
+    id: 'aimyon', genre: 'jpop', genreLabel: 'J-pop',
+    name: 'AIMYON', nameKo: 'あいみょん',
+    grad: 'linear-gradient(135deg, #7C3A4D, #2A1018)',
+    bio: '솔직하고 담백한 가사로 일본 젊은 세대를 사로잡은 싱어송라이터 <strong>아이묭</strong>. 기본 코드와 반복 리듬 위주의 곡 구성으로 J-pop 합주 입문에 인기 만점입니다.',
+    tracks: [
+      { t: 'マリーゴールド (Marigold)', m: '2018', lv: 'easy' },
+      { t: '裸の心 (벌거벗은 마음)', m: '2020', lv: 'easy' },
+      { t: '愛を伝えたいだとか', m: '2017', lv: 'mid' },
+      { t: '君はロックを聴かない', m: '2017', lv: 'mid' }
+    ],
+    albums: [
+      { t: '瞬間的シックスセンス', y: '2019', c: 'linear-gradient(135deg, #FF9A8B, #FF6A88)' },
+      { t: '今日もすき', y: '2024', c: 'linear-gradient(135deg, #C9485B, #4A1825)' }
+    ]
+  },
+  {
+    id: 'spyair', genre: 'jpop', genreLabel: 'J-pop 락',
+    name: 'SPYAIR', nameKo: 'スパイエアー',
+    grad: 'linear-gradient(135deg, #1F4A6B, #0A1A28)',
+    bio: '힘있는 보컬과 강렬한 밴드 사운드의 J-pop 록밴드 <strong>SPYAIR</strong>. 은혼, 하이큐 등 애니메이션 주제가로도 유명합니다. 반복 구간이 많아 효율적인 합주가 가능합니다.',
+    tracks: [
+      { t: 'サムライハート (사무라이 하트)', m: '2011', lv: 'mid' },
+      { t: 'イマジネーション', m: '하이큐 · 2014', lv: 'mid' },
+      { t: '現状ディストラクション', m: '2013', lv: 'hard' }
+    ],
+    albums: [
+      { t: 'JUST LIKE THIS', y: '2013', c: 'linear-gradient(135deg, #2980B9, #1A3550)' },
+      { t: '4', y: '2014', c: 'linear-gradient(135deg, #2C7CB0, #102A3F)' }
+    ]
+  },
+  {
+    id: 'yonezu', genre: 'jpop', genreLabel: 'J-pop / 애니',
+    name: 'KENSHI YONEZU', nameKo: '요네즈 켄시',
+    grad: 'linear-gradient(135deg, #4A3B6B, #18121F)',
+    bio: '보컬로이드 프로듀서 출신, 일본 대중음악의 정점에 선 천재 아티스트 <strong>요네즈 켄시</strong>. 복잡한 화성과 엇박자 리듬으로 상급자도 도전적인 곡이 많습니다.',
+    tracks: [
+      { t: 'KICK BACK (킥백)', m: '체인소맨 · 2022', lv: 'hard' },
+      { t: 'Lemon', m: '2018', lv: 'mid' },
+      { t: 'Peace Sign', m: '나의 히어로 · 2017', lv: 'hard' },
+      { t: '感電', m: '2020', lv: 'hard' }
+    ],
+    albums: [
+      { t: 'STRAY SHEEP', y: '2020', c: 'linear-gradient(135deg, #654EA3, #1F1736)' },
+      { t: 'BOOTLEG', y: '2017', c: 'linear-gradient(135deg, #7B4397, #2A1432)' }
+    ]
+  },
+  {
+    id: 'aerosmith', genre: 'rock', genreLabel: '하드 락',
+    name: 'AEROSMITH', nameKo: '에어로스미스',
+    grad: 'linear-gradient(135deg, #6B2737, #200B11)',
+    bio: '미국 하드락의 전설 <strong>Aerosmith</strong>. 스티븐 타일러의 폭발적인 보컬과 조 페리의 기타로 록 역사를 써내려간 밴드입니다. 극악의 고음역대 도전곡들이 즐비.',
+    tracks: [
+      { t: 'Dream On', m: 'Aerosmith · 1973', lv: 'hard' },
+      { t: 'I Don\'t Want to Miss a Thing', m: '1998', lv: 'hard' },
+      { t: 'Walk This Way', m: '1975', lv: 'hard' }
+    ],
+    albums: [
+      { t: 'Aerosmith', y: '1973', c: 'linear-gradient(135deg, #cb2d3e, #ef473a)' },
+      { t: 'Toys in the Attic', y: '1975', c: 'linear-gradient(135deg, #8E2335, #2C0A11)' }
+    ]
+  },
+  {
+    id: 'gnr', genre: 'rock', genreLabel: '하드 락',
+    name: "GUNS N' ROSES", nameKo: '건즈 앤 로지스',
+    grad: 'linear-gradient(135deg, #5A2A2A, #1A0A0A)',
+    bio: '록 역사상 가장 위대한 밴드 중 하나 <strong>Guns N\' Roses</strong>. 슬래시의 상징적인 기타 리프와 액슬 로즈의 보컬로 80~90년대 하드락을 정의했습니다.',
+    tracks: [
+      { t: "Sweet Child O' Mine", m: 'Appetite for Destruction · 1987', lv: 'hard' },
+      { t: 'November Rain', m: 'Use Your Illusion I · 1991', lv: 'hard' },
+      { t: 'Welcome to the Jungle', m: '1987', lv: 'hard' }
+    ],
+    albums: [
+      { t: 'Appetite for Destruction', y: '1987', c: 'linear-gradient(135deg, #870000, #190A05)' },
+      { t: 'Use Your Illusion I', y: '1991', c: 'linear-gradient(135deg, #B24592, #2A0E22)' }
+    ]
+  },
+  {
+    id: 'jaurim', genre: 'rock', genreLabel: '인디 / 모던 락',
+    name: 'JAURIM', nameKo: '자우림',
+    grad: 'linear-gradient(135deg, #3D2B56, #15101F)',
+    bio: '김윤아의 카리스마 넘치는 보컬을 앞세운 한국 모던 록의 클래식 <strong>자우림</strong>. 웅장한 사운드와 깊은 가사로 90년대부터 지금까지 사랑받고 있습니다.',
+    tracks: [
+      { t: '스물다섯, 스물하나', m: '2002', lv: 'hard' },
+      { t: '하하하쏭', m: '2008', lv: 'mid' },
+      { t: '안녕, 미미', m: '2013', lv: 'mid' },
+      { t: '매직 카펫 라이드', m: '2001', lv: 'mid' }
+    ],
+    albums: [
+      { t: '羊, 트라우마', y: '2002', c: 'linear-gradient(135deg, #654EA3, #1F1736)' },
+      { t: 'Ashes To Ashes', y: '2006', c: 'linear-gradient(135deg, #56278F, #1A0E2E)' }
+    ]
+  }
+];
+
+const lvLabel = { easy: '초급', mid: '중급', hard: '상급' };
+
+function renderArtists() {
+  const grid = document.getElementById('artistGrid');
+  grid.innerHTML = artists.map(a => `
+    <div class="artist-card${a.img ? ' has-img' : ''}" data-genre="${a.genre}" style="${a.img ? `--card-img:url('${a.img}')` : `--card-grad:${a.grad}`}" onclick="openModal('${a.id}')">
+      <div class="artist-initial">${a.nameKo.charAt(0)}</div>
+      <div class="artist-card-body">
+        <p class="artist-genre-tag">// ${a.genreLabel}</p>
+        <p class="artist-name">${a.name}</p>
+        <p class="artist-name-ko">${a.nameKo}</p>
+        <p class="artist-card-cta">상세 보기 →</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openModal(id) {
+  const a = artists.find(x => x.id === id);
+  const m = document.getElementById('modalContent');
+  m.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header${a.img ? ' has-img' : ''}" style="${a.img ? `--modal-img:url('${a.img}')` : `--modal-grad:${a.grad}`}">
+      <div class="modal-header-content">
+        <p class="modal-genre">// ${a.genreLabel}</p>
+        <h2 class="modal-name">${a.name}</h2>
+        <p class="modal-name-ko">${a.nameKo}</p>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-bio">${a.bio}</p>
+      <p class="modal-section-label">대표곡 Tracks</p>
+      <div class="tracks">
+        ${a.tracks.map((t, i) => `
+          <div class="track">
+            <span class="track-num">${String(i+1).padStart(2,'0')}</span>
+            <div class="track-info">
+              <p class="track-title">${t.t}</p>
+              <p class="track-meta">${t.m}</p>
+            </div>
+            <span class="track-level lv-${t.lv}">${lvLabel[t.lv]}</span>
+          </div>
+        `).join('')}
+      </div>
+      <p class="modal-section-label">주요 앨범 Albums</p>
+      <div class="albums">
+        ${a.albums.map(al => `
+          <div class="album">
+            <div class="album-cover" style="${al.cover ? `background-image:url('${al.cover}');background-size:cover;background-position:center` : `background:${al.c}`}">
+              ${al.cover ? '' : `<span class="album-cover-text">${al.t}</span>`}
+            </div>
+            <div class="album-meta">
+              <p class="album-title">${al.t}</p>
+              <p class="album-year">${al.y}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function filterArtists(genre, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.artist-card').forEach(card => {
+    card.classList.toggle('hidden', !(genre === 'all' || card.dataset.genre === genre));
+  });
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+renderArtists();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
