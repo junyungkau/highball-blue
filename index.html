@@ -219,6 +219,45 @@
     .video-sub-grid { grid-template-columns: 1fr; }
   }
 
+  /* ── STORY SECTION ── */
+  .story-intro { font-size: 0.98rem; color: var(--white-dim); line-height: 1.95; max-width: 580px; margin-bottom: 3rem; }
+  .story-intro strong { color: var(--cyan); font-weight: 500; }
+  .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+  .theme-card {
+    position: relative; padding: 1.75rem; border-radius: 16px; overflow: hidden;
+    background: linear-gradient(150deg, rgba(27, 31, 82, 0.4), rgba(10, 14, 36, 0.35));
+    border: 1px solid rgba(96, 165, 250, 0.12);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .theme-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--theme); opacity: 0.7;
+  }
+  .theme-card:hover {
+    transform: translateY(-6px); border-color: var(--theme);
+    box-shadow: 0 16px 40px -18px var(--theme);
+  }
+  .theme-num {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em;
+    color: var(--theme); position: absolute; top: 1.5rem; right: 1.5rem; opacity: 0.6;
+  }
+  .theme-emoji { font-size: 2rem; margin-bottom: 1rem; }
+  .theme-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
+  .theme-desc { font-size: 0.85rem; color: var(--white-dim); line-height: 1.7; }
+
+  .story-cta {
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+    padding: 2rem 2.5rem; border-radius: 18px; flex-wrap: wrap;
+    background: linear-gradient(120deg, rgba(59, 130, 246, 0.12), rgba(192, 38, 211, 0.1));
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+  .story-cta-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+  .story-cta-sub { font-size: 0.88rem; color: var(--white-dim); line-height: 1.6; max-width: 480px; }
+
+  @media (max-width: 768px) {
+    .story-cta { flex-direction: column; align-items: flex-start; padding: 1.75rem; }
+  }
+
   .neon-line {
     width: 100%; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), rgba(244, 114, 182, 0.4), rgba(34, 211, 238, 0.3), transparent);
@@ -479,6 +518,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#video">Video</a></li>
     <li><a href="#artists">Artists</a></li>
+    <li><a href="#story">Story</a></li>
     <li><a href="#join">Join</a></li>
   </ul>
 </nav>
@@ -593,6 +633,54 @@
       <button class="tab-btn" onclick="filterArtists('kpop', this)">K-pop</button>
     </div>
     <div class="artist-grid" id="artistGrid"></div>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
+<section class="story-section" id="story">
+  <div class="container">
+    <p class="section-eyebrow">// Your Story → Our Song</p>
+    <h2 class="section-title fade-in">당신의 이야기가<br>노래가 됩니다</h2>
+    <p class="story-intro fade-in">
+      스무 살 어느 밤의 기억, 아직도 잊지 못한 순간. 여러분의 이야기를 들려주세요.
+      하이볼 블루가 <strong>자작곡과 가사</strong>로 만들어 무대에서 들려드릴게요.
+    </p>
+
+    <div class="theme-grid fade-in">
+      <div class="theme-card" style="--theme:#F472B6;">
+        <span class="theme-num">01</span>
+        <p class="theme-emoji">💔</p>
+        <p class="theme-title">첫사랑 &amp; 이별</p>
+        <p class="theme-desc">설렜던 그날, 혹은 헤어진 그 밤. 사랑에 관한 모든 순간.</p>
+      </div>
+      <div class="theme-card" style="--theme:#60A5FA;">
+        <span class="theme-num">02</span>
+        <p class="theme-emoji">🌙</p>
+        <p class="theme-title">새벽 감성</p>
+        <p class="theme-desc">잠 못 드는 새벽, 문득 떠오른 생각과 복잡한 마음.</p>
+      </div>
+      <div class="theme-card" style="--theme:#22D3EE;">
+        <span class="theme-num">03</span>
+        <p class="theme-emoji">🔥</p>
+        <p class="theme-title">무모했던 순간</p>
+        <p class="theme-desc">지금 생각하면 아찔한, 20대라서 저질렀던 무모한 이야기.</p>
+      </div>
+      <div class="theme-card" style="--theme:#FBBF24;">
+        <span class="theme-num">04</span>
+        <p class="theme-emoji">🍻</p>
+        <p class="theme-title">우정 &amp; 청춘</p>
+        <p class="theme-desc">친구들과의 잊지 못할 순간, 함께라서 빛났던 청춘의 기록.</p>
+      </div>
+    </div>
+
+    <div class="story-cta fade-in">
+      <div class="story-cta-text">
+        <p class="story-cta-title">📮 사연을 들려주세요</p>
+        <p class="story-cta-sub">채택된 사연은 자작곡으로 제작되며, 원하시면 크레딧에 계정을 언급해드려요. <span style="color:var(--amber);">🎁 참여자 추첨 경품도 있어요!</span></p>
+      </div>
+      <a href="https://forms.gle/7xcKYB55gHj9CT4D7" target="_blank" rel="noopener" class="btn-primary">사연 보내기 ↗</a>
+    </div>
   </div>
 </section>
 
