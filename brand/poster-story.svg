@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bgS" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#A5E2FF"/>
+      <stop offset="35%" stop-color="#D9F2FF"/>
+      <stop offset="75%" stop-color="#F5FBFF"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="liqS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="titleS" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0369A1"/>
+      <stop offset="55%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="btnS" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <clipPath id="gclipS">
+      <path d="M420 560 L660 560 L634 990 Q631 1022 601 1022 L479 1022 Q449 1022 446 990 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1080" height="1920" fill="url(#bgS)"/>
+
+  <!-- 배경 장식 -->
+  <circle cx="130" cy="180" r="200" fill="#7DD3FC" opacity="0.28"/>
+  <circle cx="960" cy="420" r="160" fill="#FACC15" opacity="0.18"/>
+  <circle cx="90" cy="1500" r="180" fill="#06B6D4" opacity="0.12"/>
+  <circle cx="990" cy="1700" r="150" fill="#FB7185" opacity="0.1"/>
+
+  <!-- 상단 라벨 -->
+  <rect x="90" y="150" width="330" height="54" rx="27" fill="#0EA5E9" opacity="0.15"/>
+  <text x="118" y="187" font-family="'Space Mono',monospace" font-size="22" letter-spacing="4" fill="#0369A1">🍹 2기 파트별 모집</text>
+
+  <!-- 타이틀 -->
+  <text x="90" y="330" font-family="'Space Grotesk',Arial,sans-serif" font-size="126" font-weight="700" letter-spacing="-3" fill="#0C2A3E">HIGHBALL</text>
+  <text x="90" y="452" font-family="'Space Grotesk',Arial,sans-serif" font-size="126" font-weight="700" letter-spacing="-3" fill="url(#titleS)">BLUE</text>
+
+  <text x="92" y="520" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="33" fill="#3B6478">일상에 청량한 한 잔의 휴식을 더하는</text>
+  <text x="92" y="568" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="33" font-weight="600" fill="#0C2A3E">20대 연합 취미밴드</text>
+
+  <!-- 하이볼 잔 (중앙 크게) -->
+  <g>
+    <g clip-path="url(#gclipS)">
+      <rect x="410" y="640" width="270" height="400" fill="url(#liqS)"/>
+      <circle cx="490" cy="740" r="12" fill="#fff" opacity="0.55"/>
+      <circle cx="560" cy="810" r="9" fill="#fff" opacity="0.5"/>
+      <circle cx="600" cy="720" r="8" fill="#fff" opacity="0.5"/>
+      <circle cx="510" cy="880" r="7" fill="#fff" opacity="0.45"/>
+      <circle cx="590" cy="930" r="10" fill="#fff" opacity="0.4"/>
+      <circle cx="465" cy="950" r="6" fill="#fff" opacity="0.45"/>
+      <circle cx="630" cy="860" r="6" fill="#fff" opacity="0.4"/>
+      <rect x="455" y="660" width="86" height="86" rx="12" fill="#fff" opacity="0.5" transform="rotate(-12 498 703)"/>
+      <rect x="552" y="700" width="80" height="80" rx="12" fill="#fff" opacity="0.42" transform="rotate(14 592 740)"/>
+      <rect x="490" y="800" width="74" height="74" rx="11" fill="#fff" opacity="0.35" transform="rotate(8 527 837)"/>
+      <rect x="410" y="640" width="270" height="16" fill="#fff" opacity="0.5"/>
+    </g>
+    <path d="M420 560 L660 560 L634 990 Q631 1022 601 1022 L479 1022 Q449 1022 446 990 Z"
+          fill="#fff" fill-opacity="0.15" stroke="#0C4A6E" stroke-width="10" stroke-linejoin="round"/>
+    <line x1="420" y1="560" x2="660" y2="560" stroke="#0C4A6E" stroke-width="12" stroke-linecap="round"/>
+    <path d="M465 590 L458 965" stroke="#fff" stroke-opacity="0.8" stroke-width="12" stroke-linecap="round"/>
+    <g transform="translate(668 600) rotate(18)">
+      <circle r="56" fill="#FDE047" stroke="#EAB308" stroke-width="6"/>
+      <circle r="41" fill="#FEF9C3" opacity="0.85"/>
+      <g stroke="#EAB308" stroke-width="3.5" opacity="0.9">
+        <line x1="0" y1="-39" x2="0" y2="39"/><line x1="-39" y1="0" x2="39" y2="0"/>
+        <line x1="-28" y1="-28" x2="28" y2="28"/><line x1="-28" y1="28" x2="28" y2="-28"/>
+      </g>
+    </g>
+    <line x1="605" y1="440" x2="530" y2="640" stroke="#FB7185" stroke-width="19" stroke-linecap="round"/>
+    <line x1="605" y1="440" x2="530" y2="640" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-dasharray="19 19" opacity="0.85"/>
+  </g>
+
+  <!-- 구분선 -->
+  <line x1="90" y1="1090" x2="990" y2="1090" stroke="#0EA5E9" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="12 9"/>
+
+  <!-- 모집 파트 -->
+  <text x="90" y="1150" font-family="'Space Mono',monospace" font-size="22" letter-spacing="4" fill="#0891B2">// 모집 파트</text>
+  <g font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="30" font-weight="600" fill="#0C2A3E">
+    <g>
+      <rect x="90" y="1176" width="285" height="70" rx="16" fill="#fff" stroke="#0EA5E9" stroke-opacity="0.28" stroke-width="2.5"/>
+      <text x="232" y="1221" text-anchor="middle">🎤 보컬</text>
+    </g>
+    <g>
+      <rect x="397" y="1176" width="285" height="70" rx="16" fill="#fff" stroke="#0EA5E9" stroke-opacity="0.28" stroke-width="2.5"/>
+      <text x="539" y="1221" text-anchor="middle">🎸 기타 ×2</text>
+    </g>
+    <g>
+      <rect x="704" y="1176" width="285" height="70" rx="16" fill="#fff" stroke="#0EA5E9" stroke-opacity="0.28" stroke-width="2.5"/>
+      <text x="846" y="1221" text-anchor="middle">🎵 베이스</text>
+    </g>
+    <g>
+      <rect x="90" y="1262" width="285" height="70" rx="16" fill="#fff" stroke="#0EA5E9" stroke-opacity="0.28" stroke-width="2.5"/>
+      <text x="232" y="1307" text-anchor="middle">🥁 드럼</text>
+    </g>
+    <g>
+      <rect x="397" y="1262" width="285" height="70" rx="16" fill="#fff" stroke="#0EA5E9" stroke-opacity="0.28" stroke-width="2.5"/>
+      <text x="539" y="1307" text-anchor="middle">🎹 키보드</text>
+    </g>
+    <g>
+      <rect x="704" y="1262" width="285" height="70" rx="16" fill="#FACC15" fill-opacity="0.2" stroke="#EAB308" stroke-opacity="0.5" stroke-width="2.5" stroke-dasharray="8 5"/>
+      <text x="846" y="1307" text-anchor="middle" font-size="26" fill="#92400E">🐢 초보 환영</text>
+    </g>
+  </g>
+
+  <!-- 실력 기준 힌트 -->
+  <g>
+    <rect x="90" y="1370" width="899" height="96" rx="18" fill="#fff" stroke="#0EA5E9" stroke-opacity="0.22" stroke-width="2.5"/>
+    <text x="120" y="1412" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="26" font-weight="700" fill="#0369A1">이 정도면 충분해요 👌</text>
+    <text x="120" y="1448" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="23" fill="#3B6478">기타 C·G 코드 / 드럼 8비트 / 베이스 루트음이면 시작 가능!</text>
+  </g>
+
+  <!-- 정보 -->
+  <g font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="28" fill="#3B6478">
+    <text x="90" y="1540">📍 신촌 / 합정 / 서울대입구 합주실</text>
+    <text x="90" y="1590">🎶 인디 · 락 · K-pop · J-pop · 자작곡</text>
+    <text x="90" y="1640">💰 합주실 비용 1/N (인당 약 5,000원)</text>
+  </g>
+
+  <!-- CTA -->
+  <g>
+    <rect x="90" y="1700" width="899" height="100" rx="50" fill="url(#btnS)"/>
+    <text x="539" y="1763" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="34" font-weight="700" fill="#fff" text-anchor="middle">지원하기 · 링크 클릭 →</text>
+  </g>
+
+  <!-- 계정 -->
+  <text x="539" y="1852" font-family="'Space Mono',monospace" font-size="26" letter-spacing="2" fill="#0369A1" text-anchor="middle">@highballblue</text>
+  <text x="539" y="1888" font-family="'Space Mono',monospace" font-size="20" letter-spacing="1" fill="#7BA0B3" text-anchor="middle">highball-blue.vercel.app</text>
+</svg>

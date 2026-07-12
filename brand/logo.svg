@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7DD3FC"/>
+      <stop offset="55%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="60%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="glassEdge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#E0F4FF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <clipPath id="glassClip">
+      <path d="M300 250 L500 250 L478 600 Q476 625 452 625 L348 625 Q324 625 322 600 Z"/>
+    </clipPath>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <!-- 배경 원 (밝은 하늘) -->
+  <circle cx="400" cy="400" r="380" fill="url(#sky)" opacity="0.14"/>
+  <circle cx="400" cy="400" r="380" fill="none" stroke="#0EA5E9" stroke-opacity="0.25" stroke-width="3"/>
+
+  <!-- 태양/레몬 포인트 -->
+  <circle cx="600" cy="215" r="52" fill="#FACC15" opacity="0.9"/>
+  <circle cx="600" cy="215" r="52" fill="none" stroke="#F59E0B" stroke-opacity="0.5" stroke-width="3"/>
+
+  <!-- 잔 안 음료 -->
+  <g clip-path="url(#glassClip)">
+    <rect x="290" y="330" width="230" height="320" fill="url(#liquid)"/>
+    <!-- 탄산 거품 -->
+    <circle cx="355" cy="420" r="9" fill="#fff" opacity="0.55"/>
+    <circle cx="400" cy="480" r="6" fill="#fff" opacity="0.5"/>
+    <circle cx="445" cy="400" r="7" fill="#fff" opacity="0.5"/>
+    <circle cx="372" cy="530" r="5" fill="#fff" opacity="0.45"/>
+    <circle cx="430" cy="555" r="8" fill="#fff" opacity="0.4"/>
+    <circle cx="410" cy="360" r="5" fill="#fff" opacity="0.5"/>
+    <circle cx="340" cy="500" r="6" fill="#fff" opacity="0.4"/>
+    <circle cx="465" cy="490" r="5" fill="#fff" opacity="0.45"/>
+    <!-- 얼음 -->
+    <g opacity="0.75">
+      <rect x="330" y="345" width="70" height="70" rx="10" fill="#fff" opacity="0.55" transform="rotate(-12 365 380)"/>
+      <rect x="410" y="375" width="65" height="65" rx="10" fill="#fff" opacity="0.45" transform="rotate(14 442 407)"/>
+      <rect x="355" y="440" width="60" height="60" rx="9" fill="#fff" opacity="0.4" transform="rotate(8 385 470)"/>
+    </g>
+    <!-- 음료 표면 하이라이트 -->
+    <rect x="290" y="330" width="230" height="14" fill="#fff" opacity="0.5"/>
+  </g>
+
+  <!-- 잔 외곽 -->
+  <path d="M300 250 L500 250 L478 600 Q476 625 452 625 L348 625 Q324 625 322 600 Z"
+        fill="url(#glassEdge)" fill-opacity="0.18"
+        stroke="#0C4A6E" stroke-width="9" stroke-linejoin="round"/>
+  <!-- 잔 림 -->
+  <line x1="300" y1="250" x2="500" y2="250" stroke="#0C4A6E" stroke-width="11" stroke-linecap="round"/>
+  <!-- 잔 하이라이트 -->
+  <path d="M337 275 L330 590" stroke="#fff" stroke-opacity="0.75" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- 레몬 슬라이스 -->
+  <g transform="translate(505 285) rotate(18)">
+    <circle r="46" fill="#FDE047" stroke="#EAB308" stroke-width="5"/>
+    <circle r="34" fill="#FEF9C3" opacity="0.85"/>
+    <g stroke="#EAB308" stroke-width="3" opacity="0.9">
+      <line x1="0" y1="-32" x2="0" y2="32"/>
+      <line x1="-32" y1="0" x2="32" y2="0"/>
+      <line x1="-23" y1="-23" x2="23" y2="23"/>
+      <line x1="-23" y1="23" x2="23" y2="-23"/>
+    </g>
+  </g>
+
+  <!-- 빨대 -->
+  <line x1="452" y1="150" x2="390" y2="330" stroke="#FB7185" stroke-width="16" stroke-linecap="round"/>
+  <line x1="452" y1="150" x2="390" y2="330" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="16 16" opacity="0.85"/>
+
+  <!-- 텍스트 -->
+  <text x="400" y="705" font-family="'Space Grotesk','Helvetica Neue',Arial,sans-serif"
+        font-size="72" font-weight="700" letter-spacing="2"
+        text-anchor="middle" fill="url(#txt)">HIGHBALL BLUE</text>
+  <text x="400" y="748" font-family="'Space Mono',monospace"
+        font-size="21" letter-spacing="7"
+        text-anchor="middle" fill="#7BA0B3">SINCE 2025 · SEOUL</text>
+</svg>
