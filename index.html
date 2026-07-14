@@ -298,6 +298,15 @@
   .about-body strong { color: var(--white); font-weight: 500; }
   .about-body .accent { color: #0E7490; font-weight: 500; }
 
+  .about-poster {
+    margin-top: 2.5rem; border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(14,165,233,0.2);
+    box-shadow: 0 14px 36px -18px rgba(14,165,233,0.5);
+    transition: transform 0.35s, box-shadow 0.35s;
+  }
+  .about-poster:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 20px 44px -18px rgba(14,165,233,0.6); }
+  .about-poster img { width: 100%; height: auto; display: block; }
+
   .classes-grid { display: flex; flex-direction: column; gap: 1rem; }
   .class-card {
     padding: 1.4rem 1.6rem; border-radius: 14px;
@@ -305,7 +314,14 @@
     border: 1px solid rgba(14, 165, 233, 0.18);
     box-shadow: 0 6px 20px -10px rgba(14, 165, 233, 0.25);
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    display: flex; align-items: flex-start; gap: 1.1rem;
   }
+  .class-char {
+    width: 76px; height: auto; flex-shrink: 0; margin-top: 0.2rem;
+    transition: transform 0.3s;
+  }
+  .class-card:hover .class-char { transform: scale(1.08) rotate(-4deg); }
+  .class-body { flex: 1; }
   .class-card:hover {
     border-color: rgba(6, 182, 212, 0.5); transform: translateX(6px);
     box-shadow: -8px 8px 26px -12px rgba(6, 182, 212, 0.4);
@@ -347,7 +363,90 @@
     background: linear-gradient(120deg, rgba(250,204,21,0.14), rgba(56,189,248,0.12));
     border: 1px dashed rgba(14, 165, 233, 0.35);
   }
+  /* ── SIGNATURE SONG ── */
+  .sig-wrap {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center;
+    padding: 3rem; border-radius: 24px;
+    background: linear-gradient(120deg, rgba(56,189,248,0.16), rgba(250,204,21,0.12));
+    border: 1px solid rgba(14,165,233,0.25);
+    box-shadow: 0 16px 40px -20px rgba(14,165,233,0.45);
+  }
+  .sig-title {
+    font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1;
+    background: linear-gradient(90deg, #0369A1, #06B6D4, #0891B2);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.6rem;
+  }
+  .sig-sub { font-size: 1rem; font-weight: 600; color: #0E7490; margin-bottom: 1.2rem; }
+  .sig-desc { font-size: 0.95rem; font-weight: 450; color: var(--white-dim); line-height: 1.9; margin-bottom: 2rem; }
+
+  .sig-right { display: flex; justify-content: center; }
+  .sig-disc {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #0C2A3E 0 18%, #123044 18% 22%, #0C2A3E 22% 100%);
+    box-shadow: 0 14px 40px -12px rgba(12,42,62,0.55), inset 0 0 0 6px rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    animation: spin 12s linear infinite;
+    position: relative;
+  }
+  .sig-disc::before {
+    content:''; position:absolute; inset: 12%;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, rgba(255,255,255,0.05) 0 2px, transparent 2px 6px);
+  }
+  .sig-disc-inner {
+    width: 78px; height: 78px; border-radius: 50%;
+    background: linear-gradient(135deg, #0EA5E9, #06B6D4);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 4px 14px rgba(6,182,212,0.5);
+    z-index: 1;
+  }
+  .sig-note { font-size: 2rem; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 768px) {
+    .sig-wrap { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
+    .sig-right { order: -1; }
+    .sig-disc { width: 160px; height: 160px; }
+  }
+
   .parts-note strong { color: #0369A1; font-weight: 600; }
+
+  /* ── SETLIST SECTION ── */
+  .setlist-intro { font-size: 0.98rem; font-weight: 450; color: var(--white-dim); line-height: 1.95; max-width: 620px; margin-bottom: 3rem; }
+  .setlist-intro strong { color: #0369A1; font-weight: 600; }
+  .setlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .set-card {
+    padding: 1.6rem; border-radius: 18px; background: #FFFFFF;
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    box-shadow: 0 10px 28px -16px rgba(14, 165, 233, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .set-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+  .set-turtle::before { background: linear-gradient(90deg, #84CC16, #A3E635); }
+  .set-whale::before { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+  .set-dolphin::before { background: linear-gradient(90deg, #06B6D4, #67E8F9); }
+  .set-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px -18px rgba(14, 165, 233, 0.55); }
+
+  .set-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.2rem; }
+  .set-char { width: 62px; height: auto; flex-shrink: 0; transition: transform 0.3s; }
+  .set-card:hover .set-char { transform: scale(1.1) rotate(-5deg); }
+  .set-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+  .set-tag { font-size: 0.78rem; font-weight: 500; color: var(--white-muted); }
+
+  .set-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.1rem; }
+  .set-list li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem;
+    padding: 0.7rem 0.9rem; border-radius: 10px;
+    background: rgba(224, 244, 255, 0.55);
+    transition: background 0.2s;
+  }
+  .set-list li:hover { background: rgba(186, 232, 255, 0.8); }
+  .set-list .song { font-size: 0.92rem; font-weight: 600; color: var(--white); }
+  .set-list .artist { font-size: 0.78rem; font-weight: 500; color: var(--white-muted); white-space: nowrap; }
+  .set-note { font-size: 0.8rem; font-weight: 450; color: var(--white-dim); line-height: 1.65; padding-top: 0.9rem; border-top: 1px dashed rgba(14,165,233,0.25); }
 
   /* ── ARTISTS ── */
   .artists-intro { font-size: 0.98rem; font-weight: 450; color: var(--white-dim); line-height: 1.95; max-width: 580px; margin-bottom: 3rem; }
@@ -543,17 +642,17 @@
 <body>
 
 <div class="bg-collage" aria-hidden="true">
-  <div class="bg-img" style="background-image:url('images/jannabi/legend.png'); top:8%; left:4%; --rot:-8deg;"></div>
-  <div class="bg-img" style="background-image:url('images/hanroro/jamong.png'); top:22%; right:6%; --rot:6deg; --d:-3s;"></div>
-  <div class="bg-img" style="background-image:url('images/jannabi/monkeyhotel.png'); top:48%; left:12%; --rot:5deg; --d:-7s;"></div>
-  <div class="bg-img" style="background-image:url('images/hyukoh/album24.png'); top:62%; right:10%; --rot:-6deg; --d:-2s;"></div>
-  <div class="bg-img" style="background-image:url('images/10cm/album1.png'); top:80%; left:6%; --rot:9deg; --d:-9s;"></div>
-  <div class="bg-img" style="background-image:url('images/hyukoh/album23.png'); top:38%; right:24%; --rot:-4deg; --d:-5s;"></div>
-  <div class="bg-img" style="background-image:url('images/nerd/cinema.png'); top:12%; left:42%; --rot:7deg; --d:-6s;"></div>
-  <div class="bg-img" style="background-image:url('images/hanroro/home.png'); top:70%; left:38%; --rot:-5deg; --d:-4s;"></div>
-  <div class="bg-img" style="background-image:url('images/gnr/appetite.png'); top:30%; left:2%; --rot:8deg; --d:-8s;"></div>
-  <div class="bg-img" style="background-image:url('images/yonezu/straysheep.png'); top:88%; right:30%; --rot:-7deg; --d:-1s;"></div>
-  <div class="bg-img" style="background-image:url('images/aimyon/sixsense.png'); top:50%; right:2%; --rot:5deg; --d:-10s;"></div>
+  <div class="bg-img" style="background-image:url('images/jannabi/legend.jpg'); top:8%; left:4%; --rot:-8deg;"></div>
+  <div class="bg-img" style="background-image:url('images/hanroro/jamong.jpg'); top:22%; right:6%; --rot:6deg; --d:-3s;"></div>
+  <div class="bg-img" style="background-image:url('images/jannabi/monkeyhotel.jpg'); top:48%; left:12%; --rot:5deg; --d:-7s;"></div>
+  <div class="bg-img" style="background-image:url('images/hyukoh/album24.jpg'); top:62%; right:10%; --rot:-6deg; --d:-2s;"></div>
+  <div class="bg-img" style="background-image:url('images/10cm/album1.jpg'); top:80%; left:6%; --rot:9deg; --d:-9s;"></div>
+  <div class="bg-img" style="background-image:url('images/hyukoh/album23.jpg'); top:38%; right:24%; --rot:-4deg; --d:-5s;"></div>
+  <div class="bg-img" style="background-image:url('images/nerd/cinema.jpg'); top:12%; left:42%; --rot:7deg; --d:-6s;"></div>
+  <div class="bg-img" style="background-image:url('images/hanroro/home.jpg'); top:70%; left:38%; --rot:-5deg; --d:-4s;"></div>
+  <div class="bg-img" style="background-image:url('images/gnr/appetite.jpg'); top:30%; left:2%; --rot:8deg; --d:-8s;"></div>
+  <div class="bg-img" style="background-image:url('images/yonezu/straysheep.jpg'); top:88%; right:30%; --rot:-7deg; --d:-1s;"></div>
+  <div class="bg-img" style="background-image:url('images/aimyon/sixsense.jpg'); top:50%; right:2%; --rot:5deg; --d:-10s;"></div>
 </div>
 
 <nav>
@@ -561,6 +660,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#parts">Parts</a></li>
+    <li><a href="#setlist">Setlist</a></li>
     <li><a href="#join">Join</a></li>
     <li><a href="#video">Video</a></li>
     <li><a href="#artists">Artists</a></li>
@@ -577,7 +677,7 @@
   <h1 class="hero-title"><span class="l1">HIGHBALL</span><br><span class="l2">BLUE</span></h1>
   <p class="hero-subtitle">일상에 청량한 한 잔의 휴식을 더하는<br>20대 연합 취미밴드</p>
   <div class="hero-cta-group">
-    <a href="https://forms.gle/MF7fgaRGRJHf7Ntn9" target="_blank" class="btn-primary">지원하기</a>
+    <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary">지원하기</a>
     <a href="#artists" class="btn-secondary">아티스트 보기</a>
   </div>
 </section>
@@ -591,33 +691,47 @@
         <p class="section-eyebrow">// About</p>
         <h2 class="section-title">청춘의 색깔을<br>노래하다</h2>
         <p class="about-body">
-          대학생과 직장인이 모여 <strong>완벽한 연주보다 부담 없는 합주</strong>를 즐기는 공간입니다.<br><br>
-          신촌 · 합정 · 서울대입구 인근 합주실에서 인디, 락, K-pop, J-pop 그리고 우리만의 자작곡까지 — <span class="accent">음악으로 일상의 스트레스를 날립니다.</span><br><br>
+          수도권 대학생들이 모여 <strong>즐거운 합주와 부담 없는 책임감</strong>으로 음악을 즐기는 자치 밴드 동아리입니다.<br><br>
+          신촌 · 합정 · 서울대입구 인근 전문 합주실에서 격주로 만나 인디, 락, K-pop, J-pop, 그리고 우리만의 자작곡까지 — <span class="accent">음악을 통해 청량한 한 잔의 휴식을 만들어갑니다.</span><br><br>
           <strong>🎵 모집 파트</strong><br>
-          보컬 / 퍼스트 기타 / 세컨드 기타 / 베이스 / 드럼 / 키보드<br><br>
-          <strong>🎯 모집 대상</strong><br>
-          20대 대학생 및 직장인 (일반인 환영)
+          보컬 2 · 일렉기타 2 · 베이스 1 · 드럼 1 · 키보드 2<br><br>
+          <strong>🎯 지원 자격</strong><br>
+          수도권 대학교 재학생 또는 휴학생<br><br>
+          <strong>💰 회비</strong><br>
+          가입비 · 회비 일절 없음 (합주실 대여비만 1/N)
         </p>
         <div style="margin-top: 2rem;">
           <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
         </div>
+        <div class="about-poster">
+          <img src="images/poster-collage.jpg" alt="하이볼 블루 모집 포스터" loading="lazy">
+        </div>
       </div>
       <div class="classes-grid fade-in">
-        <p class="section-eyebrow">// 맞춤형 클래스</p>
+        <p class="section-eyebrow">// 동물 맞춤형 클래스</p>
         <div class="class-card">
-          <span class="class-badge badge-beginner">🐢 초급</span>
-          <p class="class-name">거북이반</p>
-          <p class="class-desc">합주 경험이 없어도 괜찮아요. 틀려도 서로 웃으며 맞춰가는 음악 놀이터입니다.<br><span class="class-req">기준 · 악기를 처음 잡아봤거나, 기본 코드 몇 개만 아는 정도</span></p>
+          <img src="images/chars/turtle.png" alt="거북이반" class="class-char">
+          <div class="class-body">
+            <span class="class-badge badge-beginner">초심자 / 합주 경험 無</span>
+            <p class="class-name">🐢 거북이반</p>
+            <p class="class-desc">악기를 처음 시작하거나 기본 코드만 겨우 아는 완전 초보를 위한 반. 느리지만 탄탄하게 기본기를 다지며, 틀려도 웃으며 맞춰가는 음악 놀이터입니다.<br><span class="class-req">기준 · 악기를 처음 잡아봤거나, 기본 코드 몇 개만 아는 정도</span></p>
+          </div>
         </div>
         <div class="class-card">
-          <span class="class-badge badge-mid">📈 중급</span>
-          <p class="class-name">중급반</p>
-          <p class="class-desc">혼자 연주는 가능한 분들을 위한 반. 다른 파트와 호흡 맞추며 합주의 진짜 재미를 느낍니다.<br><span class="class-req">기준 · 좋아하는 곡 1~2개를 혼자 처음부터 끝까지 칠 수 있는 정도</span></p>
+          <img src="images/chars/whale.png" alt="고래반" class="class-char">
+          <div class="class-body">
+            <span class="class-badge badge-mid">합주 중심 / 실력 향상</span>
+            <p class="class-name">🐋 고래반</p>
+            <p class="class-desc">혼자 연주는 가능하지만, 푸른 바다의 웅장한 고래처럼 다른 파트와 호흡을 맞추며 앙상블의 진짜 쫀쫀한 재미를 느끼고 싶은 분들을 위한 반입니다.<br><span class="class-req">기준 · 좋아하는 곡 1~2개를 혼자 처음부터 끝까지 칠 수 있는 정도</span></p>
+          </div>
         </div>
         <div class="class-card">
-          <span class="class-badge badge-stage">🎤 공연</span>
-          <p class="class-name">공연반</p>
-          <p class="class-desc">정기 공연, 버스킹, 자작곡 제작까지. 하이볼 블루만의 색깔을 무대 위에서 만들어갑니다.<br><span class="class-req">기준 · 카피 곡을 안정적으로 소화하고 무대 경험을 원하는 정도</span></p>
+          <img src="images/chars/dolphin.png" alt="돌고래반" class="class-char">
+          <div class="class-body">
+            <span class="class-badge badge-stage">무대 중심 / 자작곡 &amp; 공연</span>
+            <p class="class-name">🐬 돌고래반</p>
+            <p class="class-desc">탄탄한 연주력을 바탕으로 관객과 호흡하는 정기 버스킹 및 공연 무대를 목표로 달리는 반. 하이볼 블루만의 자작곡 제작과 음원 아카이빙까지 함께합니다.<br><span class="class-req">기준 · 카피 곡을 안정적으로 소화하고 무대 경험을 원하는 정도</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -669,20 +783,112 @@
 
 <div class="neon-line"></div>
 
+<section class="setlist-section" id="setlist">
+  <div class="container">
+    <p class="section-eyebrow">// Setlist</p>
+    <h2 class="section-title fade-in">우리가 함께<br>연주할 곡들 🎶</h2>
+    <p class="setlist-intro fade-in">
+      현재 합주 진행 중인 곡과 추천 리스트예요. 반별로 난이도를 나눠뒀으니,
+      <strong>"이 정도면 나도 할 수 있겠는데?"</strong> 싶은 반으로 지원하면 돼요.
+    </p>
+
+    <div class="setlist-grid fade-in">
+      <!-- 거북이반 -->
+      <div class="set-card set-turtle">
+        <div class="set-head">
+          <img src="images/chars/turtle.png" alt="거북이반" class="set-char">
+          <div>
+            <p class="set-name">🐢 거북이반</p>
+            <p class="set-tag">코드가 단순하고 반복되는 곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li><span class="song">Basket Case</span><span class="artist">Green Day</span></li>
+          <li><span class="song">링링</span><span class="artist">검정치마</span></li>
+        </ul>
+        <p class="set-note">파워코드와 정박자 위주라 첫 합주에 딱 좋아요.</p>
+      </div>
+
+      <!-- 고래반 -->
+      <div class="set-card set-whale">
+        <div class="set-head">
+          <img src="images/chars/whale.png" alt="고래반" class="set-char">
+          <div>
+            <p class="set-name">🐋 고래반</p>
+            <p class="set-tag">파트 간 호흡이 중요한 곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li><span class="song">Welcome to the Show</span><span class="artist">DAY6</span></li>
+          <li><span class="song">입춘</span><span class="artist">한로로</span></li>
+          <li><span class="song">오늘이야</span><span class="artist">유다빈밴드</span></li>
+          <li><span class="song">클라우드 쿠쿠 랜드</span><span class="artist">정우</span></li>
+          <li><span class="song">ベテルギウス (베텔기우스)</span><span class="artist">Yuuri</span></li>
+        </ul>
+        <p class="set-note">다이나믹과 빌드업이 있어 앙상블의 재미를 느낄 수 있어요.</p>
+      </div>
+
+      <!-- 돌고래반 -->
+      <div class="set-card set-dolphin">
+        <div class="set-head">
+          <img src="images/chars/dolphin.png" alt="돌고래반" class="set-char">
+          <div>
+            <p class="set-name">🐬 돌고래반</p>
+            <p class="set-tag">무대를 목표로 하는 도전곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li><span class="song">NO PAIN</span><span class="artist">실리카겔</span></li>
+          <li><span class="song">Pretender</span><span class="artist">Official髭男dism</span></li>
+        </ul>
+        <p class="set-note">기술적 완성도와 밴드 전체의 호흡이 필요한 곡들이에요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
 <section class="recruit" id="join">
   <div class="container fade-in">
-    <p class="section-eyebrow">// 2기 모집 중</p>
+    <p class="section-eyebrow">// 부원 모집 중 (~9.30)</p>
     <h2 class="section-title">합류할 준비<br>됐나요?</h2>
     <div class="info-grid">
-      <div class="info-item"><p class="info-label">모집 대상</p><p class="info-value">20대 대학생 및 직장인</p></div>
-      <div class="info-item"><p class="info-label">합주 장소</p><p class="info-value">신촌 / 합정 / 서울대입구</p></div>
-      <div class="info-item"><p class="info-label">회비</p><p class="info-value">합주실 비용 1/N<br><span style="color: var(--white-muted); font-size: 0.8rem;">인당 약 5,000원</span></p></div>
-      <div class="info-item"><p class="info-label">장르</p><p class="info-value">인디 · 락 · K-pop<br>J-pop · 자작곡</p></div>
-      <div class="info-item"><p class="info-label">모집 파트</p><p class="info-value">보컬 / 기타 ×2<br>베이스 / 드럼 / 키보드</p></div>
-      <div class="info-item"><p class="info-label">활동 영상</p><p class="info-value"><a href="https://www.youtube.com/@highballblue" target="_blank" style="color: #0E7490; text-decoration: none;">YouTube @highballblue ↗</a></p></div>
+      <div class="info-item"><p class="info-label">모집 파트</p><p class="info-value">보컬 2 · 일렉기타 2<br>베이스 1 · 드럼 1 · 키보드 2</p></div>
+      <div class="info-item"><p class="info-label">지원 자격</p><p class="info-value">수도권 대학교<br>재학생 또는 휴학생</p></div>
+      <div class="info-item"><p class="info-label">정기 합주</p><p class="info-value">격주 1회<br><span style="color: var(--white-muted); font-size: 0.8rem;">시험 기간 1~2주 전 휴식</span></p></div>
+      <div class="info-item"><p class="info-label">합주 장소</p><p class="info-value">신촌 / 합정 / 서울대입구<br><span style="color: var(--white-muted); font-size: 0.8rem;">인근 전문 합주실</span></p></div>
+      <div class="info-item"><p class="info-label">회비</p><p class="info-value">가입비 · 회비 없음<br><span style="color: var(--white-muted); font-size: 0.8rem;">합주실 대여비만 1/N 정산</span></p></div>
+      <div class="info-item"><p class="info-label">모집 절차</p><p class="info-value">구글폼 → 비대면 인터뷰<br><span style="color: var(--white-muted); font-size: 0.8rem;">약 5분, 부담 없이!</span></p></div>
     </div>
     <div style="margin-top: 3.5rem;">
-      <a href="https://forms.gle/MF7fgaRGRJHf7Ntn9" target="_blank" class="btn-primary">구글 폼으로 지원하기 ↗</a>
+      <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary">구글 폼으로 지원하기 ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="neon-line"></div>
+
+<section class="signature-section" id="signature">
+  <div class="container">
+    <div class="sig-wrap fade-in">
+      <div class="sig-left">
+        <p class="section-eyebrow">// Our Signature Song</p>
+        <h2 class="sig-title">Same Code</h2>
+        <p class="sig-sub">하이볼 블루 시그니처 자작곡 🎧</p>
+        <p class="sig-desc">
+          같은 코드를 짚는다는 건, 같은 마음으로 같은 순간을 만든다는 것.
+          하이볼 블루가 처음으로 만든 우리만의 노래예요.
+        </p>
+        <a href="https://youtu.be/_CjQPQQvSIY" target="_blank" rel="noopener" class="btn-primary">들으러 가기 ↗</a>
+      </div>
+      <div class="sig-right">
+        <div class="sig-disc">
+          <div class="sig-disc-inner">
+            <span class="sig-note">🎵</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -800,7 +1006,7 @@
     </div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@highballblue" target="_blank">YouTube</a>
-      <a href="https://forms.gle/MF7fgaRGRJHf7Ntn9" target="_blank">지원 폼</a>
+      <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank">지원 폼</a>
     </div>
     <p class="footer-copy">© 2025 Highball Blue. All rights reserved.</p>
   </div>
@@ -816,7 +1022,7 @@ const artists = [
     id: 'jannabi', genre: 'indie', genreLabel: '인디 밴드',
     name: 'JANNABI', nameKo: '잔나비',
     grad: 'linear-gradient(135deg, #6D4C2B, #2A1810)',
-    img: 'images/jannabi/band.png',
+    img: 'images/jannabi/band.jpg',
     bio: '순우리말로 원숭이를 뜻하는 <strong>잔나비</strong>. 최정훈, 김도형으로 구성된 대한민국 대표 인디 록밴드입니다. 1960~90년대 레트로 사운드와 서정적인 가사로 사랑받으며, 2019년 정규 2집 <strong>전설</strong>로 메인스트림에 우뚝 섰습니다.',
     tracks: [
       { t: '주저하는 연인들을 위해', m: '전설 · 2019', lv: 'easy' },
@@ -825,16 +1031,16 @@ const artists = [
       { t: 'November Rain', m: '2015', lv: 'mid' }
     ],
     albums: [
-      { t: '전설', y: '2019', c: 'linear-gradient(135deg, #8B5A2B, #3D2817)', cover: 'images/jannabi/legend.png' },
-      { t: 'Monkey Hotel', y: '2016', c: 'linear-gradient(135deg, #6B4423, #2A1A0F)', cover: 'images/jannabi/monkeyhotel.png' },
-      { t: 'Captain Giorbo', y: '2014', c: 'linear-gradient(135deg, #A0522D, #4A2511)', cover: 'images/jannabi/giorbo.png' }
+      { t: '전설', y: '2019', c: 'linear-gradient(135deg, #8B5A2B, #3D2817)', cover: 'images/jannabi/legend.jpg' },
+      { t: 'Monkey Hotel', y: '2016', c: 'linear-gradient(135deg, #6B4423, #2A1A0F)', cover: 'images/jannabi/monkeyhotel.jpg' },
+      { t: 'Captain Giorbo', y: '2014', c: 'linear-gradient(135deg, #A0522D, #4A2511)', cover: 'images/jannabi/giorbo.jpg' }
     ]
   },
   {
     id: 'hanroro', genre: 'indie', genreLabel: '인디 팝',
     name: 'HANRORO', nameKo: '한로로',
     grad: 'linear-gradient(135deg, #1E3A5F, #0A1628)',
-    img: 'images/hanroro/profile.png',
+    img: 'images/hanroro/profile.jpg',
     bio: '\'찰 한(寒)\'에 \'이슬 로(露)\' — <strong>차가운 이슬</strong>이라는 뜻의 한로로. 밴드 사운드 위에 투박하고 솔직한 목소리를 얹어 청춘의 불안과 작은 희망을 노래합니다. 정제되지 않은 날것의 감성이 매력.',
     tracks: [
       { t: '입춘', m: '입춘 · 2022', lv: 'mid' },
@@ -843,15 +1049,15 @@ const artists = [
       { t: '여름이 좋아', m: '2023', lv: 'easy' }
     ],
     albums: [
-      { t: '자몽살구클럽', y: '2025', c: 'linear-gradient(135deg, #E96443, #904E95)', cover: 'images/hanroro/jamong.png' },
-      { t: '집 (HOME)', y: '2024', c: 'linear-gradient(135deg, #C0392B, #1A0808)', cover: 'images/hanroro/home.png' }
+      { t: '자몽살구클럽', y: '2025', c: 'linear-gradient(135deg, #E96443, #904E95)', cover: 'images/hanroro/jamong.jpg' },
+      { t: '집 (HOME)', y: '2024', c: 'linear-gradient(135deg, #C0392B, #1A0808)', cover: 'images/hanroro/home.jpg' }
     ]
   },
   {
     id: '10cm', genre: 'indie', genreLabel: '어쿠스틱 팝',
     name: '10CM', nameKo: '십센치',
     grad: 'linear-gradient(135deg, #2D4A7C, #131E33)',
-    img: 'images/10cm/profile.png',
+    img: 'images/10cm/profile.jpg',
     bio: '권정열의 독보적인 보컬과 감성적인 가사로 사랑받는 <strong>10cm</strong>. 어쿠스틱 기반의 심플한 악기 구성으로 첫 합주에 도전하기 좋은 곡이 많습니다.',
     tracks: [
       { t: '폰서트', m: '4.0 · 2019', lv: 'easy' },
@@ -860,16 +1066,16 @@ const artists = [
       { t: '그라데이션', m: '5.0 · 2021', lv: 'mid' }
     ],
     albums: [
-      { t: '1.0', y: '2011', c: 'linear-gradient(135deg, #4B79A1, #283E51)', cover: 'images/10cm/album1.png' },
-      { t: '3.0', y: '2016', c: 'linear-gradient(135deg, #3A6073, #16222A)', cover: 'images/10cm/album3.png' },
-      { t: '5.0', y: '2021', c: 'linear-gradient(135deg, #5C7AAE, #1F2A3D)', cover: 'images/10cm/album5.png' }
+      { t: '1.0', y: '2011', c: 'linear-gradient(135deg, #4B79A1, #283E51)', cover: 'images/10cm/album1.jpg' },
+      { t: '3.0', y: '2016', c: 'linear-gradient(135deg, #3A6073, #16222A)', cover: 'images/10cm/album3.jpg' },
+      { t: '5.0', y: '2021', c: 'linear-gradient(135deg, #5C7AAE, #1F2A3D)', cover: 'images/10cm/album5.jpg' }
     ]
   },
   {
     id: 'nerd', genre: 'indie', genreLabel: '인디 락',
     name: 'NERD CONNECTION', nameKo: '너드커넥션',
     grad: 'linear-gradient(135deg, #3D2B56, #15101F)',
-    img: 'images/nerd/profile.png',
+    img: 'images/nerd/profile.jpg',
     bio: '서정적인 멜로디와 다이나믹한 밴드 사운드로 주목받는 <strong>너드커넥션</strong>. 감정의 빌드업이 강렬해 밴드 전체의 호흡이 중요한 곡들이 많습니다.',
     tracks: [
       { t: 'BACK IN TIME', m: '2022', lv: 'mid' },
@@ -877,15 +1083,15 @@ const artists = [
       { t: '서울, 밤', m: 'Hard To Explain', lv: 'mid' }
     ],
     albums: [
-      { t: 'New Century Masterpiece Cinema', y: '2023', c: 'linear-gradient(135deg, #614385, #221C3A)', cover: 'images/nerd/cinema.png' },
-      { t: 'Hard To Explain', y: '2024', c: 'linear-gradient(135deg, #516395, #1E2746)', cover: 'images/nerd/hardtoexplain.png' }
+      { t: 'New Century Masterpiece Cinema', y: '2023', c: 'linear-gradient(135deg, #614385, #221C3A)', cover: 'images/nerd/cinema.jpg' },
+      { t: 'Hard To Explain', y: '2024', c: 'linear-gradient(135deg, #516395, #1E2746)', cover: 'images/nerd/hardtoexplain.jpg' }
     ]
   },
   {
     id: 'hyukoh', genre: 'rock', genreLabel: '얼터너티브 락',
     name: 'HYUKOH', nameKo: '혁오',
     grad: 'linear-gradient(135deg, #5C2A2A, #1C0E0E)',
-    img: 'images/hyukoh/profile.png',
+    img: 'images/hyukoh/profile.jpg',
     bio: '오혁 특유의 그루브와 몽환적인 기타 톤이 매력인 밴드 <strong>혁오</strong>. 국내외에서 폭넓은 사랑을 받으며 독자적인 음악 세계를 구축했습니다.',
     tracks: [
       { t: 'TOMBOY', m: '23 · 2017', lv: 'mid' },
@@ -894,16 +1100,16 @@ const artists = [
       { t: 'Comes And Goes', m: '22 · 2015', lv: 'hard' }
     ],
     albums: [
-      { t: '24 : How to find true love and happiness', y: '2024', c: 'linear-gradient(135deg, #8E2DE2, #4A00E0)', cover: 'images/hyukoh/album24.png' },
-      { t: '23', y: '2017', c: 'linear-gradient(135deg, #C04848, #480048)', cover: 'images/hyukoh/album23.png' },
-      { t: '22', y: '2015', c: 'linear-gradient(135deg, #A83279, #311432)', cover: 'images/hyukoh/album22.png' }
+      { t: '24 : How to find true love and happiness', y: '2024', c: 'linear-gradient(135deg, #8E2DE2, #4A00E0)', cover: 'images/hyukoh/album24.jpg' },
+      { t: '23', y: '2017', c: 'linear-gradient(135deg, #C04848, #480048)', cover: 'images/hyukoh/album23.jpg' },
+      { t: '22', y: '2015', c: 'linear-gradient(135deg, #A83279, #311432)', cover: 'images/hyukoh/album22.jpg' }
     ]
   },
   {
     id: 'day6', genre: 'kpop', genreLabel: 'K-pop 밴드',
     name: 'DAY6', nameKo: '데이식스',
     grad: 'linear-gradient(135deg, #1B4D3E, #0A1E18)',
-    img: 'images/day6/profile.png',
+    img: 'images/day6/profile.jpg',
     bio: '밴드 K-pop의 선구자 <strong>DAY6</strong>. 탄탄한 연주 실력과 중독성 있는 멜로디로 \'데박(데이식스 역주행)\' 신드롬을 일으켰습니다. 정박자 8비트 곡들은 합주 입문에 최적.',
     tracks: [
       { t: '한 페이지가 될 수 있게', m: 'The Book of Us · 2019', lv: 'easy' },
@@ -912,16 +1118,16 @@ const artists = [
       { t: 'Welcome to the Show', m: 'Fourever · 2024', lv: 'mid' }
     ],
     albums: [
-      { t: 'The Book of Us : Gravity', y: '2019', c: 'linear-gradient(135deg, #11998E, #38EF7D)', cover: 'images/day6/gravity.png' },
-      { t: 'Fourever', y: '2024', c: 'linear-gradient(135deg, #1D976C, #093637)', cover: 'images/day6/fourever.png' },
-      { t: 'Sunrise', y: '2017', c: 'linear-gradient(135deg, #F2994A, #2D6A4F)', cover: 'images/day6/sunrise.png' }
+      { t: 'The Book of Us : Gravity', y: '2019', c: 'linear-gradient(135deg, #11998E, #38EF7D)', cover: 'images/day6/gravity.jpg' },
+      { t: 'Fourever', y: '2024', c: 'linear-gradient(135deg, #1D976C, #093637)', cover: 'images/day6/fourever.jpg' },
+      { t: 'Sunrise', y: '2017', c: 'linear-gradient(135deg, #F2994A, #2D6A4F)', cover: 'images/day6/sunrise.jpg' }
     ]
   },
   {
     id: 'younha', genre: 'kpop', genreLabel: '인디 팝 / 록',
     name: 'YOUNHA', nameKo: '윤하',
     grad: 'linear-gradient(135deg, #2B3A67, #0E1326)',
-    img: 'images/younha/profile.png',
+    img: 'images/younha/profile.jpg',
     bio: '강력한 가창력과 탄탄한 밴드 사운드를 겸비한 <strong>윤하</strong>. 데뷔 초 J-pop 진출 경력부터 \'사건의 지평선\' 역주행까지, 폭넓은 음악적 스펙트럼을 자랑합니다.',
     tracks: [
       { t: '사건의 지평선', m: 'END THEORY · 2022', lv: 'hard' },
@@ -930,15 +1136,15 @@ const artists = [
       { t: '기억의 습작', m: '2013', lv: 'mid' }
     ],
     albums: [
-      { t: 'END THEORY', y: '2021', c: 'linear-gradient(135deg, #4568DC, #1A1F3D)', cover: 'images/younha/endtheory.png' },
-      { t: 'SUPERSONIC', y: '2012', c: 'linear-gradient(135deg, #3A4FB8, #14182E)', cover: 'images/younha/supersonic.png' }
+      { t: 'END THEORY', y: '2021', c: 'linear-gradient(135deg, #4568DC, #1A1F3D)', cover: 'images/younha/endtheory.jpg' },
+      { t: 'SUPERSONIC', y: '2012', c: 'linear-gradient(135deg, #3A4FB8, #14182E)', cover: 'images/younha/supersonic.jpg' }
     ]
   },
   {
     id: 'aimyon', genre: 'jpop', genreLabel: 'J-pop',
     name: 'AIMYON', nameKo: 'あいみょん',
     grad: 'linear-gradient(135deg, #7C3A4D, #2A1018)',
-    img: 'images/aimyon/profile.png',
+    img: 'images/aimyon/profile.jpg',
     bio: '솔직하고 담백한 가사로 일본 젊은 세대를 사로잡은 싱어송라이터 <strong>아이묭</strong>. 기본 코드와 반복 리듬 위주의 곡 구성으로 J-pop 합주 입문에 인기 만점입니다.',
     tracks: [
       { t: 'マリーゴールド (Marigold)', m: '2018', lv: 'easy' },
@@ -947,15 +1153,15 @@ const artists = [
       { t: '君はロックを聴かない', m: '2017', lv: 'mid' }
     ],
     albums: [
-      { t: '瞬間的シックスセンス', y: '2019', c: 'linear-gradient(135deg, #2980B9, #1A3550)', cover: 'images/aimyon/sixsense.png' },
-      { t: 'おいしいパスタがあると聞いて', y: '2020', c: 'linear-gradient(135deg, #C9485B, #4A1825)', cover: 'images/aimyon/pasta.png' }
+      { t: '瞬間的シックスセンス', y: '2019', c: 'linear-gradient(135deg, #2980B9, #1A3550)', cover: 'images/aimyon/sixsense.jpg' },
+      { t: 'おいしいパスタがあると聞いて', y: '2020', c: 'linear-gradient(135deg, #C9485B, #4A1825)', cover: 'images/aimyon/pasta.jpg' }
     ]
   },
   {
     id: 'spyair', genre: 'jpop', genreLabel: 'J-pop 락',
     name: 'SPYAIR', nameKo: 'スパイエアー',
     grad: 'linear-gradient(135deg, #1F4A6B, #0A1A28)',
-    img: 'images/spyair/profile.png',
+    img: 'images/spyair/profile.jpg',
     bio: '힘있는 보컬과 강렬한 밴드 사운드의 J-pop 록밴드 <strong>SPYAIR</strong>. 은혼, 하이큐 등 애니메이션 주제가로도 유명합니다. 반복 구간이 많아 효율적인 합주가 가능합니다.',
     tracks: [
       { t: 'サムライハート (사무라이 하트)', m: '2011', lv: 'mid' },
@@ -964,15 +1170,15 @@ const artists = [
       { t: '現状ディストラクション', m: '2013', lv: 'hard' }
     ],
     albums: [
-      { t: '4', y: '2014', c: 'linear-gradient(135deg, #2C7CB0, #102A3F)', cover: 'images/spyair/album4.png' },
-      { t: "Rockin' the World", y: '2011', c: 'linear-gradient(135deg, #C0392B, #4A1410)', cover: 'images/spyair/rockintheworld.png' }
+      { t: '4', y: '2014', c: 'linear-gradient(135deg, #2C7CB0, #102A3F)', cover: 'images/spyair/album4.jpg' },
+      { t: "Rockin' the World", y: '2011', c: 'linear-gradient(135deg, #C0392B, #4A1410)', cover: 'images/spyair/rockintheworld.jpg' }
     ]
   },
   {
     id: 'yonezu', genre: 'jpop', genreLabel: 'J-pop / 애니',
     name: 'KENSHI YONEZU', nameKo: '요네즈 켄시',
     grad: 'linear-gradient(135deg, #4A3B6B, #18121F)',
-    img: 'images/yonezu/profile.png',
+    img: 'images/yonezu/profile.jpg',
     bio: '보컬로이드 프로듀서 출신, 일본 대중음악의 정점에 선 천재 아티스트 <strong>요네즈 켄시</strong>. 복잡한 화성과 엇박자 리듬으로 상급자도 도전적인 곡이 많습니다.',
     tracks: [
       { t: 'KICK BACK (킥백)', m: '체인소맨 · 2022', lv: 'hard' },
@@ -981,15 +1187,15 @@ const artists = [
       { t: '感電', m: 'STRAY SHEEP · 2020', lv: 'hard' }
     ],
     albums: [
-      { t: 'STRAY SHEEP', y: '2020', c: 'linear-gradient(135deg, #654EA3, #1F1736)', cover: 'images/yonezu/straysheep.png' },
-      { t: 'BOOTLEG', y: '2017', c: 'linear-gradient(135deg, #7B4397, #2A1432)', cover: 'images/yonezu/bootleg.png' }
+      { t: 'STRAY SHEEP', y: '2020', c: 'linear-gradient(135deg, #654EA3, #1F1736)', cover: 'images/yonezu/straysheep.jpg' },
+      { t: 'BOOTLEG', y: '2017', c: 'linear-gradient(135deg, #7B4397, #2A1432)', cover: 'images/yonezu/bootleg.jpg' }
     ]
   },
   {
     id: 'aerosmith', genre: 'rock', genreLabel: '하드 락',
     name: 'AEROSMITH', nameKo: '에어로스미스',
     grad: 'linear-gradient(135deg, #6B2737, #200B11)',
-    img: 'images/aerosmith/profile.png',
+    img: 'images/aerosmith/profile.jpg',
     bio: '미국 하드락의 전설 <strong>Aerosmith</strong>. 스티븐 타일러의 폭발적인 보컬과 조 페리의 기타로 록 역사를 써내려간 밴드입니다. 극악의 고음역대 도전곡들이 즐비.',
     tracks: [
       { t: 'Dream On', m: 'Aerosmith · 1973', lv: 'hard' },
@@ -997,15 +1203,15 @@ const artists = [
       { t: 'I Don\'t Want to Miss a Thing', m: '1998', lv: 'hard' }
     ],
     albums: [
-      { t: 'Aerosmith', y: '1973', c: 'linear-gradient(135deg, #cb2d3e, #ef473a)', cover: 'images/aerosmith/debut.png' },
-      { t: 'Toys in the Attic', y: '1975', c: 'linear-gradient(135deg, #8E2335, #2C0A11)', cover: 'images/aerosmith/toys.png' }
+      { t: 'Aerosmith', y: '1973', c: 'linear-gradient(135deg, #cb2d3e, #ef473a)', cover: 'images/aerosmith/debut.jpg' },
+      { t: 'Toys in the Attic', y: '1975', c: 'linear-gradient(135deg, #8E2335, #2C0A11)', cover: 'images/aerosmith/toys.jpg' }
     ]
   },
   {
     id: 'gnr', genre: 'rock', genreLabel: '하드 락',
     name: "GUNS N' ROSES", nameKo: '건즈 앤 로지스',
     grad: 'linear-gradient(135deg, #5A2A2A, #1A0A0A)',
-    img: 'images/gnr/profile.png',
+    img: 'images/gnr/profile.jpg',
     bio: '록 역사상 가장 위대한 밴드 중 하나 <strong>Guns N\' Roses</strong>. 슬래시의 상징적인 기타 리프와 액슬 로즈의 보컬로 80~90년대 하드락을 정의했습니다.',
     tracks: [
       { t: "Sweet Child O' Mine", m: 'Appetite for Destruction · 1987', lv: 'hard' },
@@ -1013,15 +1219,15 @@ const artists = [
       { t: 'Welcome to the Jungle', m: '1987', lv: 'hard' }
     ],
     albums: [
-      { t: 'Appetite for Destruction', y: '1987', c: 'linear-gradient(135deg, #870000, #190A05)', cover: 'images/gnr/appetite.png' },
-      { t: 'Use Your Illusion I', y: '1991', c: 'linear-gradient(135deg, #B24592, #2A0E22)', cover: 'images/gnr/illusion.png' }
+      { t: 'Appetite for Destruction', y: '1987', c: 'linear-gradient(135deg, #870000, #190A05)', cover: 'images/gnr/appetite.jpg' },
+      { t: 'Use Your Illusion I', y: '1991', c: 'linear-gradient(135deg, #B24592, #2A0E22)', cover: 'images/gnr/illusion.jpg' }
     ]
   },
   {
     id: 'jaurim', genre: 'rock', genreLabel: '인디 / 모던 락',
     name: 'JAURIM', nameKo: '자우림',
     grad: 'linear-gradient(135deg, #3D2B56, #15101F)',
-    img: 'images/jaurim/profile.png',
+    img: 'images/jaurim/profile.jpg',
     bio: '김윤아의 카리스마 넘치는 보컬을 앞세운 한국 모던 록의 클래식 <strong>자우림</strong>. 웅장한 사운드와 깊은 가사로 90년대부터 지금까지 사랑받고 있습니다.',
     tracks: [
       { t: '스물다섯, 스물하나', m: '2002', lv: 'hard' },
@@ -1030,8 +1236,120 @@ const artists = [
       { t: '매직 카펫 라이드', m: '2001', lv: 'mid' }
     ],
     albums: [
-      { t: 'HAPPY 25th JAURIM', y: '2022', c: 'linear-gradient(135deg, #654EA3, #1F1736)', cover: 'images/jaurim/happy25.png' },
-      { t: 'Ashes To Ashes', y: '2006', c: 'linear-gradient(135deg, #56278F, #1A0E2E)', cover: 'images/jaurim/ashes.png' }
+      { t: 'HAPPY 25th JAURIM', y: '2022', c: 'linear-gradient(135deg, #654EA3, #1F1736)', cover: 'images/jaurim/happy25.jpg' },
+      { t: 'Ashes To Ashes', y: '2006', c: 'linear-gradient(135deg, #56278F, #1A0E2E)', cover: 'images/jaurim/ashes.jpg' }
+    ]
+  },
+  {
+    id: 'silicagel', genre: 'rock', genreLabel: '얼터너티브 / 사이키델릭',
+    name: 'SILICA GEL', nameKo: '실리카겔',
+    grad: 'linear-gradient(135deg, #1E293B, #0F172A)',
+    img: 'images/silicagel/profile.jpg',
+    bio: '한국 인디씬을 대표하는 밴드 <strong>실리카겔</strong>. 독창적인 사운드 실험과 강렬한 에너지로 "밴드 좀 친다"는 대학생들이 가장 도전하고 싶어 하는 트렌디함의 정점입니다. <em>NO PAIN</em>은 돌고래반 도전곡.',
+    tracks: [
+      { t: 'NO PAIN', m: 'NO PAIN · 2024', lv: 'hard' },
+      { t: 'Tik Tak Tok', m: '2023', lv: 'hard' },
+      { t: 'Desert Eagle', m: '2022', lv: 'hard' }
+    ],
+    albums: [
+      { t: 'NO PAIN', y: '2024', c: 'linear-gradient(135deg, #334155, #0F172A)', cover: 'images/silicagel/nopain.jpg' },
+      { t: 'POWER ANDRE 99', y: '2016', c: 'linear-gradient(135deg, #475569, #1E293B)', cover: 'images/silicagel/power.jpg' }
+    ]
+  },
+  {
+    id: 'greenday', genre: 'rock', genreLabel: '펑크 락',
+    name: 'GREEN DAY', nameKo: '그린 데이',
+    grad: 'linear-gradient(135deg, #166534, #052E16)',
+    img: 'images/greenday/profile.jpg',
+    bio: '90년대 펑크 락의 아이콘 <strong>Green Day</strong>. 파워코드 위주의 단순하고 강렬한 구성으로, 밴드 입문자가 첫 곡으로 도전하기에 최고입니다. <em>Basket Case</em>는 거북이반 필수곡.',
+    tracks: [
+      { t: 'Basket Case', m: 'Dookie · 1994', lv: 'easy' },
+      { t: 'American Idiot', m: '2004', lv: 'easy' },
+      { t: 'Boulevard of Broken Dreams', m: '2004', lv: 'easy' },
+      { t: 'When I Come Around', m: '1994', lv: 'easy' }
+    ],
+    albums: [
+      { t: 'Dookie', y: '1994', c: 'linear-gradient(135deg, #16A34A, #14532D)', cover: 'images/greenday/dookie.jpg' },
+      { t: 'American Idiot', y: '2004', c: 'linear-gradient(135deg, #DC2626, #450A0A)', cover: 'images/greenday/americanidiot.jpg' }
+    ]
+  },
+  {
+    id: 'blackskirts', genre: 'indie', genreLabel: '인디 팝',
+    name: 'THE BLACK SKIRTS', nameKo: '검정치마',
+    grad: 'linear-gradient(135deg, #292524, #0C0A09)',
+    img: 'images/blackskirts/profile.jpg',
+    bio: '조휴일의 프로젝트 밴드 <strong>검정치마</strong>. 편안한 그루브와 담백한 보컬로 한국 인디의 아이콘이 되었습니다. <em>링링</em>은 코드 진행이 단순해 첫 합주에 좋아요.',
+    tracks: [
+      { t: '링링', m: 'TEAM BABY · 2019', lv: 'easy' },
+      { t: 'Everything', m: '2019', lv: 'easy' },
+      { t: '난 아니야', m: '201 · 2011', lv: 'mid' },
+      { t: 'Antifreeze', m: '201 · 2011', lv: 'mid' }
+    ],
+    albums: [
+      { t: 'TEAM BABY', y: '2019', c: 'linear-gradient(135deg, #57534E, #1C1917)', cover: 'images/blackskirts/teambaby.jpg' },
+      { t: '201', y: '2011', c: 'linear-gradient(135deg, #44403C, #0C0A09)', cover: 'images/blackskirts/album201.jpg' }
+    ]
+  },
+  {
+    id: 'yudabin', genre: 'indie', genreLabel: '인디 락',
+    name: 'YU DABIN BAND', nameKo: '유다빈밴드',
+    grad: 'linear-gradient(135deg, #0E7490, #083344)',
+    img: 'images/yudabin/profile.jpg',
+    bio: '청량하고 서정적인 사운드로 사랑받는 <strong>유다빈밴드</strong>. 하이볼 블루의 무드와 결이 잘 맞는 밴드예요. <em>오늘이야</em>는 고래반 합주곡.',
+    tracks: [
+      { t: '오늘이야', m: '2023', lv: 'mid' },
+      { t: '항해', m: '2023', lv: 'mid' },
+      { t: '너의 이름은', m: '2022', lv: 'mid' }
+    ],
+    albums: [
+      { t: '항해', y: '2023', c: 'linear-gradient(135deg, #06B6D4, #164E63)', cover: 'images/yudabin/album.jpg' }
+    ]
+  },
+  {
+    id: 'jungwoo', genre: 'indie', genreLabel: '인디 팝',
+    name: 'JUNGWOO', nameKo: '정우',
+    grad: 'linear-gradient(135deg, #7C3AED, #2E1065)',
+    img: 'images/jungwoo/profile.jpg',
+    bio: '몽환적이고 감각적인 사운드의 싱어송라이터 <strong>정우</strong>. <em>클라우드 쿠쿠 랜드</em>는 미디엄 템포의 그루브가 매력이라 고래반 합주에 좋아요.',
+    tracks: [
+      { t: '클라우드 쿠쿠 랜드', m: '2023', lv: 'mid' },
+      { t: '화이트 노이즈', m: '2022', lv: 'mid' }
+    ],
+    albums: [
+      { t: '클라우드 쿠쿠 랜드', y: '2023', c: 'linear-gradient(135deg, #8B5CF6, #4C1D95)', cover: 'images/jungwoo/album.jpg' }
+    ]
+  },
+  {
+    id: 'higedan', genre: 'jpop', genreLabel: 'J-pop',
+    name: 'OFFICIAL HIGE DANDISM', nameKo: '오피셜히게단디즘',
+    grad: 'linear-gradient(135deg, #B45309, #451A03)',
+    img: 'images/higedan/profile.jpg',
+    bio: '복잡한 화성과 화려한 키보드 워크가 특징인 일본 최정상 밴드 <strong>오피셜히게단디즘</strong>. <em>Pretender</em>는 건반 비중이 크고 코드가 난해해 돌고래반 도전곡입니다.',
+    tracks: [
+      { t: 'Pretender', m: 'Traveler · 2019', lv: 'hard' },
+      { t: 'Cry Baby', m: '도쿄 리벤저스 · 2021', lv: 'hard' },
+      { t: 'Subtitle', m: '2022', lv: 'hard' },
+      { t: 'I LOVE...', m: 'Editorial · 2020', lv: 'hard' }
+    ],
+    albums: [
+      { t: 'Traveler', y: '2019', c: 'linear-gradient(135deg, #F59E0B, #78350F)', cover: 'images/higedan/traveler.jpg' },
+      { t: 'Editorial', y: '2021', c: 'linear-gradient(135deg, #D97706, #451A03)', cover: 'images/higedan/editorial.jpg' }
+    ]
+  },
+  {
+    id: 'yuuri', genre: 'jpop', genreLabel: 'J-pop',
+    name: 'YUURI', nameKo: '유우리',
+    grad: 'linear-gradient(135deg, #1E40AF, #172554)',
+    img: 'images/yuuri/profile.jpg',
+    bio: '길거리 버스킹으로 시작해 일본 정상에 오른 싱어송라이터 <strong>Yuuri</strong>. 1·2절에서 잠시 숨을 고르다 마지막에 크게 터트리는 전개가 특징이라, 밴드 전체의 빌드업 호흡을 배우기 좋아요.',
+    tracks: [
+      { t: 'ベテルギウス (베텔기우스)', m: '壱 · 2021', lv: 'mid' },
+      { t: 'ドライフラワー (드라이플라워)', m: '2020', lv: 'mid' },
+      { t: 'かくれんぼ (숨바꼭질)', m: '2019', lv: 'mid' },
+      { t: 'レオ (레오)', m: '2020', lv: 'mid' }
+    ],
+    albums: [
+      { t: '壱 (이치)', y: '2021', c: 'linear-gradient(135deg, #3B82F6, #1E3A8A)', cover: 'images/yuuri/ichi.jpg' }
     ]
   }
 ];
