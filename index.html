@@ -307,6 +307,49 @@
   .about-poster:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 20px 44px -18px rgba(14,165,233,0.6); }
   .about-poster img { width: 100%; height: auto; display: block; }
 
+  /* ── ABOUT: 포스터 + 지원 CTA 2열 ── */
+  .poster-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3.5rem; align-items: center; margin-top: 4.5rem;
+  }
+  .poster-row .about-poster { margin-top: 0; }
+
+  .poster-cta { display: flex; flex-direction: column; gap: 1.3rem; }
+  .poster-cta-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.3; letter-spacing: -0.01em; color: var(--white);
+  }
+  .poster-cta-title .accent { color: var(--cyan); }
+  .poster-cta-sub { font-size: 0.95rem; font-weight: 450; line-height: 1.85; color: var(--white-dim); }
+
+  .poster-facts { display: flex; flex-direction: column; gap: 0.7rem; }
+  .poster-fact {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.85rem 1.1rem; border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid rgba(14, 165, 233, 0.18);
+    box-shadow: 0 6px 20px -12px rgba(14, 165, 233, 0.28);
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .poster-fact:hover {
+    border-color: rgba(6, 182, 212, 0.5); transform: translateX(6px);
+    box-shadow: -6px 8px 22px -12px rgba(6, 182, 212, 0.35);
+  }
+  .poster-fact-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .poster-fact-label {
+    font-family: 'Space Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cyan); display: block; margin-bottom: 0.15rem;
+  }
+  .poster-fact-value { font-size: 0.9rem; font-weight: 500; color: var(--white); line-height: 1.5; }
+
+  .poster-cta-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.5rem; }
+
+  @media (max-width: 900px) {
+    .poster-row { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 3rem; }
+  }
+
   .classes-grid { display: flex; flex-direction: column; gap: 1rem; }
   .class-card {
     padding: 1.4rem 1.6rem; border-radius: 14px;
@@ -380,6 +423,7 @@
   }
   .sig-sub { font-size: 1rem; font-weight: 600; color: #0E7490; margin-bottom: 1.2rem; }
   .sig-desc { font-size: 0.95rem; font-weight: 450; color: var(--white-dim); line-height: 1.9; margin-bottom: 2rem; }
+  .sig-desc strong { color: #0E7490; font-weight: 600; }
 
   .sig-right { display: flex; justify-content: center; }
   .sig-disc {
@@ -700,12 +744,6 @@
           <strong>💰 회비</strong><br>
           가입비 · 회비 일절 없음 (합주실 대여비만 1/N)
         </p>
-        <div style="margin-top: 2rem;">
-          <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
-        </div>
-        <div class="about-poster">
-          <img src="images/poster-collage.jpg" alt="하이볼 블루 모집 포스터" loading="lazy">
-        </div>
       </div>
       <div class="classes-grid fade-in">
         <p class="section-eyebrow">// 동물 맞춤형 클래스</p>
@@ -732,6 +770,49 @@
             <p class="class-name">🐬 돌고래반</p>
             <p class="class-desc">탄탄한 연주력을 바탕으로 관객과 호흡하는 정기 버스킹 및 공연 무대를 목표로 달리는 반. 하이볼 블루만의 자작곡 제작과 음원 아카이빙까지 함께합니다.<br><span class="class-req">기준 · 카피 곡을 안정적으로 소화하고 무대 경험을 원하는 정도</span></p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="poster-row fade-in">
+      <div class="about-poster">
+        <img src="images/poster-collage.jpg" alt="하이볼 블루 모집 포스터" loading="lazy">
+      </div>
+      <div class="poster-cta">
+        <p class="section-eyebrow">// Join Us</p>
+        <h3 class="poster-cta-title">청량한 한 잔,<br><span class="accent">지금 함께해요</span></h3>
+        <p class="poster-cta-sub">
+          실력보다 중요한 건 즐기려는 마음. 구글폼 작성 후 간단한 비대면 인터뷰만 거치면
+          바로 합주실에서 만날 수 있어요.
+        </p>
+
+        <div class="poster-facts">
+          <div class="poster-fact">
+            <span class="poster-fact-icon">📅</span>
+            <div>
+              <span class="poster-fact-label">Deadline</span>
+              <span class="poster-fact-value">9월 30일까지 2기 모집</span>
+            </div>
+          </div>
+          <div class="poster-fact">
+            <span class="poster-fact-icon">🎯</span>
+            <div>
+              <span class="poster-fact-label">Who</span>
+              <span class="poster-fact-value">수도권 대학교 재학생 · 휴학생</span>
+            </div>
+          </div>
+          <div class="poster-fact">
+            <span class="poster-fact-icon">⏱️</span>
+            <div>
+              <span class="poster-fact-label">Process</span>
+              <span class="poster-fact-value">구글폼 → 비대면 인터뷰 (약 5분)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="poster-cta-actions">
+          <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary">지원하기 →</a>
+          <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
         </div>
       </div>
     </div>
@@ -885,10 +966,12 @@
         <h2 class="sig-title">Same Code</h2>
         <p class="sig-sub">하이볼 블루 시그니처 자작곡 🎧</p>
         <p class="sig-desc">
-          같은 코드를 짚는다는 건, 같은 마음으로 같은 순간을 만든다는 것.
-          하이볼 블루가 처음으로 만든 우리만의 노래예요.
+          "스무 번 틀려도 웃으며 맞춰가 —<br>
+          어제는 남이었지만 오늘은 밴드가 돼."<br><br>
+          처음 만난 사람들이 같은 박자 위에서 하나가 되는 순간.
+          하이볼 블루의 <strong>오픈 합주</strong>를 담은 첫 자작곡입니다.
         </p>
-        <a href="https://youtu.be/_CjQPQQvSIY" target="_blank" rel="noopener" class="btn-primary">들으러 가기 ↗</a>
+        <a href="https://youtu.be/ONKyTBpOZjY" target="_blank" rel="noopener" class="btn-primary">들으러 가기 ↗</a>
       </div>
       <div class="sig-right">
         <div class="sig-disc">
