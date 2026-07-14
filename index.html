@@ -78,6 +78,82 @@
     .bg-img { width: 140px; height: 140px; opacity: 0.07; }
   }
 
+  /* ── 탄산 기포 (Carbonation) ── */
+  .bubbles {
+    position: fixed; inset: 0; z-index: 1;
+    pointer-events: none; overflow: hidden;
+  }
+  .bubble {
+    position: absolute; bottom: -10vh;
+    width: var(--sz, 20px); height: var(--sz, 20px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%,
+      rgba(255,255,255,0.95) 0%,
+      rgba(224,244,255,0.55) 38%,
+      rgba(125,211,252,0.20) 70%,
+      rgba(14,165,233,0.12) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.30);
+    box-shadow:
+      inset -2px -3px 6px rgba(6, 182, 212, 0.20),
+      inset 3px 3px 7px rgba(255, 255, 255, 0.85),
+      0 0 12px rgba(125, 211, 252, 0.40);
+    opacity: 0;
+    left: var(--x, 50%);
+    animation: rise var(--dur, 14s) linear infinite;
+    animation-delay: var(--dly, 0s);
+    will-change: transform, opacity;
+  }
+  @keyframes rise {
+    0%   { transform: translate3d(0, 0, 0) scale(0.75); opacity: 0; }
+    8%   { opacity: var(--op, 0.5); }
+    35%  { transform: translate3d(18px, -38vh, 0) scale(1); }
+    65%  { transform: translate3d(-14px, -70vh, 0) scale(1.08); }
+    88%  { opacity: var(--op, 0.5); }
+    100% { transform: translate3d(8px, -115vh, 0) scale(1.15); opacity: 0; }
+  }
+
+  /* ── 초기 탄산 폭발 (1회 재생) ── */
+  .fizz {
+    position: fixed; inset: 0; z-index: 1;
+    pointer-events: none; overflow: hidden;
+  }
+  .fizz-b {
+    position: absolute;
+    left: var(--fx, 50%); bottom: var(--fy, -5vh);
+    width: var(--fsz, 30px); height: var(--fsz, 30px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 26%,
+      rgba(255,255,255,1) 0%,
+      rgba(224,244,255,0.7) 34%,
+      rgba(125,211,252,0.30) 68%,
+      rgba(14,165,233,0.18) 100%);
+    border: 1.5px solid rgba(14, 165, 233, 0.40);
+    box-shadow:
+      inset -3px -4px 8px rgba(6, 182, 212, 0.25),
+      inset 4px 4px 9px rgba(255, 255, 255, 0.9),
+      0 0 18px rgba(56, 189, 252, 0.55);
+    opacity: 0;
+    animation: fizzpop var(--fdur, 2.2s) cubic-bezier(0.18, 0.85, 0.35, 1) var(--fdly, 0s) 1 forwards;
+    will-change: transform, opacity;
+  }
+  /* 확 솟구쳤다가 팡 하고 부풀며 사라짐 */
+  @keyframes fizzpop {
+    0%   { transform: translate3d(0, 0, 0) scale(0.2);  opacity: 0; }
+    6%   { opacity: 0.9; }
+    55%  { transform: translate3d(var(--fdx, 10px), calc(var(--frise, -60vh) * 0.62), 0) scale(1); opacity: 0.85; }
+    82%  { transform: translate3d(calc(var(--fdx, 10px) * -0.5), var(--frise, -60vh), 0) scale(1.15); opacity: 0.7; }
+    /* 팡! — 터지는 순간 급격히 부풀며 투명해짐 */
+    100% { transform: translate3d(0, calc(var(--frise, -60vh) - 6vh), 0) scale(2.1); opacity: 0; }
+  }
+
+  @media (max-width: 768px) {
+    .bubble:nth-child(n+11) { display: none; }
+    .fizz-b:nth-child(n+16) { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bubbles, .fizz { display: none; }
+  }
+
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -751,6 +827,59 @@
   <div class="bg-img" style="background-image:url('images/gnr/appetite.jpg'); top:30%; left:2%; --rot:8deg; --d:-8s;"></div>
   <div class="bg-img" style="background-image:url('images/yonezu/straysheep.jpg'); top:88%; right:30%; --rot:-7deg; --d:-1s;"></div>
   <div class="bg-img" style="background-image:url('images/aimyon/sixsense.jpg'); top:50%; right:2%; --rot:5deg; --d:-10s;"></div>
+</div>
+
+<div class="bubbles" aria-hidden="true">
+  <div class="bubble" style="--x:6%;  --sz:18px; --dur:16s; --dly:0s;    --op:0.45;"></div>
+  <div class="bubble" style="--x:14%; --sz:30px; --dur:21s; --dly:-4s;   --op:0.38;"></div>
+  <div class="bubble" style="--x:23%; --sz:13px; --dur:12s; --dly:-8s;   --op:0.55;"></div>
+  <div class="bubble" style="--x:31%; --sz:42px; --dur:26s; --dly:-2s;   --op:0.30;"></div>
+  <div class="bubble" style="--x:39%; --sz:22px; --dur:18s; --dly:-11s;  --op:0.42;"></div>
+  <div class="bubble" style="--x:47%; --sz:16px; --dur:14s; --dly:-6s;   --op:0.50;"></div>
+  <div class="bubble" style="--x:55%; --sz:35px; --dur:23s; --dly:-14s;  --op:0.34;"></div>
+  <div class="bubble" style="--x:63%; --sz:19px; --dur:17s; --dly:-3s;   --op:0.46;"></div>
+  <div class="bubble" style="--x:71%; --sz:27px; --dur:20s; --dly:-9s;   --op:0.38;"></div>
+  <div class="bubble" style="--x:79%; --sz:14px; --dur:13s; --dly:-16s;  --op:0.52;"></div>
+  <div class="bubble" style="--x:87%; --sz:38px; --dur:25s; --dly:-5s;   --op:0.32;"></div>
+  <div class="bubble" style="--x:94%; --sz:21px; --dur:15s; --dly:-12s;  --op:0.44;"></div>
+  <div class="bubble" style="--x:18%; --sz:11px; --dur:11s; --dly:-18s;  --op:0.58;"></div>
+  <div class="bubble" style="--x:44%; --sz:26px; --dur:19s; --dly:-20s;  --op:0.40;"></div>
+  <div class="bubble" style="--x:67%; --sz:9px;  --dur:10s; --dly:-7s;   --op:0.60;"></div>
+  <div class="bubble" style="--x:83%; --sz:24px; --dur:22s; --dly:-15s;  --op:0.40;"></div>
+  <div class="bubble" style="--x:10%; --sz:32px; --dur:24s; --dly:-13s;  --op:0.34;"></div>
+  <div class="bubble" style="--x:59%; --sz:12px; --dur:12s; --dly:-17s;  --op:0.54;"></div>
+</div>
+
+<!-- 초기 탄산 폭발: 3파도로 팍! 팍! 팍! -->
+<div class="fizz" aria-hidden="true">
+  <!-- 1파: 즉시 -->
+  <div class="fizz-b" style="--fx:12%; --fsz:46px; --fdur:2.0s; --fdly:0.05s; --frise:-72vh; --fdx:22px;"></div>
+  <div class="fizz-b" style="--fx:28%; --fsz:30px; --fdur:1.7s; --fdly:0.00s; --frise:-85vh; --fdx:-18px;"></div>
+  <div class="fizz-b" style="--fx:44%; --fsz:56px; --fdur:2.3s; --fdly:0.12s; --frise:-64vh; --fdx:30px;"></div>
+  <div class="fizz-b" style="--fx:61%; --fsz:24px; --fdur:1.5s; --fdly:0.02s; --frise:-95vh; --fdx:-24px;"></div>
+  <div class="fizz-b" style="--fx:77%; --fsz:40px; --fdur:2.1s; --fdly:0.09s; --frise:-78vh; --fdx:16px;"></div>
+  <div class="fizz-b" style="--fx:91%; --fsz:34px; --fdur:1.9s; --fdly:0.15s; --frise:-70vh; --fdx:-28px;"></div>
+
+  <!-- 2파: 팍! -->
+  <div class="fizz-b" style="--fx:5%;  --fsz:28px; --fdur:1.8s; --fdly:0.35s; --frise:-88vh; --fdx:20px;"></div>
+  <div class="fizz-b" style="--fx:20%; --fsz:52px; --fdur:2.4s; --fdly:0.42s; --frise:-60vh; --fdx:-26px;"></div>
+  <div class="fizz-b" style="--fx:36%; --fsz:22px; --fdur:1.6s; --fdly:0.30s; --frise:-92vh; --fdx:14px;"></div>
+  <div class="fizz-b" style="--fx:53%; --fsz:44px; --fdur:2.2s; --fdly:0.48s; --frise:-68vh; --fdx:-32px;"></div>
+  <div class="fizz-b" style="--fx:69%; --fsz:36px; --fdur:2.0s; --fdly:0.38s; --frise:-80vh; --fdx:24px;"></div>
+  <div class="fizz-b" style="--fx:85%; --fsz:26px; --fdur:1.7s; --fdly:0.45s; --frise:-90vh; --fdx:-16px;"></div>
+
+  <!-- 3파: 파앙! -->
+  <div class="fizz-b" style="--fx:16%; --fsz:38px; --fdur:2.1s; --fdly:0.75s; --frise:-75vh; --fdx:-22px;"></div>
+  <div class="fizz-b" style="--fx:33%; --fsz:60px; --fdur:2.6s; --fdly:0.88s; --frise:-56vh; --fdx:34px;"></div>
+  <div class="fizz-b" style="--fx:49%; --fsz:26px; --fdur:1.8s; --fdly:0.70s; --frise:-94vh; --fdx:-18px;"></div>
+  <div class="fizz-b" style="--fx:65%; --fsz:48px; --fdur:2.3s; --fdly:0.82s; --frise:-66vh; --fdx:28px;"></div>
+  <div class="fizz-b" style="--fx:80%; --fsz:32px; --fdur:1.9s; --fdly:0.92s; --frise:-84vh; --fdx:-30px;"></div>
+  <div class="fizz-b" style="--fx:96%; --fsz:42px; --fdur:2.2s; --fdly:0.78s; --frise:-72vh; --fdx:18px;"></div>
+
+  <!-- 잔여 소기포 -->
+  <div class="fizz-b" style="--fx:24%; --fsz:16px; --fdur:1.4s; --fdly:1.15s; --frise:-98vh; --fdx:12px;"></div>
+  <div class="fizz-b" style="--fx:57%; --fsz:18px; --fdur:1.5s; --fdly:1.25s; --frise:-96vh; --fdx:-14px;"></div>
+  <div class="fizz-b" style="--fx:88%; --fsz:14px; --fdur:1.3s; --fdly:1.10s; --frise:-99vh; --fdx:10px;"></div>
 </div>
 
 <nav>
