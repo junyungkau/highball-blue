@@ -4,6 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HIGHBALL BLUE — 청량한 20대 연합 취미밴드</title>
+<meta name="description" content="수도권 대학생 연합 밴드동아리 하이볼 블루. 거북이·고래·돌고래 3단계 맞춤 클래스, 격주 합주, 가입비·회비 없음. 2026년 2기 부원 모집 중 (~9.30).">
+<link rel="canonical" href="https://highball-blue.vercel.app/">
+<meta name="theme-color" content="#0EA5E9">
+<meta name="naver-site-verification" content="">
+<!-- Open Graph : 카카오톡·인스타·에브리타임 링크 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HIGHBALL BLUE">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://highball-blue.vercel.app/">
+<meta property="og:title" content="HIGHBALL BLUE — 대학생 연합 밴드동아리 2기 모집">
+<meta property="og:description" content="보컬·일렉·베이스·드럼·키보드 모집 중. 초심자 거북이반부터 무대 중심 돌고래반까지, 격주 합주 · 회비 없음. ~9.30 마감">
+<meta property="og:image" content="https://highball-blue.vercel.app/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="하이볼 블루 2기 부원 모집 — 초심자 환영, 격주 합주, 회비 없음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HIGHBALL BLUE — 대학생 연합 밴드동아리 2기 모집">
+<meta name="twitter:description" content="초심자도 환영. 격주 합주 · 회비 없음 · ~9.30 마감">
+<meta name="twitter:image" content="https://highball-blue.vercel.app/images/og-cover.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%B9%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -33,6 +53,7 @@
     --white-muted: #5D89A0;  /* 흐린 텍스트 */
     /* 카드용 어두운 톤 (사진 살리기용) */
     --card-dark: #0A2233;
+    --accent-text: #0E7490;  /* 밝은 배경 위 accent 텍스트 전용 (WCAG AA) */
     --card-dark-2: #123044;
   }
 
@@ -178,7 +199,7 @@
     letter-spacing: 0.2em; color: var(--white-dim);
     text-decoration: none; text-transform: uppercase; transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--cyan); }
+  .nav-links a:hover { color: var(--accent-text); }
 
   /* ── HERO ── */
   .hero {
@@ -207,7 +228,7 @@
   }
   .hero-tag {
     font-family: 'Space Mono', monospace; font-size: 0.65rem;
-    letter-spacing: 0.3em; color: var(--cyan); text-transform: uppercase;
+    letter-spacing: 0.3em; color: var(--accent-text); text-transform: uppercase;
     margin-bottom: 2rem; position: relative; z-index: 1;
   }
   .hero-title {
@@ -242,7 +263,7 @@
     transition: background-position 0.4s, transform 0.15s, box-shadow 0.3s;
     box-shadow: 0 4px 30px rgba(59, 130, 246, 0.3);
   }
-  .btn-primary:hover { background-position: 100% 0%; transform: translateY(-2px); box-shadow: 0 6px 40px rgba(192, 38, 211, 0.4); }
+  .btn-primary:hover { background-position: 100% 0%; transform: translateY(-2px); box-shadow: 0 8px 40px rgba(14, 165, 233, 0.45); }
   .btn-secondary {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
     letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
@@ -250,7 +271,7 @@
     border: 1px solid rgba(96, 165, 250, 0.35); cursor: pointer;
     transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-  .btn-secondary:hover { border-color: var(--cyan); color: var(--white); background: rgba(34, 211, 238, 0.06); }
+  .btn-secondary:hover { border-color: var(--accent-text); color: var(--white); background: rgba(34, 211, 238, 0.06); }
 
   /* ── VIDEO SECTION ── */
   .video-intro { font-size: 0.98rem; font-weight: 450; color: var(--white-dim); line-height: 1.95; max-width: 560px; margin-bottom: 3rem; }
@@ -283,7 +304,7 @@
   }
   .video-thumb:hover .play-btn { transform: scale(1.12); }
   .video-thumb-meta { padding: 1.1rem 1.3rem; }
-  .video-thumb-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.4rem; }
+  .video-thumb-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; color: var(--accent-text); text-transform: uppercase; margin-bottom: 0.4rem; }
   .video-thumb-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--white); }
 
   .video-more {
@@ -302,7 +323,7 @@
   }
   .video-more-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
   .video-more-sub { font-size: 0.82rem; color: var(--white-dim); line-height: 1.6; margin-bottom: 1rem; }
-  .video-more-cta { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--cyan); text-transform: uppercase; }
+  .video-more-cta { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--accent-text); text-transform: uppercase; }
 
   @media (max-width: 768px) {
     .video-sub-grid { grid-template-columns: 1fr; }
@@ -359,7 +380,7 @@
   .section-eyebrow {
     font-family: 'Space Mono', monospace; font-size: 0.65rem;
     letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.5rem;
-    color: var(--cyan);
+    color: var(--accent-text);
   }
   .section-title {
     font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
@@ -396,7 +417,7 @@
     font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
     line-height: 1.3; letter-spacing: -0.01em; color: var(--white);
   }
-  .poster-cta-title .accent { color: var(--cyan); }
+  .poster-cta-title .accent { color: var(--accent-text); }
   .poster-cta-sub { font-size: 0.95rem; font-weight: 450; line-height: 1.85; color: var(--white-dim); }
 
   .poster-facts { display: flex; flex-direction: column; gap: 0.7rem; }
@@ -416,7 +437,7 @@
   .poster-fact-label {
     font-family: 'Space Mono', monospace; font-size: 0.6rem;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--cyan); display: block; margin-bottom: 0.15rem;
+    color: var(--accent-text); display: block; margin-bottom: 0.15rem;
   }
   .poster-fact-value { font-size: 0.9rem; font-weight: 500; color: var(--white); line-height: 1.5; }
 
@@ -476,6 +497,102 @@
   }
   .part-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
   .part-req { font-size: 0.86rem; font-weight: 450; color: var(--white-dim); line-height: 1.7; }
+  /* 파트별 모집 현황 배지 */
+  .part-head { position: relative; }
+  .part-slot {
+    margin-left: auto; flex-shrink: 0;
+    font-family: 'Space Mono', monospace; font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.08em; padding: 0.28rem 0.5rem; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .part-slot.open   { background: rgba(56,189,248,0.16);  color: #0369A1; }
+  .part-slot.few    { background: rgba(249,115,22,0.14);  color: #B4460C; }
+  .part-slot.closed { background: rgba(93,137,160,0.16);  color: #40616F; }
+  .part-card.is-closed { opacity: 0.62; }
+  .part-card.is-closed:hover { transform: none; box-shadow: 0 8px 24px -14px rgba(14,165,233,0.35); }
+
+  /* ── FAQ ── */
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .faq-item {
+    background: #FFFFFF; border: 1px solid rgba(14, 165, 233, 0.15); border-radius: 14px;
+    box-shadow: 0 8px 24px -16px rgba(14, 165, 233, 0.35);
+    overflow: hidden; transition: border-color 0.2s;
+  }
+  .faq-item[open] { border-color: rgba(14, 165, 233, 0.38); }
+  .faq-item summary {
+    list-style: none; cursor: pointer; padding: 1.1rem 1.4rem;
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    font-size: 0.95rem; font-weight: 600; color: var(--white); line-height: 1.6;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:focus-visible { outline: 2px solid var(--blue-neon); outline-offset: -2px; }
+  .faq-q {
+    flex-shrink: 0; font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
+    color: var(--accent-text); padding-top: 0.18rem;
+  }
+  .faq-item summary::after {
+    content: '+'; margin-left: auto; flex-shrink: 0;
+    font-size: 1.2rem; font-weight: 400; line-height: 1; color: var(--blue-neon);
+    transition: transform 0.25s;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-a {
+    padding: 0 1.4rem 1.25rem 3.6rem;
+    font-size: 0.88rem; font-weight: 450; color: var(--white-dim); line-height: 1.8;
+  }
+  .faq-a strong { color: var(--white); font-weight: 600; }
+  .faq-a a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 560px) {
+    .faq-item summary { padding: 1rem 1.1rem; font-size: 0.9rem; }
+    .faq-a { padding: 0 1.1rem 1.1rem 1.1rem; }
+  }
+
+  /* ── 부원 후기 ── */
+  .review-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem; margin-bottom: 2rem;
+  }
+  .review-card {
+    display: flex; flex-direction: column; gap: 1rem;
+    padding: 1.7rem 1.7rem 1.5rem; border-radius: 16px; background: #FFFFFF;
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    box-shadow: 0 8px 24px -14px rgba(14, 165, 233, 0.35);
+    position: relative; overflow: hidden;
+  }
+  .review-card::before {
+    content: 'C'; position: absolute; top: -0.35em; right: 0.25em;
+    font-family: 'Space Grotesk', serif; font-size: 6rem; line-height: 1;
+    color: rgba(14, 165, 233, 0.1); pointer-events: none;
+  }
+  .review-text {
+    font-size: 0.94rem; font-weight: 450; line-height: 1.85; color: var(--white);
+    position: relative; z-index: 1; flex: 1;
+  }
+  .review-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .review-part {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; font-weight: 700;
+    color: var(--white);
+  }
+  .review-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.08em; padding: 0.26rem 0.5rem; border-radius: 999px;
+    background: rgba(56,189,248,0.16); color: #0369A1; white-space: nowrap;
+  }
+  .review-tag.klass { background: rgba(6,182,212,0.14); color: #0E6E7F; }
+
+
+  .artist-more-wrap { display: flex; justify-content: center; margin-top: 2rem; }
+  .artist-more {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
+    padding: 0.85rem 2rem; border-radius: 999px;
+    background: rgba(255,255,255,0.8); color: var(--accent-text);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .artist-more:hover { background: #fff; border-color: rgba(14,165,233,0.55); transform: translateY(-2px); }
+  .artist-more:focus-visible { outline: 2px solid var(--blue-neon); outline-offset: 2px; }
+
   .parts-note {
     font-size: 0.9rem; font-weight: 450; color: var(--white-dim); line-height: 1.7; text-align: center;
     padding: 1.2rem 1.5rem; border-radius: 14px;
@@ -539,7 +656,7 @@
   }
   .sig-plan-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1.6; }
   .sig-plan-text { font-size: 0.92rem; line-height: 1.85; color: var(--white-dim); }
-  .sig-plan-text strong { color: var(--cyan); font-weight: 600; }
+  .sig-plan-text strong { color: var(--accent-text); font-weight: 600; }
   @media (max-width: 768px) {
     .sig-plan { padding: 1.2rem 1.3rem; gap: 0.85rem; }
     .sig-plan-text { font-size: 0.86rem; }
@@ -687,7 +804,7 @@
   .artist-card-body { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 1.4rem; }
   .artist-genre-tag {
     font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--cyan); margin-bottom: 0.6rem;
+    text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.6rem;
   }
   .artist-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 0.15rem; }
   .artist-name-ko { font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-bottom: 0.6rem; }
@@ -728,7 +845,7 @@
   .modal-header-content { position: relative; z-index: 2; }
   .modal-genre {
     font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--cyan); margin-bottom: 0.5rem;
+    text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.5rem;
   }
   .modal-name { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--white); line-height: 1; text-shadow: 0 2px 12px rgba(255,255,255,0.5); }
   .modal-name-ko { font-size: 0.95rem; color: var(--white-dim); margin-top: 0.4rem; }
@@ -766,7 +883,7 @@
     padding: 0.25rem 0.6rem; border-radius: 12px; text-transform: uppercase;
   }
   .lv-easy { color: var(--blue-bright); background: rgba(147,197,253,0.12); }
-  .lv-mid { color: var(--cyan); background: rgba(34,211,238,0.12); }
+  .lv-mid { color: var(--accent-text); background: rgba(34,211,238,0.12); }
   .lv-hard { color: var(--pink); background: rgba(244,114,182,0.12); }
 
   .albums { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; }
@@ -791,7 +908,7 @@
   /* ── JOIN ── */
   .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
   .info-item { border-top: 1px solid; border-image: linear-gradient(90deg, var(--blue-glow), transparent) 1; padding-top: 1.25rem; }
-  .info-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .info-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--accent-text); text-transform: uppercase; margin-bottom: 0.5rem; }
   .info-value { font-size: 0.9rem; font-weight: 450; color: var(--white); line-height: 1.6; }
 
   /* ── FOOTER ── */
@@ -815,12 +932,54 @@
     color: var(--white-dim); text-transform: uppercase;
   }
 
+  /* ── 모바일 네비게이션 (햄버거 + 드로어) ── */
+  .nav-toggle {
+    display: none; background: none; border: 0; cursor: pointer;
+    padding: 0.5rem; margin: -0.5rem; line-height: 0;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px; border-radius: 2px;
+    background: var(--blue-glow); transition: transform 0.25s, opacity 0.2s;
+  }
+  .nav-toggle span + span { margin-top: 5px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── 모바일 하단 고정 CTA ── */
+  .sticky-cta {
+    display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
+    padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(14, 165, 233, 0.22);
+    box-shadow: 0 -4px 24px -8px rgba(14, 165, 233, 0.3);
+    align-items: center; gap: 0.75rem;
+    transform: translateY(120%); transition: transform 0.3s ease;
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  .sticky-cta-copy { flex: 1; min-width: 0; }
+  .sticky-cta-dday {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.15rem;
+  }
+  .sticky-cta-text { font-size: 0.82rem; font-weight: 600; color: var(--white); }
+  .sticky-cta .btn-primary { padding: 0.85rem 1.4rem; font-size: 0.75rem; white-space: nowrap; }
+
   .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { gap: 1rem; }
+    nav { padding: 1rem 1.25rem; flex-wrap: wrap; }
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: none; order: 3; width: 100%; flex-direction: column;
+      gap: 0; margin-top: 0.75rem; padding-top: 0.75rem;
+      border-top: 1px solid rgba(14, 165, 233, 0.18);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { display: block; padding: 0.7rem 0; font-size: 0.78rem; }
+    .sticky-cta { display: flex; }
+    body { padding-bottom: 4.5rem; }
     section { padding: 4rem 1.25rem; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-inner { flex-direction: column; align-items: flex-start; }
@@ -901,10 +1060,15 @@
 
 <nav>
   <a href="#" class="nav-logo">HB BLUE</a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#parts">Parts</a></li>
     <li><a href="#setlist">Setlist</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li id="navReviews" style="display:none"><a href="#reviews">Members</a></li>
     <li><a href="#join">Join</a></li>
     <li><a href="#video">Video</a></li>
     <li><a href="#artists">Artists</a></li>
@@ -917,7 +1081,7 @@
   <div class="hero-orb orb-1"></div>
   <div class="hero-orb orb-2"></div>
   <div class="hero-orb orb-3"></div>
-  <p class="hero-tag">🍹 연합 취미밴드 — Seoul, 2025</p>
+  <p class="hero-tag">🍹 연합 취미밴드 — Seoul, 2026</p>
   <h1 class="hero-title"><span class="l1">HIGHBALL</span><br><span class="l2">BLUE</span></h1>
   <p class="hero-subtitle">일상에 청량한 한 잔의 휴식을 더하는<br>20대 연합 취미밴드</p>
   <div class="hero-cta-group">
@@ -1032,27 +1196,27 @@
     </p>
 
     <div class="parts-grid fade-in">
-      <div class="part-card">
+      <div class="part-card" data-part="vocal">
         <div class="part-head"><span class="part-icon">🎤</span><p class="part-name">보컬</p></div>
         <p class="part-req">좋아하는 노래를 음정 크게 벗어나지 않고 부를 수 있으면 OK. 화음·비브라토는 하면서 늘어요.</p>
       </div>
-      <div class="part-card">
+      <div class="part-card" data-part="guitar1">
         <div class="part-head"><span class="part-icon">🎸</span><p class="part-name">퍼스트 기타</p></div>
         <p class="part-req">C·G·Am·F 등 기본 오픈코드 전환이 가능하고, 간단한 멜로디 라인을 짚을 수 있는 정도.</p>
       </div>
-      <div class="part-card">
+      <div class="part-card" data-part="guitar2">
         <div class="part-head"><span class="part-icon">🎸</span><p class="part-name">세컨드 기타</p></div>
         <p class="part-req">기본 코드 스트로크(다운·업 스트럼)로 한 곡을 끝까지 칠 수 있으면 충분해요.</p>
       </div>
-      <div class="part-card">
+      <div class="part-card" data-part="bass">
         <div class="part-head"><span class="part-icon">🎵</span><p class="part-name">베이스</p></div>
         <p class="part-req">한 음씩 짚으며 루트음으로 곡을 따라갈 수 있는 정도. 손가락·피크 주법 뭐든 OK.</p>
       </div>
-      <div class="part-card">
+      <div class="part-card" data-part="drum">
         <div class="part-head"><span class="part-icon">🥁</span><p class="part-name">드럼</p></div>
         <p class="part-req">8비트 기본 리듬(쿵-따-쿵쿵-따)을 일정한 박자로 칠 수 있으면 시작할 수 있어요.</p>
       </div>
-      <div class="part-card">
+      <div class="part-card" data-part="keys">
         <div class="part-head"><span class="part-icon">🎹</span><p class="part-name">키보드</p></div>
         <p class="part-req">양손으로 간단한 코드 반주가 가능하거나, 악보 보고 멜로디를 칠 수 있는 정도.</p>
       </div>
@@ -1137,6 +1301,118 @@
 </section>
 
 <div class="neon-line"></div>
+
+<div class="neon-line"></div>
+
+<!--
+  FAQ — 아래 질문들은 답을 운영진만 알고 있어서 넣지 않았습니다. 확정되면 같은 형식으로 추가하세요.
+    · 악기가 없는데 괜찮나요? (합주실에 드럼·앰프·키보드가 있는지, 기타/베이스는 개인 지참인지)
+    · 합주를 한 번 빠지면 어떻게 되나요? (사전 공지 기준, 연속 결석 시 처리)
+    · 합주실 대여비 1/N이면 한 달에 실제로 얼마쯤 드나요?
+    · 시작한 반을 중간에 바꿀 수 있나요? (거북이 → 고래)
+-->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <p class="section-eyebrow">// FAQ</p>
+    <h2 class="section-title fade-in">지원 전에<br>많이 묻는 것들 🤔</h2>
+    <p class="parts-intro fade-in" style="margin-bottom:2rem">
+      실력 걱정만큼 자주 나오는 게 <strong>시간과 부담</strong>에 대한 질문이에요.
+      미리 알고 지원하시라고 정리해뒀습니다.
+    </p>
+
+    <div class="faq-list fade-in">
+      <details class="faq-item">
+        <summary><span class="faq-q">Q1</span>악기를 이제 막 시작했는데 지원해도 되나요?</summary>
+        <div class="faq-a">
+          네. 악기를 처음 잡았거나 기본 코드 몇 개만 아는 분들을 위한 <strong>거북이반</strong>이 따로 있어요.
+          틀려도 웃으며 맞춰가는 걸 전제로 운영하는 반이라 부담 없이 시작할 수 있습니다.
+          파트별로 어느 정도면 되는지는 <a href="#parts">PARTS 섹션</a>에 적어뒀어요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q2</span>시험 기간에도 합주하나요?</summary>
+        <div class="faq-a">
+          아니요. <strong>시험 기간 1~2주 전에는 합주를 진행하지 않습니다.</strong>
+          다들 대학생이라 학업 일정을 우선으로 잡아요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q3</span>회비가 정말 없나요? 그럼 돈은 어떻게 쓰나요?</summary>
+        <div class="faq-a">
+          가입비·회비 <strong>모두 없습니다.</strong> 그날 합주에 참여한 인원끼리 합주실 대여비만 1/N로 정산해요.
+          모든 지출 내역은 부원들에게 투명하게 공유하고, 상업적 부수입은 일절 없습니다.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q4</span>합주는 얼마나 자주, 어디서 하나요?</summary>
+        <div class="faq-a">
+          <strong>격주 1회</strong>입니다. 신촌 · 합정 · 서울대입구 인근 전문 합주실에서 진행해요.
+          합주 전 개인 연습은 서로에 대한 매너로 여기고 있습니다.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q5</span>지원하면 어떤 절차를 거치나요?</summary>
+        <div class="faq-a">
+          구글폼 지원서 제출 → 작성하신 일정에 맞춰 <strong>비대면 인터뷰(약 5분)</strong> →
+          최종 매칭 시 개별 안내 후 정기 채팅방 초대, 첫 합주 일정 조율 순입니다.
+          인터뷰라고 해도 연주 경험과 일정을 확인하는 부담 없는 소통 정도예요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q6</span>반은 어떻게 정해지나요?</summary>
+        <div class="faq-a">
+          지원서와 인터뷰에서 확인한 연주 경험 · 일정을 바탕으로
+          <strong>거북이 / 고래 / 돌고래</strong> 중 맞는 반으로 매칭합니다.
+          각 반의 기준은 <a href="#about">클래스 안내</a>를 참고하세요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q7</span>누가 지원할 수 있나요?</summary>
+        <div class="faq-a">
+          <strong>수도권 대학교 재학생 또는 휴학생</strong>이면 됩니다.
+          서울에서 격주 정기 합주에 참여 가능해야 해요.
+          종교 · 정치 · 시민단체와는 무관한 자치 밴드 동아리입니다.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q8</span>어떤 곡을 연주하나요?</summary>
+        <div class="faq-a">
+          반별 난이도로 나눠서 진행합니다. 현재 합주 중인 곡과 추천 리스트는
+          <a href="#setlist">SETLIST 섹션</a>에서 볼 수 있어요.
+          자작곡 제작과 음원 아카이빙은 돌고래반에서 함께합니다.
+        </div>
+      </details>
+    </div>
+
+    <p class="parts-note fade-in">
+      💬 여기에 없는 게 궁금하다면? 지원서 마지막 문항에 자유롭게 적어주시면 인터뷰 때 답해드려요.
+    </p>
+  </div>
+</section>
+
+<!--
+  부원 후기 — 내용은 스크립트 하단 REVIEWS 배열에서 채웁니다.
+  배열이 비어 있으면 이 섹션과 네비 항목이 통째로 숨겨지므로, 지금 배포해도 빈 섹션이 보이지 않습니다.
+-->
+<div class="neon-line" id="reviewLine" style="display:none"></div>
+
+<section class="review-section" id="reviews" style="display:none">
+  <div class="container">
+    <p class="section-eyebrow">// Members</p>
+    <h2 class="section-title fade-in">먼저 온 사람들의<br>이야기 💬</h2>
+    <p class="parts-intro fade-in" style="margin-bottom:2rem">
+      하이볼 블루에서 한 학기를 보낸 부원들이 직접 남긴 후기예요.
+    </p>
+    <div class="review-grid fade-in" id="reviewGrid"></div>
+  </div>
+</section>
 
 <section class="recruit" id="join">
   <div class="container fade-in">
@@ -1280,6 +1556,9 @@
       <button class="tab-btn" onclick="filterArtists('kpop', this)">K-pop</button>
     </div>
     <div class="artist-grid" id="artistGrid"></div>
+    <div class="artist-more-wrap" id="artistMoreWrap" style="display:none">
+      <button class="artist-more" id="artistMore" type="button" aria-controls="artistGrid" aria-expanded="false"></button>
+    </div>
   </div>
 </section>
 
@@ -1339,11 +1618,22 @@
     </div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@highballblue" target="_blank">YouTube</a>
+      <!-- 인스타 계정이 생기면 아래 한 줄의 주석을 풀고 핸들만 바꾸세요
+      <a href="https://www.instagram.com/highballblue" target="_blank" rel="noopener">Instagram</a>
+      -->
       <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank">지원 폼</a>
     </div>
-    <p class="footer-copy">© 2025 Highball Blue. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Highball Blue. All rights reserved.</p>
   </div>
 </footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-copy">
+    <p class="sticky-cta-dday" id="stickyDday">모집 마감 D-–</p>
+    <p class="sticky-cta-text">2기 부원 모집 중 🍹</p>
+  </div>
+  <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" rel="noopener" class="btn-primary">지원하기</a>
+</div>
 
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modalContent"></div>
@@ -1756,17 +2046,106 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+/* ── 아티스트: 처음엔 8팀만, 나머지는 더 보기 ── */
+const ARTIST_PREVIEW = 8;
+let artistGenre = 'all';
+let artistExpanded = false;
+
+function applyArtistVisibility() {
+  let matched = 0;
+  document.querySelectorAll('.artist-card').forEach(card => {
+    const match = artistGenre === 'all' || card.dataset.genre === artistGenre;
+    let visible = false;
+    if (match) {
+      visible = artistExpanded || matched < ARTIST_PREVIEW;
+      matched++;
+    }
+    card.classList.toggle('hidden', !visible);
+  });
+
+  const wrap = document.getElementById('artistMoreWrap');
+  const btn = document.getElementById('artistMore');
+  const rest = matched - ARTIST_PREVIEW;
+  wrap.style.display = rest > 0 ? 'flex' : 'none';
+  if (rest > 0) {
+    btn.textContent = artistExpanded ? '접기 ↑' : `${rest}팀 더 보기 ↓`;
+    btn.setAttribute('aria-expanded', String(artistExpanded));
+  }
+}
+
 function filterArtists(genre, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.artist-card').forEach(card => {
-    card.classList.toggle('hidden', !(genre === 'all' || card.dataset.genre === genre));
-  });
+  artistGenre = genre;
+  artistExpanded = false;
+  applyArtistVisibility();
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 renderArtists();
+applyArtistVisibility();
+document.getElementById('artistMore').addEventListener('click', () => {
+  artistExpanded = !artistExpanded;
+  applyArtistVisibility();
+  if (!artistExpanded) document.getElementById('artists').scrollIntoView({ block: 'start' });
+});
+
+/* ── 부원 후기 ────────────────────────────────────────────────
+   후기가 생기면 아래 배열에 하나씩 추가하세요. 배열이 비어 있는 동안에는
+   후기 섹션과 네비의 Members 항목이 숨겨집니다.
+
+     part   파트 이름            예: '드럼'
+     cohort 기수 (생략 가능)      예: '1기'
+     klass  소속 반 (생략 가능)   예: '거북이반'
+     text   후기 본문
+
+   실명 대신 파트와 학번/기수만 쓰는 걸 권합니다.
+   아래 두 개는 형식 예시라 주석 처리해뒀습니다 — 지우고 실제 후기를 넣으세요.       */
+const REVIEWS = [
+  // { part: '드럼',   cohort: '1기', klass: '거북이반', text: '스틱도 처음 잡아봤는데 3개월 만에 무대에 섰어요. 틀려도 아무도 눈치 주지 않는 게 제일 좋았습니다.' },
+  // { part: '보컬',   cohort: '1기', klass: '고래반',   text: '혼자 노래하는 거랑 밴드랑 완전히 다르더라고요. 합주실에서 처음 소리가 맞았을 때가 아직도 기억나요.' },
+];
+
+(function renderReviews() {
+  if (!REVIEWS.length) return;
+  document.getElementById('reviewGrid').innerHTML = REVIEWS.map(r => `
+    <div class="review-card">
+      <p class="review-text">${r.text}</p>
+      <div class="review-meta">
+        <span class="review-part">${r.part}</span>
+        ${r.cohort ? `<span class="review-tag">${r.cohort}</span>` : ''}
+        ${r.klass ? `<span class="review-tag klass">${r.klass}</span>` : ''}
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('reviews').style.display = '';
+  document.getElementById('reviewLine').style.display = '';
+  document.getElementById('navReviews').style.display = '';
+})();
+
+/* ── 파트별 남은 자리 ──────────────────────────────────────────
+   각 파트에 '남은 자리' 수를 적으면 배지가 바뀝니다.
+   0 = 마감(회색·카드 흐려짐), 1 = 1자리 남음(주황), 2 이상 = 모집 중(파랑).
+   자리가 다 차면 0으로 바꿔주세요.                                    */
+const PART_SLOTS = {
+  vocal:   2,   // 보컬
+  guitar1: 1,   // 퍼스트 기타
+  guitar2: 1,   // 세컨드 기타
+  bass:    1,   // 베이스
+  drum:    1,   // 드럼
+  keys:    2,   // 키보드
+};
+
+document.querySelectorAll('.part-card[data-part]').forEach(card => {
+  const n = PART_SLOTS[card.dataset.part];
+  if (n === undefined) return;
+  const badge = document.createElement('span');
+  badge.className = 'part-slot ' + (n <= 0 ? 'closed' : n === 1 ? 'few' : 'open');
+  badge.textContent = n <= 0 ? '마감' : n === 1 ? '1자리 남음' : `모집 중 · ${n}자리`;
+  card.classList.toggle('is-closed', n <= 0);
+  card.querySelector('.part-head').appendChild(badge);
+});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -1777,7 +2156,46 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* ── 모바일 햄버거 메뉴 ── */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+  navToggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+});
+navLinks.addEventListener('click', e => {
+  if (e.target.tagName === 'A') {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+/* ── 모집 마감 D-day + 하단 고정 CTA ── */
+const DEADLINE = new Date('2026-09-30T23:59:59+09:00');
+(function renderDday() {
+  const el = document.getElementById('stickyDday');
+  if (!el) return;
+  const days = Math.ceil((DEADLINE - Date.now()) / 86400000);
+  el.textContent = days > 0 ? `모집 마감 D-${days}` : (days === 0 ? '오늘 마감!' : '모집 마감');
+})();
+
+const stickyCta = document.getElementById('stickyCta');
+const heroEl = document.getElementById('top');
+let ctaTicking = false;
+function syncStickyCta() {
+  ctaTicking = false;
+  stickyCta.classList.toggle('show', window.scrollY > heroEl.offsetHeight * 0.8);
+}
+window.addEventListener('scroll', () => {
+  if (!ctaTicking) { ctaTicking = true; requestAnimationFrame(syncStickyCta); }
+}, { passive: true });
+syncStickyCta();
 </script>
+
+<!-- Vercel Analytics — Vercel 대시보드 > Analytics 에서 켜야 데이터가 쌓입니다 (끄면 404, 화면엔 영향 없음) -->
+<script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
