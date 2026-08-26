@@ -558,7 +558,7 @@
     position: relative; overflow: hidden;
   }
   .review-card::before {
-    content: 'C'; position: absolute; top: -0.35em; right: 0.25em;
+    content: '“'; position: absolute; top: -0.35em; right: 0.25em;
     font-family: 'Space Grotesk', serif; font-size: 6rem; line-height: 1;
     color: rgba(14, 165, 233, 0.1); pointer-events: none;
   }
@@ -567,9 +567,16 @@
     position: relative; z-index: 1; flex: 1;
   }
   .review-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .review-name {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700;
+    color: var(--text-strong); letter-spacing: -0.01em;
+  }
+  .review-name + .review-part::before {
+    content: '·'; margin-right: 0.4rem; color: var(--text-faint); font-weight: 400;
+  }
   .review-part {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; font-weight: 700;
-    color: var(--text-strong);
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; font-weight: 600;
+    color: var(--text-muted);
   }
   .review-tag {
     font-family: 'Space Mono', monospace; font-size: 0.58rem; font-weight: 700;
@@ -578,7 +585,7 @@
   }
   .review-tag.klass { background: rgba(6,182,212,0.14); color: #0E6E7F; }
 
-
+  /* ── 아티스트 더 보기 ── */
   .artist-more-wrap { display: flex; justify-content: center; margin-top: 2rem; }
   .artist-more {
     font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
@@ -2115,27 +2122,36 @@ document.getElementById('artistMore').addEventListener('click', () => {
 });
 
 /* ── 부원 후기 ────────────────────────────────────────────────
-   후기가 생기면 아래 배열에 하나씩 추가하세요. 배열이 비어 있는 동안에는
-   후기 섹션과 네비의 Members 항목이 숨겨집니다.
+   text 를 채운 항목만 화면에 나옵니다. 전부 비어 있으면 후기 섹션과
+   네비의 Members 항목이 통째로 숨겨지므로, 지금 이대로 배포해도 안전합니다.
 
-     part   파트 이름            예: '드럼'
-     cohort 기수 (생략 가능)      예: '1기'
-     klass  소속 반 (생략 가능)   예: '거북이반'
-     text   후기 본문
+     name   표시할 이름          예: '김0은'   (생략 가능)
+     part   파트                 예: '드럼'    (필수)
+     cohort 기수                 예: '1기'     (생략 가능)
+     klass  소속 반              예: '거북이반' (생략 가능)
+     text   후기 본문            (이게 있어야 카드가 나옵니다)
 
-   실명 대신 파트와 학번/기수만 쓰는 걸 권합니다.
-   아래 두 개는 형식 예시라 주석 처리해뒀습니다 — 지우고 실제 후기를 넣으세요.       */
+   1기 부원 8명 자리를 미리 만들어뒀습니다.
+   각자에게 받은 한 줄을 text 에 넣고 part 를 채우면 그 사람 카드부터 나타납니다. */
 const REVIEWS = [
-  // { part: '드럼',   cohort: '1기', klass: '거북이반', text: '스틱도 처음 잡아봤는데 3개월 만에 무대에 섰어요. 틀려도 아무도 눈치 주지 않는 게 제일 좋았습니다.' },
-  // { part: '보컬',   cohort: '1기', klass: '고래반',   text: '혼자 노래하는 거랑 밴드랑 완전히 다르더라고요. 합주실에서 처음 소리가 맞았을 때가 아직도 기억나요.' },
+  { name: '김0은', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '주0은', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '박0영', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '황0진', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '최0리', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '한0훈', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '김0민', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '이0록', part: '', cohort: '1기', klass: '', text: '' },
 ];
 
 (function renderReviews() {
-  if (!REVIEWS.length) return;
-  document.getElementById('reviewGrid').innerHTML = REVIEWS.map(r => `
+  const filled = REVIEWS.filter(r => r.text && r.text.trim());
+  if (!filled.length) return;
+  document.getElementById('reviewGrid').innerHTML = filled.map(r => `
     <div class="review-card">
       <p class="review-text">${r.text}</p>
       <div class="review-meta">
+        ${r.name ? `<span class="review-name">${r.name}</span>` : ''}
         <span class="review-part">${r.part}</span>
         ${r.cohort ? `<span class="review-tag">${r.cohort}</span>` : ''}
         ${r.klass ? `<span class="review-tag klass">${r.klass}</span>` : ''}
