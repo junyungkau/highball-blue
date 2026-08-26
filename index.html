@@ -33,31 +33,26 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
   :root {
-    /* 여름 낮 톤 — 이름은 값이 아니라 역할을 가리킨다 */
-    --bg-deep: #EAF6FF;        /* 최하단 배경 - 밝은 하늘빛 */
-    --surface-raised: #FFFFFF;          /* 카드/모달 배경 - 흰색 */
-    --bg-section: #F0F9FF;    /* 섹션 배경 - 아주 옅은 물빛 */
-    --surface: #FFFFFF;         /* 카드 배경 */
-    --tint-sky: #DBF0FB;       /* 옅은 하늘 */
-    --tint-aqua: #CFF0F7;       /* 옅은 물빛 */
-    --blue-300: #38BDF8;     /* 하늘색 */
-    --blue-500: #0EA5E9;    /* 선명한 스카이블루 (주요 포인트) */
-    --blue-600: #0284C7;    /* 진한 하늘 */
-    --blue-200: #7DD3FC;  /* 밝은 하늘 */
-    --cyan-500: #06B6D4;         /* 물빛 시안 */
-    --coral: #FB7185;         /* 산호빛 핑크 */
-    --coral-soft: #FECDD3;    /* 옅은 산호 */
-    --orange: #F97316;      /* 상큼한 오렌지 (여름 포인트) */
-    --lemon: #FACC15;        /* 레몬 옐로우 */
-    --lime: #84CC16;         /* 라임 */
+    /* 배경 · 표면 */
+    --surface:        #FFFFFF;  /* 카드 배경 */
+    --surface-raised: #FFFFFF;  /* 모달 · 떠 있는 카드 */
+
+    /* 블루 스케일 — 숫자가 클수록 진하다 */
+    --blue-200:       #7DD3FC;  /* 밝은 하늘 */
+    --blue-500:       #0EA5E9;  /* 주요 포인트 */
+    --blue-600:       #0284C7;  /* 진한 하늘 */
+    --cyan-500:       #06B6D4;  /* 물빛 시안 */
+
+    /* 강조 */
+    --accent-text:    #0E7490;  /* 밝은 배경 위 accent 텍스트 전용 (WCAG AA) */
+    --coral:          #FB7185;  /* 산호빛 핑크 */
+    --orange:         #F97316;  /* 상큼한 오렌지 */
+    --lemon:          #FACC15;  /* 레몬 옐로우 */
+
     /* 텍스트 — 밝은 배경 위라 어두운 잉크 계열 */
-    --text-strong: #082032;        /* 본문 진한 남색 (밝은 배경 위 텍스트) */
-    --text-muted: #2C5468;     /* 보조 텍스트 - 진하게 */
-    --text-faint: #5D89A0;  /* 흐린 텍스트 */
-    /* 사진 위에 얹는 어두운 표면 */
-    --surface-dark: #0A2233;
-    --accent-text: #0E7490;  /* 밝은 배경 위 accent 텍스트 전용 (WCAG AA) */
-    --surface-dark-2: #123044;
+    --text-strong:    #082032;  /* 본문 */
+    --text-muted:     #2C5468;  /* 보조 */
+    --text-faint:     #5D89A0;  /* 흐린 텍스트 */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1307,13 +1302,6 @@
 
 <div class="neon-line"></div>
 
-<!--
-  FAQ — 아래 질문들은 답을 운영진만 알고 있어서 넣지 않았습니다. 확정되면 같은 형식으로 추가하세요.
-    · 악기가 없는데 괜찮나요? (합주실에 드럼·앰프·키보드가 있는지, 기타/베이스는 개인 지참인지)
-    · 합주를 한 번 빠지면 어떻게 되나요? (사전 공지 기준, 연속 결석 시 처리)
-    · 합주실 대여비 1/N이면 한 달에 실제로 얼마쯤 드나요?
-    · 시작한 반을 중간에 바꿀 수 있나요? (거북이 → 고래)
--->
 <section class="faq-section" id="faq">
   <div class="container">
     <p class="section-eyebrow">// FAQ</p>
@@ -1334,7 +1322,15 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q2</span>시험 기간에도 합주하나요?</summary>
+        <summary><span class="faq-q">Q2</span>악기가 없는데 괜찮나요?</summary>
+        <div class="faq-a">
+          합주실에 <strong>드럼 · 앰프 · 키보드는 갖춰져 있어요.</strong> 드럼스틱만 개인 지참입니다.
+          다만 <strong>기타와 베이스는 개인 악기를 가져오셔야</strong> 해요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q3</span>시험 기간에도 합주하나요?</summary>
         <div class="faq-a">
           아니요. <strong>시험 기간 1~2주 전에는 합주를 진행하지 않습니다.</strong>
           다들 대학생이라 학업 일정을 우선으로 잡아요.
@@ -1342,7 +1338,15 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q3</span>회비가 정말 없나요? 그럼 돈은 어떻게 쓰나요?</summary>
+        <summary><span class="faq-q">Q4</span>합주를 한 번 빠지면 어떻게 되나요?</summary>
+        <div class="faq-a">
+          괜찮습니다. 다만 합주실 예약과 파트 조율이 걸려 있어서
+          <strong>최소 5일 전에는 미리 알려주세요.</strong> 그 정도만 지켜주시면 눈치 볼 일 없어요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q5</span>회비가 정말 없나요? 그럼 돈은 어떻게 쓰나요?</summary>
         <div class="faq-a">
           가입비·회비 <strong>모두 없습니다.</strong> 그날 합주에 참여한 인원끼리 합주실 대여비만 1/N로 정산해요.
           모든 지출 내역은 부원들에게 투명하게 공유하고, 상업적 부수입은 일절 없습니다.
@@ -1350,7 +1354,15 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q4</span>합주는 얼마나 자주, 어디서 하나요?</summary>
+        <summary><span class="faq-q">Q6</span>그럼 한 달에 실제로 얼마쯤 드나요?</summary>
+        <div class="faq-a">
+          합주실 대여비를 나누면 <strong>한 달에 대략 1만~2만 원</strong> 선입니다.
+          그날 참여 인원과 합주실에 따라 조금씩 달라져요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q7</span>합주는 얼마나 자주, 어디서 하나요?</summary>
         <div class="faq-a">
           <strong>격주 1회</strong>입니다. 신촌 · 합정 · 서울대입구 인근 전문 합주실에서 진행해요.
           합주 전 개인 연습은 서로에 대한 매너로 여기고 있습니다.
@@ -1358,7 +1370,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q5</span>지원하면 어떤 절차를 거치나요?</summary>
+        <summary><span class="faq-q">Q8</span>지원하면 어떤 절차를 거치나요?</summary>
         <div class="faq-a">
           구글폼 지원서 제출 → 작성하신 일정에 맞춰 <strong>비대면 인터뷰(약 5분)</strong> →
           최종 매칭 시 개별 안내 후 정기 채팅방 초대, 첫 합주 일정 조율 순입니다.
@@ -1367,7 +1379,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q6</span>반은 어떻게 정해지나요?</summary>
+        <summary><span class="faq-q">Q9</span>반은 어떻게 정해지나요?</summary>
         <div class="faq-a">
           지원서와 인터뷰에서 확인한 연주 경험 · 일정을 바탕으로
           <strong>거북이 / 고래 / 돌고래</strong> 중 맞는 반으로 매칭합니다.
@@ -1376,7 +1388,15 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q7</span>누가 지원할 수 있나요?</summary>
+        <summary><span class="faq-q">Q10</span>시작한 반을 중간에 바꿀 수 있나요?</summary>
+        <div class="faq-a">
+          가능합니다. 거북이반에서 시작했다가 실력이 붙으면 고래반으로 옮기는 식으로
+          <strong>중간에 반을 교체할 수 있어요.</strong> 처음 배정이 끝까지 가는 게 아니니 편하게 지원하세요.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="faq-q">Q11</span>누가 지원할 수 있나요?</summary>
         <div class="faq-a">
           <strong>수도권 대학교 재학생 또는 휴학생</strong>이면 됩니다.
           서울에서 격주 정기 합주에 참여 가능해야 해요.
@@ -1385,7 +1405,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q8</span>어떤 곡을 연주하나요?</summary>
+        <summary><span class="faq-q">Q12</span>어떤 곡을 연주하나요?</summary>
         <div class="faq-a">
           반별 난이도로 나눠서 진행합니다. 현재 합주 중인 곡과 추천 리스트는
           <a href="#setlist">SETLIST 섹션</a>에서 볼 수 있어요.
