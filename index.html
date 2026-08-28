@@ -510,7 +510,8 @@
   .part-card.is-closed:hover { transform: none; box-shadow: 0 8px 24px -14px rgba(14,165,233,0.35); }
 
   /* ── FAQ ── */
-  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .faq-item.hidden { display: none; }
   .faq-item {
     background: #FFFFFF; border: 1px solid rgba(14, 165, 233, 0.15); border-radius: 14px;
     box-shadow: 0 8px 24px -16px rgba(14, 165, 233, 0.35);
@@ -524,10 +525,6 @@
   }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary:focus-visible { outline: 2px solid var(--blue-500); outline-offset: -2px; }
-  .faq-q {
-    flex-shrink: 0; font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
-    color: var(--accent-text); padding-top: 0.18rem;
-  }
   .faq-item summary::after {
     content: '+'; margin-left: auto; flex-shrink: 0;
     font-size: 1.2rem; font-weight: 400; line-height: 1; color: var(--blue-500);
@@ -535,7 +532,7 @@
   }
   .faq-item[open] summary::after { transform: rotate(45deg); }
   .faq-a {
-    padding: 0 1.4rem 1.25rem 3.6rem;
+    padding: 0 1.4rem 1.25rem 1.4rem;
     font-size: 0.88rem; font-weight: 450; color: var(--text-muted); line-height: 1.8;
   }
   .faq-a strong { color: var(--text-strong); font-weight: 600; }
@@ -586,8 +583,8 @@
   .review-tag.klass { background: rgba(6,182,212,0.14); color: #0E6E7F; }
 
   /* ── 아티스트 더 보기 ── */
-  .artist-more-wrap { display: flex; justify-content: center; margin-top: 2rem; }
-  .artist-more {
+  .artist-more-wrap, .faq-more-wrap { display: flex; justify-content: center; margin-top: 1.5rem; }
+  .artist-more, .faq-more {
     font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
     letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
     padding: 0.85rem 2rem; border-radius: 999px;
@@ -595,8 +592,8 @@
     border: 1px solid rgba(14, 165, 233, 0.3);
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
   }
-  .artist-more:hover { background: #fff; border-color: rgba(14,165,233,0.55); transform: translateY(-2px); }
-  .artist-more:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+  .artist-more:hover, .faq-more:hover { background: #fff; border-color: rgba(14,165,233,0.55); transform: translateY(-2px); }
+  .artist-more:focus-visible, .faq-more:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
 
   .parts-note {
     font-size: 0.9rem; font-weight: 450; color: var(--text-muted); line-height: 1.7; text-align: center;
@@ -1318,9 +1315,9 @@
       미리 알고 지원하시라고 정리해뒀습니다.
     </p>
 
-    <div class="faq-list fade-in">
+    <div class="faq-list fade-in" id="faqList">
       <details class="faq-item">
-        <summary><span class="faq-q">Q1</span>악기를 이제 막 시작했는데 지원해도 되나요?</summary>
+        <summary>악기를 이제 막 시작했는데 지원해도 되나요?</summary>
         <div class="faq-a">
           네. 악기를 처음 잡았거나 기본 코드 몇 개만 아는 분들을 위한 <strong>거북이반</strong>이 따로 있어요.
           틀려도 웃으며 맞춰가는 걸 전제로 운영하는 반이라 부담 없이 시작할 수 있습니다.
@@ -1329,7 +1326,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q2</span>악기가 없는데 괜찮나요?</summary>
+        <summary>악기가 없는데 괜찮나요?</summary>
         <div class="faq-a">
           합주실에 <strong>드럼 · 앰프 · 키보드는 갖춰져 있어요.</strong> 드럼스틱만 개인 지참입니다.
           다만 <strong>기타와 베이스는 개인 악기를 가져오셔야</strong> 해요.
@@ -1337,7 +1334,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q3</span>시험 기간에도 합주하나요?</summary>
+        <summary>시험 기간에도 합주하나요?</summary>
         <div class="faq-a">
           아니요. <strong>시험 기간 1~2주 전에는 합주를 진행하지 않습니다.</strong>
           다들 대학생이라 학업 일정을 우선으로 잡아요.
@@ -1345,7 +1342,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q4</span>합주를 한 번 빠지면 어떻게 되나요?</summary>
+        <summary>합주를 한 번 빠지면 어떻게 되나요?</summary>
         <div class="faq-a">
           괜찮습니다. 다만 합주실 예약과 파트 조율이 걸려 있어서
           <strong>최소 5일 전에는 미리 알려주세요.</strong> 그 정도만 지켜주시면 눈치 볼 일 없어요.
@@ -1353,7 +1350,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q5</span>회비가 정말 없나요? 그럼 돈은 어떻게 쓰나요?</summary>
+        <summary>회비가 정말 없나요? 그럼 돈은 어떻게 쓰나요?</summary>
         <div class="faq-a">
           가입비·회비 <strong>모두 없습니다.</strong> 그날 합주에 참여한 인원끼리 합주실 대여비만 1/N로 정산해요.
           모든 지출 내역은 부원들에게 투명하게 공유하고, 상업적 부수입은 일절 없습니다.
@@ -1361,7 +1358,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q6</span>그럼 한 달에 실제로 얼마쯤 드나요?</summary>
+        <summary>그럼 한 달에 실제로 얼마쯤 드나요?</summary>
         <div class="faq-a">
           합주실 대여비를 나누면 <strong>한 달에 대략 1만~2만 원</strong> 선입니다.
           그날 참여 인원과 합주실에 따라 조금씩 달라져요.
@@ -1369,7 +1366,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q7</span>합주는 얼마나 자주, 어디서 하나요?</summary>
+        <summary>합주는 얼마나 자주, 어디서 하나요?</summary>
         <div class="faq-a">
           <strong>격주 1회</strong>입니다. 신촌 · 합정 · 서울대입구 인근 전문 합주실에서 진행해요.
           합주 전 개인 연습은 서로에 대한 매너로 여기고 있습니다.
@@ -1377,7 +1374,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q8</span>지원하면 어떤 절차를 거치나요?</summary>
+        <summary>지원하면 어떤 절차를 거치나요?</summary>
         <div class="faq-a">
           구글폼 지원서 제출 → 작성하신 일정에 맞춰 <strong>비대면 인터뷰(약 5분)</strong> →
           최종 매칭 시 개별 안내 후 정기 채팅방 초대, 첫 합주 일정 조율 순입니다.
@@ -1386,7 +1383,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q9</span>반은 어떻게 정해지나요?</summary>
+        <summary>반은 어떻게 정해지나요?</summary>
         <div class="faq-a">
           지원서와 인터뷰에서 확인한 연주 경험 · 일정을 바탕으로
           <strong>거북이 / 고래 / 돌고래</strong> 중 맞는 반으로 매칭합니다.
@@ -1395,7 +1392,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q10</span>시작한 반을 중간에 바꿀 수 있나요?</summary>
+        <summary>시작한 반을 중간에 바꿀 수 있나요?</summary>
         <div class="faq-a">
           가능합니다. 거북이반에서 시작했다가 실력이 붙으면 고래반으로 옮기는 식으로
           <strong>중간에 반을 교체할 수 있어요.</strong> 처음 배정이 끝까지 가는 게 아니니 편하게 지원하세요.
@@ -1403,7 +1400,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q11</span>누가 지원할 수 있나요?</summary>
+        <summary>누가 지원할 수 있나요?</summary>
         <div class="faq-a">
           <strong>수도권 대학교 재학생 또는 휴학생</strong>이면 됩니다.
           서울에서 격주 정기 합주에 참여 가능해야 해요.
@@ -1412,7 +1409,7 @@
       </details>
 
       <details class="faq-item">
-        <summary><span class="faq-q">Q12</span>어떤 곡을 연주하나요?</summary>
+        <summary>어떤 곡을 연주하나요?</summary>
         <div class="faq-a">
           반별 난이도로 나눠서 진행합니다. 현재 합주 중인 곡과 추천 리스트는
           <a href="#setlist">SETLIST 섹션</a>에서 볼 수 있어요.
@@ -1421,7 +1418,11 @@
       </details>
     </div>
 
-    <p class="parts-note fade-in">
+    <div class="faq-more-wrap" id="faqMoreWrap" style="display:none">
+      <button class="faq-more" id="faqMore" type="button" aria-controls="faqList" aria-expanded="false"></button>
+    </div>
+
+    <p class="parts-note fade-in" style="margin-top:2rem">
       💬 여기에 없는 게 궁금하다면? 지원서 마지막 문항에 자유롭게 적어주시면 인터뷰 때 답해드려요.
     </p>
   </div>
@@ -2121,6 +2122,33 @@ document.getElementById('artistMore').addEventListener('click', () => {
   if (!artistExpanded) document.getElementById('artists').scrollIntoView({ block: 'start' });
 });
 
+/* ── FAQ: 처음엔 6개만, 나머지는 더 보기 ── */
+const FAQ_PREVIEW = 6;
+let faqExpanded = false;
+
+function applyFaqVisibility() {
+  const items = [...document.querySelectorAll('.faq-item')];
+  items.forEach((el, i) => {
+    const hide = !faqExpanded && i >= FAQ_PREVIEW;
+    el.classList.toggle('hidden', hide);
+    if (hide) el.open = false;          // 접을 때 열려 있던 항목은 닫는다
+  });
+  const rest = items.length - FAQ_PREVIEW;
+  const wrap = document.getElementById('faqMoreWrap');
+  const btn = document.getElementById('faqMore');
+  wrap.style.display = rest > 0 ? 'flex' : 'none';
+  if (rest > 0) {
+    btn.textContent = faqExpanded ? '접기 ↑' : `질문 ${rest}개 더 보기 ↓`;
+    btn.setAttribute('aria-expanded', String(faqExpanded));
+  }
+}
+applyFaqVisibility();
+document.getElementById('faqMore').addEventListener('click', () => {
+  faqExpanded = !faqExpanded;
+  applyFaqVisibility();
+  if (!faqExpanded) document.getElementById('faq').scrollIntoView({ block: 'start' });
+});
+
 /* ── 부원 후기 ────────────────────────────────────────────────
    text 를 채운 항목만 화면에 나옵니다. 전부 비어 있으면 후기 섹션과
    네비의 Members 항목이 통째로 숨겨지므로, 지금 이대로 배포해도 안전합니다.
@@ -2128,20 +2156,18 @@ document.getElementById('artistMore').addEventListener('click', () => {
      name   표시할 이름          예: '김0은'   (생략 가능)
      part   파트                 예: '드럼'    (필수)
      cohort 기수                 예: '1기'     (생략 가능)
-     klass  소속 반              예: '거북이반' (생략 가능)
      text   후기 본문            (이게 있어야 카드가 나옵니다)
 
-   1기 부원 8명 자리를 미리 만들어뒀습니다.
-   각자에게 받은 한 줄을 text 에 넣고 part 를 채우면 그 사람 카드부터 나타납니다. */
+   2기 후기가 모이면 cohort 를 '2기' 로 해서 같은 형식으로 추가하면 됩니다. */
 const REVIEWS = [
-  { name: '김0은', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '주0은', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '박0영', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '황0진', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '최0리', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '한0훈', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '김0민', part: '', cohort: '1기', klass: '', text: '' },
-  { name: '이0록', part: '', cohort: '1기', klass: '', text: '' },
+  { name: '김0은', part: '보컬', cohort: '1기', text: '좋은 사람들과 함께 노래하고 합주할 수 있어서 즐거웠고, 오래 기억에 남을 것 같아요.' },
+  { name: '주0은', part: '드럼', cohort: '1기', text: '합주를 하면서 서로의 소리를 맞춰가는 과정이 생각보다 더 재미있고 뜻깊었습니다.' },
+  { name: '박0영', part: '키보드', cohort: '1기', text: '혼자 연주할 때와는 또 다른 밴드만의 즐거움을 느낄 수 있어서 좋은 시간이었어요.' },
+  { name: '황0민', part: '보컬', cohort: '1기', text: '함께 노래를 만들고 무대를 준비하는 과정 자체가 즐거웠고 좋은 추억이 되었습니다.' },
+  { name: '최0리', part: '기타', cohort: '1기', text: '처음부터 끝까지 다 같이 한 곡을 완성해가는 과정이 재미있었고 뿌듯했습니다.' },
+  { name: '한0훈', part: '기타', cohort: '1기', text: '서로 맞춰가며 연주하는 시간이 즐거웠고, 밴드의 매력을 제대로 느낄 수 있었습니다.' },
+  { name: '김0민', part: '베이스', cohort: '1기', text: '각자 다른 파트가 하나의 음악으로 맞아가는 순간들이 재미있고 기억에 남았습니다.' },
+  { name: '이0록', part: '키보드', cohort: '1기', text: '좋은 사람들과 함께 음악을 만들 수 있어서 즐거웠고, 다음에도 또 해보고 싶은 경험이었습니다.' },
 ];
 
 (function renderReviews() {
