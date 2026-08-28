@@ -581,10 +581,11 @@
     background: rgba(56,189,248,0.16); color: #0369A1; white-space: nowrap;
   }
   .review-tag.klass { background: rgba(6,182,212,0.14); color: #0E6E7F; }
+  .review-card.hidden { display: none; }
 
   /* ── 아티스트 더 보기 ── */
-  .artist-more-wrap, .faq-more-wrap { display: flex; justify-content: center; margin-top: 1.5rem; }
-  .artist-more, .faq-more {
+  .artist-more-wrap, .faq-more-wrap, .review-more-wrap { display: flex; justify-content: center; margin-top: 1.5rem; }
+  .artist-more, .faq-more, .review-more {
     font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
     letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
     padding: 0.85rem 2rem; border-radius: 999px;
@@ -592,8 +593,8 @@
     border: 1px solid rgba(14, 165, 233, 0.3);
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
   }
-  .artist-more:hover, .faq-more:hover { background: #fff; border-color: rgba(14,165,233,0.55); transform: translateY(-2px); }
-  .artist-more:focus-visible, .faq-more:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+  .artist-more:hover, .faq-more:hover, .review-more:hover { background: #fff; border-color: rgba(14,165,233,0.55); transform: translateY(-2px); }
+  .artist-more:focus-visible, .faq-more:focus-visible, .review-more:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
 
   .parts-note {
     font-size: 0.9rem; font-weight: 450; color: var(--text-muted); line-height: 1.7; text-align: center;
@@ -1442,6 +1443,9 @@
       하이볼 블루에서 한 학기를 보낸 부원들이 직접 남긴 후기예요.
     </p>
     <div class="review-grid fade-in" id="reviewGrid"></div>
+    <div class="review-more-wrap" id="reviewMoreWrap" style="display:none">
+      <button class="review-more" id="reviewMore" type="button" aria-controls="reviewGrid" aria-expanded="false"></button>
+    </div>
   </div>
 </section>
 
@@ -2167,6 +2171,23 @@ const REVIEWS = [
   { name: '이0록', part: '키보드', cohort: '1기', text: '좋은 사람들과 함께 음악을 만들 수 있어서 즐거웠고, 다음에도 또 해보고 싶은 경험이었습니다.' },
 ];
 
+/* 후기도 처음엔 4개만 보여준다 */
+const REVIEW_PREVIEW = 4;
+let reviewExpanded = false;
+
+function applyReviewVisibility() {
+  const cards = [...document.querySelectorAll('.review-card')];
+  cards.forEach((el, i) => el.classList.toggle('hidden', !reviewExpanded && i >= REVIEW_PREVIEW));
+  const rest = cards.length - REVIEW_PREVIEW;
+  const wrap = document.getElementById('reviewMoreWrap');
+  const btn = document.getElementById('reviewMore');
+  wrap.style.display = rest > 0 ? 'flex' : 'none';
+  if (rest > 0) {
+    btn.textContent = reviewExpanded ? '접기 ↑' : `후기 ${rest}개 더 보기 ↓`;
+    btn.setAttribute('aria-expanded', String(reviewExpanded));
+  }
+}
+
 (function renderReviews() {
   const filled = REVIEWS.filter(r => r.text && r.text.trim());
   if (!filled.length) return;
@@ -2184,6 +2205,12 @@ const REVIEWS = [
   document.getElementById('reviews').style.display = '';
   document.getElementById('reviewLine').style.display = '';
   document.getElementById('navReviews').style.display = '';
+  applyReviewVisibility();
+  document.getElementById('reviewMore').addEventListener('click', () => {
+    reviewExpanded = !reviewExpanded;
+    applyReviewVisibility();
+    if (!reviewExpanded) document.getElementById('reviews').scrollIntoView({ block: 'start' });
+  });
 })();
 
 /* ── 파트별 남은 자리 ──────────────────────────────────────────
