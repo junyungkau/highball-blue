@@ -985,7 +985,8 @@
   }
   .footer-slogan { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 450; }
   .footer-staff {
-    font-size: 0.8rem; color: var(--text-faint); margin-top: 0.45rem; font-weight: 450;
+    font-size: 0.78rem; color: var(--text-faint); margin-top: 0.5rem;
+    font-weight: 450; line-height: 1.6; max-width: 42ch;
   }
   .footer-staff b { color: var(--text-muted); font-weight: 600; }
   .footer-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
@@ -1804,7 +1805,7 @@
     <div>
       <p class="footer-logo">HIGHBALL BLUE</p>
       <p class="footer-slogan" data-closed-text="청량한 20대 연합 취미밴드 — 4기 모집 준비 중">청량한 20대 연합 취미밴드 — 3기 모집 중</p>
-      <p class="footer-staff" id="footerStaff" style="display:none"></p>
+      <p class="footer-staff">대학생 · 직장인 부원들이 직접 운영하는 자치 밴드 — 종교 · 정치 · 시민단체와 무관합니다.</p>
     </div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@highballblue" target="_blank">YouTube</a>
@@ -2365,19 +2366,6 @@ document.getElementById('faqMore').addEventListener('click', () => {
   applyFaqVisibility();
   if (!faqExpanded) document.getElementById('faq').scrollIntoView({ block: 'start' });
 });
-
-/* ── 운영진 ──────────────────────────────────────────────────
-   이름과 역할을 채우면 푸터에 한 줄로 표시됩니다. 비어 있으면 아예 숨겨집니다.
-   외부에서 "누가 운영하는 모임인지" 확인할 수 있어야 해서 넣어둔 자리입니다.
-   예: [{ role: '운영장', name: '김0은' }, { role: '총무', name: '이0록' }]        */
-const STAFF = [];
-
-(function renderStaff() {
-  if (!STAFF.length) return;
-  const el = document.getElementById('footerStaff');
-  el.innerHTML = '운영진 · ' + STAFF.map(p => `<b>${p.name}</b> ${p.role}`).join(' · ');
-  el.style.display = '';
-})();
 
 /* ── 캐롤 ────────────────────────────────────────────────────
    자동재생은 브라우저가 막기도 하고 민폐라 하지 않습니다. 눌렀을 때만 울립니다.
