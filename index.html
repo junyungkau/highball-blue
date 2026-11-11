@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HIGHBALL BLUE — 청량한 20대 연합 취미밴드</title>
-<meta name="description" content="수도권 대학생 연합 밴드동아리 하이볼 블루. 거북이·고래·돌고래 3단계 맞춤 클래스, 격주 합주, 가입비·회비 없음. 2026년 2기 부원 모집 중 (~9.30).">
+<meta name="description" content="수도권 대학생 연합 밴드동아리 하이볼 블루. 거북이·고래·돌고래 3단계 맞춤 클래스, 격주 합주, 가입비·회비 없음. 3기 부원 모집 중 (~11.30), 12월부터 겨울 시즌 합주 시작.">
 <link rel="canonical" href="https://highball-blue.vercel.app/">
 <meta name="theme-color" content="#0EA5E9">
 <meta name="naver-site-verification" content="">
@@ -13,15 +13,15 @@
 <meta property="og:site_name" content="HIGHBALL BLUE">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://highball-blue.vercel.app/">
-<meta property="og:title" content="HIGHBALL BLUE — 대학생 연합 밴드동아리 2기 모집">
-<meta property="og:description" content="보컬·일렉·베이스·드럼·키보드 모집 중. 초심자 거북이반부터 무대 중심 돌고래반까지, 격주 합주 · 회비 없음. ~9.30 마감">
+<meta property="og:title" content="HIGHBALL BLUE — 대학생 연합 밴드동아리 3기 모집">
+<meta property="og:description" content="보컬·일렉·베이스·드럼·키보드 모집 중. 12월부터 겨울 시즌 합주 — 캐롤과 back number까지. 초심자 환영 · 회비 없음. ~11.30 마감">
 <meta property="og:image" content="https://highball-blue.vercel.app/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="하이볼 블루 2기 부원 모집 — 초심자 환영, 격주 합주, 회비 없음">
+<meta property="og:image:alt" content="하이볼 블루 3기 부원 모집 — 12월 겨울 시즌 시작, 초심자 환영, 회비 없음">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HIGHBALL BLUE — 대학생 연합 밴드동아리 2기 모집">
-<meta name="twitter:description" content="초심자도 환영. 격주 합주 · 회비 없음 · ~9.30 마감">
+<meta name="twitter:title" content="HIGHBALL BLUE — 대학생 연합 밴드동아리 3기 모집">
+<meta name="twitter:description" content="12월부터 겨울 시즌 합주. 초심자 환영 · 회비 없음 · ~11.30 마감">
 <meta name="twitter:image" content="https://highball-blue.vercel.app/images/og-cover.jpg">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
@@ -757,6 +757,30 @@
   .set-list li:hover { background: rgba(186, 232, 255, 0.8); }
   .set-list .song { font-size: 0.92rem; font-weight: 600; color: var(--text-strong); }
   .set-list .artist { font-size: 0.78rem; font-weight: 500; color: var(--text-faint); white-space: nowrap; }
+  /* ── 겨울 시즌 블록 ── */
+  .season-divider { display: flex; align-items: center; gap: 1rem; margin: 3.5rem 0 1.5rem; }
+  .season-divider::before, .season-divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(14,165,233,0.35), transparent);
+  }
+  .season-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--text-strong); white-space: nowrap; letter-spacing: -0.01em;
+  }
+  .season-sub {
+    text-align: center; font-size: 0.88rem; font-weight: 450; color: var(--text-muted);
+    line-height: 1.7; margin-bottom: 1.75rem;
+  }
+  .season-sub strong { color: var(--blue-600); font-weight: 600; }
+  .set-card.is-winter { background: linear-gradient(170deg, #F7FCFF 0%, #FFFFFF 55%); }
+  .set-list li.pick { background: rgba(250, 204, 21, 0.14); }
+  .set-list li.pick .song::after {
+    content: '추천'; margin-left: 0.45rem; font-family: 'Space Mono', monospace;
+    font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em;
+    color: #8A5A00; background: rgba(250,204,21,0.35);
+    padding: 0.12rem 0.3rem; border-radius: 3px; vertical-align: 0.1em;
+  }
+
   .set-note { font-size: 0.8rem; font-weight: 450; color: var(--text-muted); line-height: 1.65; padding-top: 0.9rem; border-top: 1px dashed rgba(14,165,233,0.25); }
 
   /* ── ARTISTS ── */
@@ -923,6 +947,10 @@
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
   .footer-slogan { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 450; }
+  .footer-staff {
+    font-size: 0.8rem; color: var(--text-faint); margin-top: 0.45rem; font-weight: 450;
+  }
+  .footer-staff b { color: var(--text-muted); font-weight: 600; }
   .footer-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
   .footer-links a {
     font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em;
@@ -1088,7 +1116,7 @@
   <h1 class="hero-title"><span class="l1">HIGHBALL</span><br><span class="l2">BLUE</span></h1>
   <p class="hero-subtitle">일상에 청량한 한 잔의 휴식을 더하는<br>20대 연합 취미밴드</p>
   <div class="hero-cta-group">
-    <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="3기 소식 받기">지원하기</a>
+    <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기">지원하기</a>
     <a href="#artists" class="btn-secondary">아티스트 보기</a>
   </div>
 </section>
@@ -1158,7 +1186,7 @@
             <span class="poster-fact-icon">📅</span>
             <div>
               <span class="poster-fact-label">Deadline</span>
-              <span class="poster-fact-value">9월 30일까지 2기 모집</span>
+              <span class="poster-fact-value">11월 30일까지 3기 모집</span>
             </div>
           </div>
           <div class="poster-fact">
@@ -1166,6 +1194,13 @@
             <div>
               <span class="poster-fact-label">Who</span>
               <span class="poster-fact-value">수도권 대학교 재학생 · 휴학생</span>
+            </div>
+          </div>
+          <div class="poster-fact">
+            <span class="poster-fact-icon">✉️</span>
+            <div>
+              <span class="poster-fact-label">Contact</span>
+              <span class="poster-fact-value"><a href="mailto:bandwithme3@gmail.com" style="color:inherit">bandwithme3@gmail.com</a></span>
             </div>
           </div>
           <div class="poster-fact">
@@ -1178,7 +1213,7 @@
         </div>
 
         <div class="poster-cta-actions">
-          <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="3기 소식 받기 →">지원하기 →</a>
+          <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기 →">지원하기 →</a>
           <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
         </div>
       </div>
@@ -1298,6 +1333,70 @@
           <li><span class="song">Sweet Child O' Mine</span><span class="artist">Guns N' Roses</span></li>
         </ul>
         <p class="set-note">기술적 완성도와 밴드 전체의 호흡이 필요한 곡들이에요.</p>
+      </div>
+    </div>
+
+    <div class="season-divider fade-in">
+      <span class="season-label">❄️ 겨울 시즌 — 12월 합주곡</span>
+    </div>
+    <p class="season-sub fade-in">
+      3기는 <strong>12월부터 겨울 시즌</strong>으로 시작해요. 캐롤과 겨울 발라드 위주로 골랐고,
+      <strong>back number</strong>는 반별로 한 곡씩 넣어뒀습니다. 반마다 <strong>추천</strong> 표시된 곡으로 첫 합주를 엽니다.
+    </p>
+
+    <div class="setlist-grid fade-in">
+      <div class="set-card set-turtle is-winter">
+        <div class="set-head">
+          <img src="images/chars/turtle.png" alt="거북이반" class="set-char">
+          <div>
+            <p class="set-name">🐢 거북이반</p>
+            <p class="set-tag">코드 몇 개로 끝나는 캐롤</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li class="pick"><span class="song">Last Christmas</span><span class="artist">Wham!</span></li>
+          <li><span class="song">Antifreeze</span><span class="artist">검정치마</span></li>
+          <li><span class="song">미리 메리 크리스마스</span><span class="artist">아이유</span></li>
+          <li><span class="song">Run Rudolph Run</span><span class="artist">Chuck Berry</span></li>
+          <li><span class="song">선물</span><span class="artist">멜로망스</span></li>
+        </ul>
+        <p class="set-note">네 코드가 끝까지 반복돼요. 12월에 처음 합주해도 무대에 올릴 수 있는 곡들입니다.</p>
+      </div>
+
+      <div class="set-card set-whale is-winter">
+        <div class="set-head">
+          <img src="images/chars/whale.png" alt="고래반" class="set-char">
+          <div>
+            <p class="set-name">🐋 고래반</p>
+            <p class="set-tag">파트가 맞물릴 때 예뻐지는 곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li class="pick"><span class="song">クリスマスソング (크리스마스송)</span><span class="artist">back number</span></li>
+          <li><span class="song">녹아내려요</span><span class="artist">DAY6</span></li>
+          <li><span class="song">クリスマス・イブ</span><span class="artist">야마시타 타츠로</span></li>
+          <li><span class="song">Santa Claus Is Comin' to Town</span><span class="artist">Bruce Springsteen</span></li>
+          <li><span class="song">크리스마스니까</span><span class="artist">성시경 · 박효신 · 이석훈 · 서인국</span></li>
+        </ul>
+        <p class="set-note">back number의 겨울 대표곡으로 시작해요. 보컬이 둘이면 크리스마스니까로 화음도 쌓아볼 수 있어요.</p>
+      </div>
+
+      <div class="set-card set-dolphin is-winter">
+        <div class="set-head">
+          <img src="images/chars/dolphin.png" alt="돌고래반" class="set-char">
+          <div>
+            <p class="set-name">🐬 돌고래반</p>
+            <p class="set-tag">버스킹에서 터뜨릴 곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li class="pick"><span class="song">冬と春 (겨울과 봄)</span><span class="artist">back number</span></li>
+          <li><span class="song">All I Want for Christmas Is You</span><span class="artist">Mariah Carey</span></li>
+          <li><span class="song">눈의 꽃</span><span class="artist">박효신</span></li>
+          <li><span class="song">Fairytale of New York</span><span class="artist">The Pogues</span></li>
+          <li><span class="song">Happy Xmas (War Is Over)</span><span class="artist">John Lennon</span></li>
+        </ul>
+        <p class="set-note">보컬 난이도와 편곡 욕심을 모두 부릴 수 있는 곡들. 12월 실내 버스킹용으로 골랐어요.</p>
       </div>
     </div>
   </div>
@@ -1451,7 +1550,7 @@
 
 <section class="recruit" id="join">
   <div class="container fade-in">
-    <p class="section-eyebrow" data-closed-text="// 2기 모집 마감">// 부원 모집 중 (~9.30)</p>
+    <p class="section-eyebrow" data-closed-text="// 3기 모집 마감">// 3기 부원 모집 중 (~11.30)</p>
     <h2 class="section-title">합류할 준비<br>됐나요?</h2>
     <div class="info-grid">
       <div class="info-item"><p class="info-label">모집 파트</p><p class="info-value">보컬 2 · 일렉기타 2<br>베이스 1 · 드럼 1 · 키보드 2</p></div>
@@ -1462,7 +1561,7 @@
       <div class="info-item"><p class="info-label">모집 절차</p><p class="info-value">구글폼 → 비대면 인터뷰<br><span style="color: var(--text-faint); font-size: 0.8rem;">약 5분, 부담 없이!</span></p></div>
     </div>
     <div style="margin-top: 3.5rem;">
-      <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="3기 소식 받기 ↗">구글 폼으로 지원하기 ↗</a>
+      <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기 ↗">구글 폼으로 지원하기 ↗</a>
     </div>
   </div>
 </section>
@@ -1478,7 +1577,7 @@
       <span class="sig-plan-icon">🎙️</span>
       <p class="sig-plan-text">
         지금 들리는 두 곡은 <strong>데모 스케치</strong>예요.
-        2기와 함께 <strong>코드를 새로 따고, 직접 녹음하고, 후가공까지</strong> 거쳐
+        3기와 함께 <strong>코드를 새로 따고, 직접 녹음하고, 후가공까지</strong> 거쳐
         하이볼 블루의 음원으로 완성할 예정입니다. 완성된 곡은 <strong>음원 아카이빙</strong>으로 남겨요.
       </p>
     </div>
@@ -1649,11 +1748,13 @@
   <div class="footer-inner">
     <div>
       <p class="footer-logo">HIGHBALL BLUE</p>
-      <p class="footer-slogan" data-closed-text="청량한 20대 연합 취미밴드 — 3기 모집 준비 중">청량한 20대 연합 취미밴드 — 2기 모집 중</p>
+      <p class="footer-slogan" data-closed-text="청량한 20대 연합 취미밴드 — 4기 모집 준비 중">청량한 20대 연합 취미밴드 — 3기 모집 중</p>
+      <p class="footer-staff" id="footerStaff" style="display:none"></p>
     </div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@highballblue" target="_blank">YouTube</a>
       <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank">지원 폼</a>
+      <a href="mailto:bandwithme3@gmail.com">문의 메일</a>
     </div>
     <p class="footer-copy">© 2026 Highball Blue. All rights reserved.</p>
   </div>
@@ -1662,9 +1763,9 @@
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-copy">
     <p class="sticky-cta-dday" id="stickyDday">모집 마감 D-–</p>
-    <p class="sticky-cta-text" data-closed-text="2기 모집이 마감됐어요">2기 부원 모집 중 🍹</p>
+    <p class="sticky-cta-text" data-closed-text="3기 모집이 마감됐어요">3기 부원 모집 중 🍹</p>
   </div>
-  <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" rel="noopener" class="btn-primary" data-closed-text="3기 소식 받기">지원하기</a>
+  <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" rel="noopener" class="btn-primary" data-closed-text="4기 소식 받기">지원하기</a>
 </div>
 
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
@@ -2150,6 +2251,19 @@ document.getElementById('faqMore').addEventListener('click', () => {
   if (!faqExpanded) document.getElementById('faq').scrollIntoView({ block: 'start' });
 });
 
+/* ── 운영진 ──────────────────────────────────────────────────
+   이름과 역할을 채우면 푸터에 한 줄로 표시됩니다. 비어 있으면 아예 숨겨집니다.
+   외부에서 "누가 운영하는 모임인지" 확인할 수 있어야 해서 넣어둔 자리입니다.
+   예: [{ role: '운영장', name: '김0은' }, { role: '총무', name: '이0록' }]        */
+const STAFF = [];
+
+(function renderStaff() {
+  if (!STAFF.length) return;
+  const el = document.getElementById('footerStaff');
+  el.innerHTML = '운영진 · ' + STAFF.map(p => `<b>${p.name}</b> ${p.role}`).join(' · ');
+  el.style.display = '';
+})();
+
 /* ── 부원 후기 ────────────────────────────────────────────────
    text 를 채운 항목만 화면에 나옵니다. 전부 비어 있으면 후기 섹션과
    네비의 Members 항목이 통째로 숨겨지므로, 지금 이대로 배포해도 안전합니다.
@@ -2224,7 +2338,7 @@ const PART_SLOTS = {
   bass:    1,   // 베이스
   drum:    1,   // 드럼
   keys:    2,   // 키보드
-};
+};   // 3기 기준. 자리가 차는 대로 숫자만 줄이세요.
 
 document.querySelectorAll('.part-card[data-part]').forEach(card => {
   const n = PART_SLOTS[card.dataset.part];
@@ -2262,7 +2376,7 @@ navLinks.addEventListener('click', e => {
 });
 
 /* ── 모집 마감 D-day + 하단 고정 CTA ── */
-const DEADLINE = new Date('2026-09-30T23:59:59+09:00');
+const DEADLINE = new Date('2026-11-30T23:59:59+09:00');
 
 /* 마감 후 지원 버튼이 향할 곳.
    3기 대기 폼을 만들면 그 주소로 바꾸세요. 지금은 유튜브 채널로 보냅니다. */
