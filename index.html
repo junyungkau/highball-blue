@@ -198,6 +198,23 @@
     -webkit-text-fill-color: transparent;
     text-decoration: none;
   }
+  .carol-btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'Space Mono', monospace; font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    padding: 0.45rem 0.7rem; border-radius: 999px; white-space: nowrap;
+    background: rgba(192, 107, 53, 0.1); color: var(--accent-text);
+    border: 1px solid rgba(192, 107, 53, 0.28);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .carol-btn:hover { background: rgba(192, 107, 53, 0.18); border-color: rgba(192, 107, 53, 0.5); }
+  .carol-btn:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+  .carol-btn[aria-pressed="true"] { background: var(--accent-text); color: #fff; border-color: var(--accent-text); }
+  .carol-note { display: inline-block; }
+  .carol-btn[aria-pressed="true"] .carol-note { animation: carolBob 1.1s ease-in-out infinite; }
+  @keyframes carolBob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-2px) } }
+  @media (prefers-reduced-motion: reduce) { .carol-btn .carol-note { animation: none !important; } }
+
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-family: 'Space Mono', monospace; font-size: 0.7rem;
@@ -208,9 +225,9 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh; display: flex; flex-direction: column;
+    min-height: auto; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center;
-    padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
+    padding: 9rem 2rem 5.5rem; position: relative; overflow: hidden;
   }
   .hero-bg {
     position: absolute; inset: 0; pointer-events: none;
@@ -380,7 +397,21 @@
     background: linear-gradient(90deg, transparent, rgba(209, 154, 107, 0.5), rgba(196, 118, 106, 0.4), rgba(240, 214, 184, 0.3), transparent);
   }
 
-  section { padding: 6.5rem 2rem; position: relative; }
+  section { padding: 4.75rem 2rem; position: relative; }
+
+  /* ── 묶음 머리말 + 그 안으로 들어간 섹션 ── */
+  .group-head { padding-bottom: 0; }
+  .group-sub {
+    font-size: 0.95rem; font-weight: 450; color: var(--text-muted);
+    line-height: 1.8; max-width: 52ch;
+  }
+  section.in-group { padding-top: 3rem; padding-bottom: 3rem; }
+  section.in-group + section.in-group { padding-top: 0; }
+  .block-title {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700;
+    color: var(--text-strong); letter-spacing: -0.015em; line-height: 1.4;
+    margin-bottom: 1rem; padding-left: 0.85rem; border-left: 3px solid var(--blue-500);
+  }
   .container { max-width: 1100px; margin: 0 auto; }
   .section-eyebrow {
     font-family: 'Space Mono', monospace; font-size: 0.65rem;
@@ -388,10 +419,9 @@
     color: var(--accent-text);
   }
   .section-title {
-    font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-    background: linear-gradient(180deg, var(--text-strong), var(--blue-200));
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.85rem, 4.2vw, 2.9rem);
+    font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem;
+    color: var(--text-strong);
   }
 
   /* ── ABOUT ── */
@@ -591,8 +621,8 @@
   .review-card.hidden { display: none; }
 
   /* ── 아티스트 더 보기 ── */
-  .artist-more-wrap, .faq-more-wrap, .review-more-wrap { display: flex; justify-content: center; margin-top: 1.5rem; }
-  .artist-more, .faq-more, .review-more {
+  .artist-more-wrap, .faq-more-wrap, .review-more-wrap, .past-wrap { display: flex; justify-content: center; margin-top: 1.5rem; }
+  .artist-more, .faq-more, .review-more, .past-toggle {
     font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
     letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
     padding: 0.85rem 2rem; border-radius: 999px;
@@ -600,8 +630,8 @@
     border: 1px solid rgba(192, 107, 53, 0.3);
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
   }
-  .artist-more:hover, .faq-more:hover, .review-more:hover { background: #fff; border-color: rgba(192,107,53,0.55); transform: translateY(-2px); }
-  .artist-more:focus-visible, .faq-more:focus-visible, .review-more:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+  .artist-more:hover, .faq-more:hover, .review-more:hover, .past-toggle:hover { background: #fff; border-color: rgba(192,107,53,0.55); transform: translateY(-2px); }
+  .artist-more:focus-visible, .faq-more:focus-visible, .review-more:focus-visible, .past-toggle:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
 
   .parts-note {
     font-size: 0.9rem; font-weight: 450; color: var(--text-muted); line-height: 1.7; text-align: center;
@@ -1009,6 +1039,7 @@
   @media (max-width: 768px) {
     nav { padding: 1rem 1.25rem; flex-wrap: wrap; }
     .nav-toggle { display: block; }
+    .carol-btn { margin-left: auto; margin-right: 0.6rem; font-size: 0.58rem; padding: 0.4rem 0.6rem; }
     .nav-links {
       display: none; order: 3; width: 100%; flex-direction: column;
       gap: 0; margin-top: 0.75rem; padding-top: 0.75rem;
@@ -1098,21 +1129,22 @@
 
 <nav>
   <a href="#" class="nav-logo">HB BLUE</a>
+  <button class="carol-btn" id="carolBtn" type="button" aria-pressed="false" aria-label="캐롤 재생">
+    <span class="carol-note" aria-hidden="true">🔔</span><span id="carolLabel">캐롤</span>
+  </button>
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="메뉴 열기">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
-    <li><a href="#parts">Parts</a></li>
+    <li><a href="#guide">Guide</a></li>
     <li><a href="#setlist">Setlist</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li id="navReviews" style="display:none"><a href="#reviews">Members</a></li>
     <li><a href="#join">Join</a></li>
-    <li><a href="#video">Video</a></li>
-    <li><a href="#artists">Artists</a></li>
+    <li><a href="#music">Music</a></li>
     <li><a href="#story">Story</a></li>
   </ul>
 </nav>
+
 
 <section class="hero" id="top">
   <div class="hero-bg"></div>
@@ -1134,7 +1166,6 @@
   <div class="container">
     <div class="about-grid">
       <div class="fade-in">
-        <p class="section-eyebrow">// About</p>
         <h2 class="section-title">청춘의 색깔을<br>노래하다</h2>
         <p class="about-body">
           수도권 대학생들이 모여 <strong>즐거운 합주와 부담 없는 책임감</strong>으로 음악을 즐기는 자치 밴드 동아리입니다.<br><br>
@@ -1152,7 +1183,6 @@
         </p>
       </div>
       <div class="classes-grid fade-in">
-        <p class="section-eyebrow">// 동물 맞춤형 클래스</p>
         <div class="class-card">
           <img src="images/chars/turtle.png" alt="거북이반" class="class-char">
           <div class="class-body">
@@ -1185,7 +1215,6 @@
         <img src="images/poster-collage.jpg" alt="하이볼 블루 모집 포스터" loading="lazy">
       </div>
       <div class="poster-cta">
-        <p class="section-eyebrow">// Join Us</p>
         <h3 class="poster-cta-title">청량한 한 잔,<br><span class="accent">지금 함께해요</span></h3>
         <p class="poster-cta-sub">
           실력보다 중요한 건 즐기려는 마음. 구글폼 작성 후 간단한 비대면 인터뷰만 거치면
@@ -1234,11 +1263,20 @@
 
 <div class="neon-line"></div>
 
-<section class="parts-section" id="parts">
+<section class="group-head" id="guide">
+  <div class="container fade-in">
+    <p class="section-eyebrow">// Guide</p>
+    <h2 class="section-title">지원 전에<br>확인하세요 📋</h2>
+    <p class="group-sub">
+      파트별로 어느 정도면 되는지, 그리고 가장 많이 묻는 것들을 모았어요.
+    </p>
+  </div>
+</section>
+
+<section class="in-group parts-section" id="parts">
   <div class="container">
-    <p class="section-eyebrow">// Parts & Level</p>
-    <h2 class="section-title fade-in">이 정도면<br>충분해요 👌</h2>
-    <p class="parts-intro fade-in">
+    <h2 class="block-title">이 정도면<br>충분해요 👌</h2>
+    <p class="parts-intro">
       "실력이 부족해서 민폐가 될까 봐 걱정돼요…" 그런 걱정 마세요.
       각 파트별로 이 정도만 되면 <strong>거북이반부터 편하게 시작</strong>할 수 있어요.
       아래는 최소 기준일 뿐, 못해도 배우면서 함께 성장하면 됩니다!
@@ -1271,162 +1309,19 @@
       </div>
     </div>
 
-    <p class="parts-note fade-in">💡 위 기준에 못 미쳐도 괜찮아요! 악기를 이제 막 시작한 분들을 위한 <strong>거북이반</strong>이 따로 있어요.</p>
+    <p class="parts-note">💡 위 기준에 못 미쳐도 괜찮아요! 악기를 이제 막 시작한 분들을 위한 <strong>거북이반</strong>이 따로 있어요.</p>
   </div>
 </section>
 
-<div class="neon-line"></div>
-
-<section class="setlist-section" id="setlist">
+<section class="in-group faq-section" id="faq">
   <div class="container">
-    <p class="section-eyebrow">// Setlist</p>
-    <h2 class="section-title fade-in">우리가 함께<br>연주할 곡들 🎶</h2>
-    <p class="setlist-intro fade-in">
-      현재 합주 진행 중인 곡과 추천 리스트예요. 반별로 난이도를 나눠뒀으니,
-      <strong>"이 정도면 나도 할 수 있겠는데?"</strong> 싶은 반으로 지원하면 돼요.
-    </p>
-
-    <div class="setlist-grid fade-in">
-      <!-- 거북이반 -->
-      <div class="set-card set-turtle">
-        <div class="set-head">
-          <img src="images/chars/turtle.png" alt="거북이반" class="set-char">
-          <div>
-            <p class="set-name">🐢 거북이반</p>
-            <p class="set-tag">코드가 단순하고 반복되는 곡</p>
-          </div>
-        </div>
-        <ul class="set-list">
-          <li><span class="song">Basket Case</span><span class="artist">Green Day</span></li>
-          <li><span class="song">링링</span><span class="artist">검정치마</span></li>
-          <li><span class="song">한 페이지가 될 수 있게</span><span class="artist">DAY6</span></li>
-          <li><span class="song">주저하는 연인들을 위해</span><span class="artist">잔나비</span></li>
-          <li><span class="song">폰서트</span><span class="artist">10cm</span></li>
-          <li><span class="song">マリーゴールド (Marigold)</span><span class="artist">아이묭</span></li>
-        </ul>
-        <p class="set-note">파워코드와 정박자 위주라 첫 합주에 딱 좋아요.</p>
-      </div>
-
-      <!-- 고래반 -->
-      <div class="set-card set-whale">
-        <div class="set-head">
-          <img src="images/chars/whale.png" alt="고래반" class="set-char">
-          <div>
-            <p class="set-name">🐋 고래반</p>
-            <p class="set-tag">파트 간 호흡이 중요한 곡</p>
-          </div>
-        </div>
-        <ul class="set-list">
-          <li><span class="song">Welcome to the Show</span><span class="artist">DAY6</span></li>
-          <li><span class="song">입춘</span><span class="artist">한로로</span></li>
-          <li><span class="song">오늘이야</span><span class="artist">유다빈밴드</span></li>
-          <li><span class="song">클라우드 쿠쿠 랜드</span><span class="artist">정우</span></li>
-          <li><span class="song">ベテルギウス (베텔기우스)</span><span class="artist">Yuuri</span></li>
-        </ul>
-        <p class="set-note">다이나믹과 빌드업이 있어 앙상블의 재미를 느낄 수 있어요.</p>
-      </div>
-
-      <!-- 돌고래반 -->
-      <div class="set-card set-dolphin">
-        <div class="set-head">
-          <img src="images/chars/dolphin.png" alt="돌고래반" class="set-char">
-          <div>
-            <p class="set-name">🐬 돌고래반</p>
-            <p class="set-tag">무대를 목표로 하는 도전곡</p>
-          </div>
-        </div>
-        <ul class="set-list">
-          <li><span class="song">NO PAIN</span><span class="artist">실리카겔</span></li>
-          <li><span class="song">Pretender</span><span class="artist">Official髭男dism</span></li>
-          <li><span class="song">KICK BACK (킥백)</span><span class="artist">요네즈 켄시</span></li>
-          <li><span class="song">사건의 지평선</span><span class="artist">윤하</span></li>
-          <li><span class="song">TOMBOY</span><span class="artist">혁오</span></li>
-          <li><span class="song">Sweet Child O' Mine</span><span class="artist">Guns N' Roses</span></li>
-        </ul>
-        <p class="set-note">기술적 완성도와 밴드 전체의 호흡이 필요한 곡들이에요.</p>
-      </div>
-    </div>
-
-    <div class="season-divider fade-in">
-      <span class="season-label">❄️ 겨울 시즌 — 12월 합주곡</span>
-    </div>
-    <p class="season-sub fade-in">
-      3기는 <strong>12월부터 겨울 시즌</strong>으로 시작해요. 캐롤과 겨울 발라드 위주로 골랐고,
-      <strong>back number</strong>는 반별로 한 곡씩 넣어뒀습니다. 반마다 <strong>추천</strong> 표시된 곡으로 첫 합주를 엽니다.
-    </p>
-
-    <div class="setlist-grid fade-in">
-      <div class="set-card set-turtle is-winter">
-        <div class="set-head">
-          <img src="images/chars/turtle.png" alt="거북이반" class="set-char">
-          <div>
-            <p class="set-name">🐢 거북이반</p>
-            <p class="set-tag">코드 몇 개로 끝나는 캐롤</p>
-          </div>
-        </div>
-        <ul class="set-list">
-          <li class="pick"><span class="song">Last Christmas</span><span class="artist">Wham!</span></li>
-          <li><span class="song">Antifreeze</span><span class="artist">검정치마</span></li>
-          <li><span class="song">미리 메리 크리스마스</span><span class="artist">아이유</span></li>
-          <li><span class="song">Run Rudolph Run</span><span class="artist">Chuck Berry</span></li>
-          <li><span class="song">선물</span><span class="artist">멜로망스</span></li>
-        </ul>
-        <p class="set-note">네 코드가 끝까지 반복돼요. 12월에 처음 합주해도 무대에 올릴 수 있는 곡들입니다.</p>
-      </div>
-
-      <div class="set-card set-whale is-winter">
-        <div class="set-head">
-          <img src="images/chars/whale.png" alt="고래반" class="set-char">
-          <div>
-            <p class="set-name">🐋 고래반</p>
-            <p class="set-tag">파트가 맞물릴 때 예뻐지는 곡</p>
-          </div>
-        </div>
-        <ul class="set-list">
-          <li class="pick"><span class="song">クリスマスソング (크리스마스송)</span><span class="artist">back number</span></li>
-          <li><span class="song">녹아내려요</span><span class="artist">DAY6</span></li>
-          <li><span class="song">クリスマス・イブ</span><span class="artist">야마시타 타츠로</span></li>
-          <li><span class="song">Santa Claus Is Comin' to Town</span><span class="artist">Bruce Springsteen</span></li>
-          <li><span class="song">크리스마스니까</span><span class="artist">성시경 · 박효신 · 이석훈 · 서인국</span></li>
-        </ul>
-        <p class="set-note">back number의 겨울 대표곡으로 시작해요. 보컬이 둘이면 크리스마스니까로 화음도 쌓아볼 수 있어요.</p>
-      </div>
-
-      <div class="set-card set-dolphin is-winter">
-        <div class="set-head">
-          <img src="images/chars/dolphin.png" alt="돌고래반" class="set-char">
-          <div>
-            <p class="set-name">🐬 돌고래반</p>
-            <p class="set-tag">버스킹에서 터뜨릴 곡</p>
-          </div>
-        </div>
-        <ul class="set-list">
-          <li class="pick"><span class="song">冬と春 (겨울과 봄)</span><span class="artist">back number</span></li>
-          <li><span class="song">All I Want for Christmas Is You</span><span class="artist">Mariah Carey</span></li>
-          <li><span class="song">눈의 꽃</span><span class="artist">박효신</span></li>
-          <li><span class="song">Fairytale of New York</span><span class="artist">The Pogues</span></li>
-          <li><span class="song">Happy Xmas (War Is Over)</span><span class="artist">John Lennon</span></li>
-        </ul>
-        <p class="set-note">보컬 난이도와 편곡 욕심을 모두 부릴 수 있는 곡들. 12월 실내 버스킹용으로 골랐어요.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="neon-line"></div>
-
-<div class="neon-line"></div>
-
-<section class="faq-section" id="faq">
-  <div class="container">
-    <p class="section-eyebrow">// FAQ</p>
-    <h2 class="section-title fade-in">지원 전에<br>많이 묻는 것들 🤔</h2>
-    <p class="parts-intro fade-in" style="margin-bottom:2rem">
+    <h2 class="block-title">지원 전에<br>많이 묻는 것들 🤔</h2>
+    <p class="parts-intro" style="margin-bottom:2rem">
       실력 걱정만큼 자주 나오는 게 <strong>시간과 부담</strong>에 대한 질문이에요.
       미리 알고 지원하시라고 정리해뒀습니다.
     </p>
 
-    <div class="faq-list fade-in" id="faqList">
+    <div class="faq-list" id="faqList">
       <details class="faq-item">
         <summary>악기를 이제 막 시작했는데 지원해도 되나요?</summary>
         <div class="faq-a">
@@ -1542,26 +1437,166 @@
       <button class="faq-more" id="faqMore" type="button" aria-controls="faqList" aria-expanded="false"></button>
     </div>
 
-    <p class="parts-note fade-in" style="margin-top:2rem">
+    <p class="parts-note" style="margin-top:2rem">
       💬 여기에 없는 게 궁금하다면? 지원서 마지막 문항에 자유롭게 적어주시면 인터뷰 때 답해드려요.
     </p>
   </div>
 </section>
 
-<!--
-  부원 후기 — 내용은 스크립트 하단 REVIEWS 배열에서 채웁니다.
-  배열이 비어 있으면 이 섹션과 네비 항목이 통째로 숨겨지므로, 지금 배포해도 빈 섹션이 보이지 않습니다.
--->
+<div class="neon-line"></div>
+
+<section class="setlist-section" id="setlist">
+  <div class="container">
+    <p class="section-eyebrow">// Setlist</p>
+    <h2 class="section-title">우리가 함께<br>연주할 곡들 🎶</h2>
+    <p class="setlist-intro">
+      3기는 <strong>12월부터 겨울 시즌</strong>으로 시작해요. 반별로 난이도를 나눠뒀으니
+      <strong>"이 정도면 나도 할 수 있겠는데?"</strong> 싶은 반으로 지원하면 돼요.
+    </p>
+
+    <div class="season-divider">
+      <span class="season-label">❄️ 겨울 시즌 — 12월 합주곡</span>
+    </div>
+    <p class="season-sub">
+      캐롤과 겨울 발라드 위주로 골랐고, <strong>back number</strong>는 반별로 한 곡씩 넣어뒀어요.
+      반마다 <strong>추천</strong> 표시된 곡으로 첫 합주를 엽니다.
+    </p>
+
+    <div class="setlist-grid fade-in">
+      <div class="set-card set-turtle is-winter">
+        <div class="set-head">
+          <img src="images/chars/turtle.png" alt="거북이반" class="set-char">
+          <div>
+            <p class="set-name">🐢 거북이반</p>
+            <p class="set-tag">코드 몇 개로 끝나는 캐롤</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li class="pick"><span class="song">Last Christmas</span><span class="artist">Wham!</span></li>
+          <li><span class="song">Antifreeze</span><span class="artist">검정치마</span></li>
+          <li><span class="song">미리 메리 크리스마스</span><span class="artist">아이유</span></li>
+          <li><span class="song">Run Rudolph Run</span><span class="artist">Chuck Berry</span></li>
+          <li><span class="song">선물</span><span class="artist">멜로망스</span></li>
+        </ul>
+        <p class="set-note">네 코드가 끝까지 반복돼요. 12월에 처음 합주해도 무대에 올릴 수 있는 곡들입니다.</p>
+      </div>
+
+      <div class="set-card set-whale is-winter">
+        <div class="set-head">
+          <img src="images/chars/whale.png" alt="고래반" class="set-char">
+          <div>
+            <p class="set-name">🐋 고래반</p>
+            <p class="set-tag">파트가 맞물릴 때 예뻐지는 곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li class="pick"><span class="song">クリスマスソング (크리스마스송)</span><span class="artist">back number</span></li>
+          <li><span class="song">녹아내려요</span><span class="artist">DAY6</span></li>
+          <li><span class="song">クリスマス・イブ</span><span class="artist">야마시타 타츠로</span></li>
+          <li><span class="song">Santa Claus Is Comin' to Town</span><span class="artist">Bruce Springsteen</span></li>
+          <li><span class="song">크리스마스니까</span><span class="artist">성시경 · 박효신 · 이석훈 · 서인국</span></li>
+        </ul>
+        <p class="set-note">back number의 겨울 대표곡으로 시작해요. 보컬이 둘이면 크리스마스니까로 화음도 쌓아볼 수 있어요.</p>
+      </div>
+
+      <div class="set-card set-dolphin is-winter">
+        <div class="set-head">
+          <img src="images/chars/dolphin.png" alt="돌고래반" class="set-char">
+          <div>
+            <p class="set-name">🐬 돌고래반</p>
+            <p class="set-tag">버스킹에서 터뜨릴 곡</p>
+          </div>
+        </div>
+        <ul class="set-list">
+          <li class="pick"><span class="song">冬と春 (겨울과 봄)</span><span class="artist">back number</span></li>
+          <li><span class="song">All I Want for Christmas Is You</span><span class="artist">Mariah Carey</span></li>
+          <li><span class="song">눈의 꽃</span><span class="artist">박효신</span></li>
+          <li><span class="song">Fairytale of New York</span><span class="artist">The Pogues</span></li>
+          <li><span class="song">Happy Xmas (War Is Over)</span><span class="artist">John Lennon</span></li>
+        </ul>
+        <p class="set-note">보컬 난이도와 편곡 욕심을 모두 부릴 수 있는 곡들. 12월 실내 버스킹용으로 골랐어요.</p>
+      </div>
+    </div>
+
+    <div class="past-wrap">
+      <button class="past-toggle" id="pastToggle" type="button" aria-controls="pastGrid" aria-expanded="false">
+        지금까지 합주한 곡 보기 ↓
+      </button>
+    </div>
+    <div id="pastGrid" hidden>
+  <div class="setlist-grid fade-in">
+        <!-- 거북이반 -->
+        <div class="set-card set-turtle">
+          <div class="set-head">
+            <img src="images/chars/turtle.png" alt="거북이반" class="set-char">
+            <div>
+              <p class="set-name">🐢 거북이반</p>
+              <p class="set-tag">코드가 단순하고 반복되는 곡</p>
+            </div>
+          </div>
+          <ul class="set-list">
+            <li><span class="song">Basket Case</span><span class="artist">Green Day</span></li>
+            <li><span class="song">링링</span><span class="artist">검정치마</span></li>
+            <li><span class="song">한 페이지가 될 수 있게</span><span class="artist">DAY6</span></li>
+            <li><span class="song">주저하는 연인들을 위해</span><span class="artist">잔나비</span></li>
+            <li><span class="song">폰서트</span><span class="artist">10cm</span></li>
+            <li><span class="song">マリーゴールド (Marigold)</span><span class="artist">아이묭</span></li>
+          </ul>
+          <p class="set-note">파워코드와 정박자 위주라 첫 합주에 딱 좋아요.</p>
+        </div>
+
+        <!-- 고래반 -->
+        <div class="set-card set-whale">
+          <div class="set-head">
+            <img src="images/chars/whale.png" alt="고래반" class="set-char">
+            <div>
+              <p class="set-name">🐋 고래반</p>
+              <p class="set-tag">파트 간 호흡이 중요한 곡</p>
+            </div>
+          </div>
+          <ul class="set-list">
+            <li><span class="song">Welcome to the Show</span><span class="artist">DAY6</span></li>
+            <li><span class="song">입춘</span><span class="artist">한로로</span></li>
+            <li><span class="song">오늘이야</span><span class="artist">유다빈밴드</span></li>
+            <li><span class="song">클라우드 쿠쿠 랜드</span><span class="artist">정우</span></li>
+            <li><span class="song">ベテルギウス (베텔기우스)</span><span class="artist">Yuuri</span></li>
+          </ul>
+          <p class="set-note">다이나믹과 빌드업이 있어 앙상블의 재미를 느낄 수 있어요.</p>
+        </div>
+
+        <!-- 돌고래반 -->
+        <div class="set-card set-dolphin">
+          <div class="set-head">
+            <img src="images/chars/dolphin.png" alt="돌고래반" class="set-char">
+            <div>
+              <p class="set-name">🐬 돌고래반</p>
+              <p class="set-tag">무대를 목표로 하는 도전곡</p>
+            </div>
+          </div>
+          <ul class="set-list">
+            <li><span class="song">NO PAIN</span><span class="artist">실리카겔</span></li>
+            <li><span class="song">Pretender</span><span class="artist">Official髭男dism</span></li>
+            <li><span class="song">KICK BACK (킥백)</span><span class="artist">요네즈 켄시</span></li>
+            <li><span class="song">사건의 지평선</span><span class="artist">윤하</span></li>
+            <li><span class="song">TOMBOY</span><span class="artist">혁오</span></li>
+            <li><span class="song">Sweet Child O' Mine</span><span class="artist">Guns N' Roses</span></li>
+          </ul>
+          <p class="set-note">기술적 완성도와 밴드 전체의 호흡이 필요한 곡들이에요.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="neon-line" id="reviewLine" style="display:none"></div>
 
 <section class="review-section" id="reviews" style="display:none">
   <div class="container">
-    <p class="section-eyebrow">// Members</p>
-    <h2 class="section-title fade-in">먼저 온 사람들의<br>이야기 💬</h2>
-    <p class="parts-intro fade-in" style="margin-bottom:2rem">
+    <h2 class="section-title">먼저 온 사람들의<br>이야기 💬</h2>
+    <p class="parts-intro" style="margin-bottom:2rem">
       하이볼 블루에서 한 학기를 보낸 부원들이 직접 남긴 후기예요.
     </p>
-    <div class="review-grid fade-in" id="reviewGrid"></div>
+    <div class="review-grid" id="reviewGrid"></div>
     <div class="review-more-wrap" id="reviewMoreWrap" style="display:none">
       <button class="review-more" id="reviewMore" type="button" aria-controls="reviewGrid" aria-expanded="false"></button>
     </div>
@@ -1588,10 +1623,18 @@
 
 <div class="neon-line"></div>
 
-<section class="signature-section" id="signature">
+<section class="group-head" id="music">
+  <div class="container fade-in">
+    <h2 class="section-title">우리가 만들고<br>연주한 것들 🎧</h2>
+    <p class="group-sub">
+      자작곡과 합주 영상, 그리고 우리가 영향받은 아티스트들.
+    </p>
+  </div>
+</section>
+
+<section class="in-group signature-section" id="signature">
   <div class="container">
-    <p class="section-eyebrow">// Our Original Songs</p>
-    <h2 class="section-title fade-in">우리가 만든<br>우리의 노래 🎧</h2>
+    <h2 class="block-title">우리가 만든<br>우리의 노래 🎧</h2>
 
     <div class="sig-plan fade-in">
       <span class="sig-plan-icon">🎙️</span>
@@ -1632,7 +1675,6 @@
 
       <div class="sig-wrap sig-prev fade-in">
         <div class="sig-left">
-          <p class="section-eyebrow">// First Original</p>
           <h2 class="sig-title">Same Code</h2>
           <p class="sig-sub">하이볼 블루의 첫 자작곡 🎧</p>
           <p class="sig-desc">
@@ -1656,12 +1698,9 @@
   </div>
 </section>
 
-<div class="neon-line"></div>
-
-<section class="video-section" id="video">
+<section class="in-group video-section" id="video">
   <div class="container">
-    <p class="section-eyebrow">// Live & Video</p>
-    <h2 class="section-title fade-in">무대 위의<br>하이볼 블루</h2>
+    <h2 class="block-title">무대 위의<br>하이볼 블루</h2>
     <p class="video-intro fade-in">방구석 연주를 넘어, 실제 무대와 버스킹으로. 하이볼 블루의 합주와 공연 영상을 만나보세요.</p>
 
     <div class="video-main fade-in">
@@ -1692,17 +1731,14 @@
   </div>
 </section>
 
-<div class="neon-line"></div>
-
-<section class="artists" id="artists">
+<section class="in-group artists" id="artists">
   <div class="container">
-    <p class="section-eyebrow">// Artist Guide</p>
-    <h2 class="section-title fade-in">우리가 사랑하는<br>아티스트들</h2>
-    <p class="artists-intro fade-in">
+    <h2 class="block-title">우리가 사랑하는<br>아티스트들</h2>
+    <p class="artists-intro">
       인디부터 J-pop, 하드락까지 — 하이볼 블루 멤버들이 영향받은 아티스트들을 소개합니다.
       카드를 누르면 대표곡과 앨범을 볼 수 있어요.
     </p>
-    <div class="genre-tabs fade-in">
+    <div class="genre-tabs" id="genreTabs" hidden>
       <button class="tab-btn active" onclick="filterArtists('all', this)">All</button>
       <button class="tab-btn" onclick="filterArtists('indie', this)">인디</button>
       <button class="tab-btn" onclick="filterArtists('jpop', this)">J-pop</button>
@@ -1720,14 +1756,13 @@
 
 <section class="story-section" id="story">
   <div class="container">
-    <p class="section-eyebrow">// Your Story → Our Song</p>
-    <h2 class="section-title fade-in">당신의 이야기가<br>노래가 됩니다</h2>
+    <h2 class="section-title">당신의 이야기가<br>노래가 됩니다</h2>
     <p class="story-intro fade-in">
       스무 살 어느 밤의 기억, 아직도 잊지 못한 순간. 여러분의 이야기를 들려주세요.
       하이볼 블루가 <strong>자작곡과 가사</strong>로 만들어 무대에서 들려드릴게요.
     </p>
 
-    <div class="theme-grid fade-in">
+    <div class="theme-grid">
       <div class="theme-card" style="--theme:#B5636F;">
         <span class="theme-num">01</span>
         <p class="theme-emoji">💔</p>
@@ -2200,7 +2235,7 @@ function closeModal() {
 }
 
 /* ── 아티스트: 처음엔 8팀만, 나머지는 더 보기 ── */
-const ARTIST_PREVIEW = 8;
+const ARTIST_PREVIEW = 0;   // 기본 접힘 — 버튼을 눌러야 펼쳐집니다
 let artistGenre = 'all';
 let artistExpanded = false;
 
@@ -2218,10 +2253,12 @@ function applyArtistVisibility() {
 
   const wrap = document.getElementById('artistMoreWrap');
   const btn = document.getElementById('artistMore');
+  const tabs = document.getElementById('genreTabs');
+  if (tabs) tabs.hidden = !artistExpanded;
   const rest = matched - ARTIST_PREVIEW;
   wrap.style.display = rest > 0 ? 'flex' : 'none';
   if (rest > 0) {
-    btn.textContent = artistExpanded ? '접기 ↑' : `${rest}팀 더 보기 ↓`;
+    btn.textContent = artistExpanded ? '접기 ↑' : `아티스트 ${rest}팀 보기 ↓`;
     btn.setAttribute('aria-expanded', String(artistExpanded));
   }
 }
@@ -2342,6 +2379,86 @@ const STAFF = [];
   el.style.display = '';
 })();
 
+/* ── 캐롤 ────────────────────────────────────────────────────
+   자동재생은 브라우저가 막기도 하고 민폐라 하지 않습니다. 눌렀을 때만 울립니다.
+   멜로디는 Jingle Bells(1857, 공용 저작물)를 오르골 음색으로 합성 — 음원 파일이 없습니다. */
+(function carol() {
+  const btn = document.getElementById('carolBtn');
+  const label = document.getElementById('carolLabel');
+  if (!btn || !(window.AudioContext || window.webkitAudioContext)) { if (btn) btn.hidden = true; return; }
+
+  const N = { C:523.25, D:587.33, E:659.25, F:698.46, G:783.99, A:880.00, B:987.77, G3:392.00, C3:261.63 };
+  // [음, 길이(박)] — 후렴
+  const TUNE = [
+    [N.E,1],[N.E,1],[N.E,2],  [N.E,1],[N.E,1],[N.E,2],
+    [N.E,1],[N.G,1],[N.C,1.5],[N.D,.5],[N.E,4],
+    [N.F,1],[N.F,1],[N.F,1.5],[N.F,.5], [N.F,1],[N.E,1],[N.E,1],[N.E,1],
+    [N.G,1],[N.G,1],[N.F,1],[N.D,1],   [N.C,4],
+  ];
+  const BEAT = 0.34;
+
+  let ctx = null, timer = null, playing = false;
+
+  function pluck(t, freq) {
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(0.16, t + 0.012);
+    g.gain.exponentialRampToValueAtTime(0.0008, t + 1.5);
+    g.connect(ctx.destination);
+    [[freq, 1], [freq * 2, 0.22], [freq * 3.01, 0.07]].forEach(([f, lvl]) => {
+      const o = ctx.createOscillator();
+      const og = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = f;
+      og.gain.value = lvl;
+      o.connect(og); og.connect(g);
+      o.start(t); o.stop(t + 1.6);
+    });
+  }
+
+  function schedule() {
+    let t = ctx.currentTime + 0.08;
+    TUNE.forEach(([f, b]) => { pluck(t, f); t += b * BEAT; });
+    const loopMs = (t - ctx.currentTime) * 1000 + 700;
+    timer = setTimeout(schedule, loopMs);
+  }
+
+  function stop() {
+    playing = false;
+    clearTimeout(timer);
+    if (ctx) { ctx.close(); ctx = null; }
+    btn.setAttribute('aria-pressed', 'false');
+    btn.setAttribute('aria-label', '캐롤 재생');
+    label.textContent = '캐롤';
+  }
+
+  btn.addEventListener('click', () => {
+    if (playing) { stop(); return; }
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    playing = true;
+    btn.setAttribute('aria-pressed', 'true');
+    btn.setAttribute('aria-label', '캐롤 정지');
+    label.textContent = '끄기';
+    schedule();
+  });
+
+  // 탭을 벗어나면 꺼둔다
+  document.addEventListener('visibilitychange', () => { if (document.hidden && playing) stop(); });
+})();
+
+/* ── 지금까지 합주한 곡: 기본 접힘 ── */
+(function pastSongs() {
+  const btn = document.getElementById('pastToggle');
+  const grid = document.getElementById('pastGrid');
+  if (!btn || !grid) return;
+  btn.addEventListener('click', () => {
+    const open = grid.hasAttribute('hidden');
+    if (open) grid.removeAttribute('hidden'); else grid.setAttribute('hidden', '');
+    btn.textContent = open ? '접기 ↑' : '지금까지 합주한 곡 보기 ↓';
+    btn.setAttribute('aria-expanded', String(open));
+    if (!open) document.getElementById('setlist').scrollIntoView({ block: 'start' });
+  });
+})();
+
 /* ── 부원 후기 ────────────────────────────────────────────────
    text 를 채운 항목만 화면에 나옵니다. 전부 비어 있으면 후기 섹션과
    네비의 Members 항목이 통째로 숨겨지므로, 지금 이대로 배포해도 안전합니다.
@@ -2395,8 +2512,10 @@ function applyReviewVisibility() {
     </div>
   `).join('');
   document.getElementById('reviews').style.display = '';
-  document.getElementById('reviewLine').style.display = '';
-  document.getElementById('navReviews').style.display = '';
+  const rl = document.getElementById('reviewLine');
+  if (rl) rl.style.display = '';
+  const nr = document.getElementById('navReviews');   // 네비를 6개로 줄이며 사라질 수 있음
+  if (nr) nr.style.display = '';
   applyReviewVisibility();
   document.getElementById('reviewMore').addEventListener('click', () => {
     reviewExpanded = !reviewExpanded;
