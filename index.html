@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HIGHBALL BLUE — 청량한 20대 연합 취미밴드</title>
-<meta name="description" content="수도권 20대 연합 밴드동아리 하이볼 블루. 대학생·직장인 환영. 거북이·고래·돌고래 3단계 맞춤 클래스, 격주 합주, 가입비·회비 없음. 3기 부원 모집 중 (~12.20). 12월부터 겨울 시즌 합주, 방학 맞춰 합류도 환영.">
+<title>BLUE HOUR — 20대 연합 취미밴드</title>
+<meta name="description" content="수도권 20대 연합 밴드동아리 블루아워. 대학생·직장인 환영. 거북이·고래·돌고래 3단계 맞춤 클래스, 격주 합주, 가입비·회비 없음. 3기 부원 모집 중 (~12.20). 12월부터 겨울 시즌 합주, 방학 맞춰 합류도 환영.">
 <link rel="canonical" href="https://highball-blue.vercel.app/">
 <meta name="theme-color" content="#0EA5E9">
 <meta name="naver-site-verification" content="">
 <!-- Open Graph : 카카오톡·인스타·에브리타임 링크 미리보기 -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="HIGHBALL BLUE">
+<meta property="og:site_name" content="BLUE HOUR">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://highball-blue.vercel.app/">
-<meta property="og:title" content="HIGHBALL BLUE — 대학생·직장인 20대 연합밴드 3기 모집">
+<meta property="og:title" content="BLUE HOUR — 대학생·직장인 20대 연합밴드 3기 모집">
 <meta property="og:description" content="보컬·일렉·베이스·드럼·키보드 모집 중. 12월부터 겨울 시즌 합주 — 캐롤과 back number까지. 방학 맞춰 합류 환영 · 회비 없음. ~12.20 마감">
 <meta property="og:image" content="https://highball-blue.vercel.app/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="하이볼 블루 3기 부원 모집 — 12월 겨울 시즌 시작, 초심자 환영, 회비 없음">
+<meta property="og:image:alt" content="블루아워 3기 부원 모집 — 12월 겨울 시즌 시작, 초심자 환영, 회비 없음">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HIGHBALL BLUE — 대학생·직장인 20대 연합밴드 3기 모집">
+<meta name="twitter:title" content="BLUE HOUR — 대학생·직장인 20대 연합밴드 3기 모집">
 <meta name="twitter:description" content="12월부터 겨울 시즌 합주. 방학 맞춰 합류 환영 · 회비 없음 · ~12.20 마감">
 <meta name="twitter:image" content="https://highball-blue.vercel.app/images/og-cover.jpg">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -61,10 +61,10 @@
 
   body {
     background:
-      radial-gradient(ellipse 100% 55% at 50% 0%, rgba(214, 226, 238, 0.85) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 58% at 50% 0%, rgba(176, 194, 226, 0.92) 0%, transparent 62%),
       radial-gradient(ellipse 70% 45% at 88% 18%, rgba(226, 180, 130, 0.30) 0%, transparent 60%),
       radial-gradient(ellipse 65% 50% at 12% 72%, rgba(201, 138, 46, 0.16) 0%, transparent 60%),
-      linear-gradient(180deg, #EFF3F7 0%, #FBF3E8 26%, #FDF7EF 60%, #FFFCF8 100%);
+      linear-gradient(180deg, #DAE2F2 0%, #F1EFEC 24%, #FDF7EF 58%, #FFFCF8 100%);
     color: var(--text-strong);
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
     font-weight: 400;
@@ -223,6 +223,19 @@
   }
   .nav-links a:hover { color: var(--accent-text); }
 
+  /* ── 개명 안내 ── */
+  .rename-note {
+    display: inline-flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 1.6rem;
+    padding: 0.55rem 1.1rem; border-radius: 999px;
+    background: rgba(92, 116, 160, 0.12); border: 1px solid rgba(92, 116, 160, 0.3);
+    font-size: 0.8rem; font-weight: 500; line-height: 1.6; color: var(--text-muted);
+    position: relative; z-index: 2;
+  }
+  .rename-note b { color: var(--text-strong); font-weight: 700; }
+  .rename-note s { color: var(--text-faint); text-decoration-thickness: 1px; }
+  @media (max-width: 560px) { .rename-note { font-size: 0.74rem; padding: 0.5rem 0.9rem; } }
+
   /* ── HERO ── */
   .hero {
     min-height: auto; display: flex; flex-direction: column;
@@ -233,7 +246,7 @@
     position: absolute; inset: 0; pointer-events: none;
     background:
       radial-gradient(circle 620px at 50% 60%, rgba(214, 160, 104, 0.20) 0%, transparent 70%),
-      radial-gradient(circle 320px at 26% 34%, rgba(182, 203, 224, 0.30) 0%, transparent 70%),
+      radial-gradient(circle 340px at 26% 34%, rgba(142, 166, 206, 0.34) 0%, transparent 70%),
       radial-gradient(circle 340px at 74% 64%, rgba(201, 138, 46, 0.14) 0%, transparent 70%);
   }
   .hero-orb {
@@ -259,7 +272,7 @@
     letter-spacing: -0.03em; line-height: 0.85; position: relative; z-index: 1;
   }
   .hero-title .l1 {
-    background: linear-gradient(180deg, #3B2418 25%, #B5783F 100%);
+    background: linear-gradient(180deg, #2B3B5E 20%, #B5783F 100%);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
   .hero-title .l2 {
@@ -1129,7 +1142,7 @@
 </div>
 
 <nav>
-  <a href="#" class="nav-logo">HB BLUE</a>
+  <a href="#" class="nav-logo">BLUE HOUR</a>
   <button class="carol-btn" id="carolBtn" type="button" aria-pressed="false" aria-label="캐롤 재생">
     <span class="carol-note" aria-hidden="true">🔔</span><span id="carolLabel">캐롤</span>
   </button>
@@ -1152,9 +1165,12 @@
   <div class="hero-orb orb-1"></div>
   <div class="hero-orb orb-2"></div>
   <div class="hero-orb orb-3"></div>
-  <p class="hero-tag">🍹 연합 취미밴드 — Seoul, 2026</p>
-  <h1 class="hero-title"><span class="l1">HIGHBALL</span><br><span class="l2">BLUE</span></h1>
-  <p class="hero-subtitle">일상에 청량한 한 잔의 휴식을 더하는<br>20대 연합 취미밴드</p>
+  <p class="rename-note">
+    <s>하이볼 블루</s> → <b>블루아워</b>로 이름을 바꿨어요 · 모집과 활동은 그대로 이어집니다
+  </p>
+  <p class="hero-tag">🌆 연합 취미밴드 — Seoul, 2026</p>
+  <h1 class="hero-title"><span class="l1">BLUE</span><br><span class="l2">HOUR</span></h1>
+  <p class="hero-subtitle">해가 지고 뜨기 전, 가장 푸른 한 시간<br>20대 연합 취미밴드</p>
   <div class="hero-cta-group">
     <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기">지원하기</a>
     <a href="#artists" class="btn-secondary">아티스트 보기</a>
@@ -1170,7 +1186,7 @@
         <h2 class="section-title">청춘의 색깔을<br>노래하다</h2>
         <p class="about-body">
           수도권의 대학생과 직장인이 모여 <strong>즐거운 합주와 부담 없는 책임감</strong>으로 음악을 즐기는 자치 밴드입니다.<br><br>
-          신촌 · 합정 · 서울대입구 인근 전문 합주실에서 격주로 만나 인디, 락, K-pop, J-pop, 그리고 우리만의 자작곡까지 — <span class="accent">음악을 통해 청량한 한 잔의 휴식을 만들어갑니다.</span><br><br>
+          신촌 · 합정 · 서울대입구 인근 전문 합주실에서 격주로 만나 인디, 락, K-pop, J-pop, 그리고 우리만의 자작곡까지 — <span class="accent">하루의 끝과 시작 사이, 가장 푸른 시간을 함께 만듭니다.</span><br><br>
           <strong>🎵 모집 파트</strong><br>
           보컬 2 · 일렉기타 2 · 베이스 1 · 드럼 1 · 키보드 2<br><br>
           <strong>🎯 지원 자격</strong><br>
@@ -1215,10 +1231,10 @@
 
     <div class="poster-row fade-in">
       <div class="about-poster">
-        <img src="images/poster-collage.jpg" alt="하이볼 블루 모집 포스터" loading="lazy">
+        <img src="images/poster-collage.jpg" alt="블루아워 모집 포스터" loading="lazy">
       </div>
       <div class="poster-cta">
-        <h3 class="poster-cta-title">청량한 한 잔,<br><span class="accent">지금 함께해요</span></h3>
+        <h3 class="poster-cta-title">가장 푸른 시간,<br><span class="accent">지금 함께해요</span></h3>
         <p class="poster-cta-sub">
           실력보다 중요한 건 즐기려는 마음. 구글폼 작성 후 간단한 비대면 인터뷰만 거치면
           바로 합주실에서 만날 수 있어요.
@@ -1613,7 +1629,7 @@
   <div class="container">
     <h2 class="section-title">먼저 온 사람들의<br>이야기 💬</h2>
     <p class="parts-intro" style="margin-bottom:2rem">
-      하이볼 블루에서 한 학기를 보낸 부원들이 직접 남긴 후기예요.
+      블루아워에서 한 학기를 보낸 부원들이 직접 남긴 후기예요.
     </p>
     <div class="review-grid" id="reviewGrid"></div>
     <div class="review-more-wrap" id="reviewMoreWrap" style="display:none">
@@ -1660,7 +1676,7 @@
       <p class="sig-plan-text">
         지금 들리는 두 곡은 <strong>데모 스케치</strong>예요.
         3기와 함께 <strong>코드를 새로 따고, 직접 녹음하고, 후가공까지</strong> 거쳐
-        하이볼 블루의 음원으로 완성할 예정입니다. 완성된 곡은 <strong>음원 아카이빙</strong>으로 남겨요.
+        블루아워의 음원으로 완성할 예정입니다. 완성된 곡은 <strong>음원 아카이빙</strong>으로 남겨요.
       </p>
     </div>
 
@@ -1695,12 +1711,12 @@
       <div class="sig-wrap sig-prev fade-in">
         <div class="sig-left">
           <h2 class="sig-title">Same Code</h2>
-          <p class="sig-sub">하이볼 블루의 첫 자작곡 🎧</p>
+          <p class="sig-sub">블루아워의 첫 자작곡 🎧</p>
           <p class="sig-desc">
             "스무 번 틀려도 웃으며 맞춰가 —<br>
             어제는 남이었지만 오늘은 밴드가 돼."<br><br>
             처음 만난 사람들이 같은 박자 위에서 하나가 되는 순간.
-            하이볼 블루의 <strong>오픈 합주</strong>를 담았습니다.
+            블루아워의 <strong>오픈 합주</strong>를 담았습니다.
           </p>
           <a href="https://youtu.be/ONKyTBpOZjY" target="_blank" rel="noopener" class="btn-secondary">데모 들어보기 ↗</a>
         </div>
@@ -1719,12 +1735,12 @@
 
 <section class="in-group video-section" id="video">
   <div class="container">
-    <h2 class="block-title">무대 위의<br>하이볼 블루</h2>
-    <p class="video-intro fade-in">방구석 연주를 넘어, 실제 무대와 버스킹으로. 하이볼 블루의 합주와 공연 영상을 만나보세요.</p>
+    <h2 class="block-title">무대 위의<br>블루아워</h2>
+    <p class="video-intro fade-in">방구석 연주를 넘어, 실제 무대와 버스킹으로. 블루아워의 합주와 공연 영상을 만나보세요.</p>
 
     <div class="video-main fade-in">
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/pq8gn-D2MSk" title="하이볼 블루 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/pq8gn-D2MSk" title="블루아워 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -1735,7 +1751,7 @@
         </div>
         <div class="video-thumb-meta">
           <p class="video-thumb-label">// Watch on YouTube</p>
-          <p class="video-thumb-title">하이볼 블루 합주 영상</p>
+          <p class="video-thumb-title">블루아워 합주 영상</p>
         </div>
       </a>
       <a class="video-more" href="https://www.youtube.com/@highballblue" target="_blank" rel="noopener">
@@ -1754,7 +1770,7 @@
   <div class="container">
     <h2 class="block-title">우리가 사랑하는<br>아티스트들</h2>
     <p class="artists-intro">
-      인디부터 J-pop, 하드락까지 — 하이볼 블루 멤버들이 영향받은 아티스트들을 소개합니다.
+      인디부터 J-pop, 하드락까지 — 블루아워 멤버들이 영향받은 아티스트들을 소개합니다.
       카드를 누르면 대표곡과 앨범을 볼 수 있어요.
     </p>
     <div class="genre-tabs" id="genreTabs" hidden>
@@ -1778,7 +1794,7 @@
     <h2 class="section-title">당신의 이야기가<br>노래가 됩니다</h2>
     <p class="story-intro fade-in">
       스무 살 어느 밤의 기억, 아직도 잊지 못한 순간. 여러분의 이야기를 들려주세요.
-      하이볼 블루가 <strong>자작곡과 가사</strong>로 만들어 무대에서 들려드릴게요.
+      블루아워가 <strong>자작곡과 가사</strong>로 만들어 무대에서 들려드릴게요.
     </p>
 
     <div class="theme-grid">
@@ -1821,8 +1837,8 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <p class="footer-logo">HIGHBALL BLUE</p>
-      <p class="footer-slogan" data-closed-text="청량한 20대 연합 취미밴드 — 4기 모집 준비 중">청량한 20대 연합 취미밴드 — 3기 모집 중</p>
+      <p class="footer-logo">BLUE HOUR</p>
+      <p class="footer-slogan" data-closed-text="20대 연합 취미밴드 — 4기 모집 준비 중">20대 연합 취미밴드 — 3기 모집 중</p>
       <p class="footer-staff">운영진 5명(직장인 3 · 대학생 2)이 직접 꾸리는 자치 밴드 — 종교 · 정치 · 시민단체와 무관합니다.</p>
     </div>
     <div class="footer-links">
@@ -1830,14 +1846,14 @@
       <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank">지원 폼</a>
       <a href="mailto:bandwithme3@gmail.com">문의 메일</a>
     </div>
-    <p class="footer-copy">© 2026 Highball Blue. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Blue Hour. All rights reserved.</p>
   </div>
 </footer>
 
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-copy">
     <p class="sticky-cta-dday" id="stickyDday">모집 마감 D-–</p>
-    <p class="sticky-cta-text" data-closed-text="3기 모집이 마감됐어요">3기 부원 모집 중 🍹</p>
+    <p class="sticky-cta-text" data-closed-text="3기 모집이 마감됐어요">3기 부원 모집 중 🌆</p>
   </div>
   <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" rel="noopener" class="btn-primary" data-closed-text="4기 소식 받기">지원하기</a>
 </div>
@@ -2125,7 +2141,7 @@ const artists = [
     name: 'YU DABIN BAND', nameKo: '유다빈밴드',
     grad: 'linear-gradient(135deg, #0E7490, #083344)',
     img: 'images/yudabin/profile.jpg',
-    bio: '청량하고 서정적인 사운드로 사랑받는 <strong>유다빈밴드</strong>. 하이볼 블루의 무드와 결이 잘 맞는 밴드예요. <em>오늘이야</em>는 고래반 합주곡.',
+    bio: '청량하고 서정적인 사운드로 사랑받는 <strong>유다빈밴드</strong>. 블루아워의 무드와 결이 잘 맞는 밴드예요. <em>오늘이야</em>는 고래반 합주곡.',
     tracks: [
       { t: '오늘이야', m: '2023', lv: 'mid' },
       { t: '항해', m: '2023', lv: 'mid' },
