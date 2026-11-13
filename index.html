@@ -29,7 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
   :root {
@@ -51,9 +51,9 @@
     --lemon:          #DFA23A;  /* 레몬 옐로우 */
 
     /* 텍스트 — 밝은 배경 위라 어두운 잉크 계열 */
-    --text-strong:    #3B2418;  /* 본문 */
-    --text-muted:     #6E4D39;  /* 보조 */
-    --text-faint:     #7D5E4C;  /* 흐린 텍스트 — 12px에서도 AA 통과하도록 진하게 */
+    --text-strong:    #22293A;  /* 본문 — 블루아워 잉크 */
+    --text-muted:     #4E5A70;  /* 보조 */
+    --text-faint:     #5A6677;  /* 흐린 텍스트 — 12px에서도 AA 통과 */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -81,24 +81,6 @@
   @media (prefers-reduced-motion: reduce) { #snow { display: none; } }
 
   /* ── BACKGROUND COLLAGE ── */
-  .bg-collage {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-  }
-  .bg-img {
-    position: absolute; width: 220px; height: 220px;
-    background-size: cover; background-position: center;
-    border-radius: 16px;
-    opacity: 0.032;
-    filter: blur(16px) saturate(0.18) sepia(0.45);
-    transform: rotate(var(--rot, 0deg));
-    animation: drift 22s ease-in-out infinite;
-    animation-delay: var(--d, 0s);
-    mix-blend-mode: luminosity;
-  }
-  @keyframes drift {
-    0%, 100% { transform: rotate(var(--rot,0deg)) translateY(0); }
-    50% { transform: rotate(var(--rot,0deg)) translateY(-26px); }
-  }
   nav, section, footer, .neon-line { position: relative; z-index: 2; }
   @media (max-width: 768px) {
     .bg-img { width: 140px; height: 140px; opacity: 0.07; }
@@ -191,7 +173,7 @@
     box-shadow: 0 2px 20px -8px rgba(192, 107, 53, 0.25);
   }
   .nav-logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
     font-size: 1rem; font-weight: 700; letter-spacing: 0.28em;
     background: linear-gradient(90deg, var(--blue-600), var(--cyan-500));
     -webkit-background-clip: text; background-clip: text;
@@ -223,6 +205,39 @@
   }
   .nav-links a:hover { color: var(--accent-text); }
 
+  /* ── 스플릿 히어로 ── */
+  .hero-split {
+    display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 3.5rem; align-items: center;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    position: relative; z-index: 1;
+  }
+  .hero-poster {
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 22px 50px -22px rgba(34, 41, 58, 0.45);
+    border: 1px solid rgba(34, 41, 58, 0.08);
+  }
+  .hero-poster img { width: 100%; height: auto; display: block; }
+  .hero-content { display: flex; flex-direction: column; gap: 1.15rem; align-items: flex-start; text-align: left; }
+  .hero-content .poster-facts { width: 100%; margin-top: 0.35rem; }
+  .hero-content .poster-cta-actions { margin-top: 0.5rem; }
+
+  @media (max-width: 900px) {
+    .hero-split { grid-template-columns: 1fr; gap: 1.6rem; }
+    .hero-poster { max-height: 260px; }
+    .hero-poster img { height: 260px; object-fit: cover; object-position: top; }
+  }
+  @media (max-width: 620px) {
+    /* 좁은 화면에선 지원 버튼까지 거리를 줄인다 */
+    .hero-poster, .hero-poster img { max-height: 200px; height: 200px; }
+    .hero-content { gap: 0.9rem; }
+    .hero-content .poster-facts {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.5rem;
+    }
+    .hero-content .poster-fact { padding: 0.6rem 0.7rem; }
+    .hero-content .poster-fact-value { font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; }
+  }
+
   /* ── 개명 안내 ── */
   .rename-note {
     display: inline-flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
@@ -239,8 +254,8 @@
   /* ── HERO ── */
   .hero {
     min-height: auto; display: flex; flex-direction: column;
-    justify-content: center; align-items: center; text-align: center;
-    padding: 9rem 2rem 5.5rem; position: relative; overflow: hidden;
+    justify-content: center; align-items: center;
+    padding: 7.5rem 2rem 4.5rem; position: relative; overflow: hidden;
   }
   .hero-bg {
     position: absolute; inset: 0; pointer-events: none;
@@ -249,27 +264,16 @@
       radial-gradient(circle 340px at 26% 34%, rgba(142, 166, 206, 0.34) 0%, transparent 70%),
       radial-gradient(circle 340px at 74% 64%, rgba(201, 138, 46, 0.14) 0%, transparent 70%);
   }
-  .hero-orb {
-    position: absolute; border-radius: 50%; filter: blur(80px);
-    opacity: 0.45; animation: float 14s ease-in-out infinite;
-  }
-  .orb-1 { width: 300px; height: 300px; background: var(--blue-200); top: 15%; left: 10%; }
-  .orb-2 { width: 240px; height: 240px; background: var(--lemon); bottom: 18%; right: 12%; animation-delay: -5s; opacity: 0.4; }
-  .orb-3 { width: 200px; height: 200px; background: var(--cyan-500); top: 50%; left: 60%; animation-delay: -9s; opacity: 0.35; }
-  @keyframes float {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(30px,-30px) scale(1.1); }
-    66% { transform: translate(-20px,20px) scale(0.95); }
-  }
   .hero-tag {
     font-family: 'Space Mono', monospace; font-size: 0.65rem;
     letter-spacing: 0.3em; color: var(--accent-text); text-transform: uppercase;
     margin-bottom: 2rem; position: relative; z-index: 1;
   }
   .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3.5rem, 13vw, 10rem); font-weight: 700;
-    letter-spacing: -0.03em; line-height: 0.85; position: relative; z-index: 1;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+    font-size: clamp(2.6rem, 6.4vw, 4.4rem); font-weight: 800;
+    letter-spacing: -0.035em; line-height: 1.0; position: relative; z-index: 1;
+    display: flex; gap: 0.3em; flex-wrap: wrap;
   }
   .hero-title .l1 {
     background: linear-gradient(180deg, #2B3B5E 20%, #B5783F 100%);
@@ -281,8 +285,8 @@
     text-shadow: 0 0 60px rgba(209, 154, 107, 0.3);
   }
   .hero-subtitle {
-    font-size: 1.05rem; font-weight: 500; color: var(--text-muted);
-    margin-top: 2.25rem; letter-spacing: 0.04em; line-height: 1.9;
+    font-size: 1.02rem; font-weight: 500; color: var(--text-muted);
+    margin-top: 0; letter-spacing: 0.02em; line-height: 1.75;
     max-width: 480px; position: relative; z-index: 1;
   }
   .hero-cta-group {
@@ -290,7 +294,7 @@
     justify-content: center; position: relative; z-index: 1;
   }
   .btn-primary {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 0.8rem; font-weight: 600;
     letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
     padding: 0.9rem 2.2rem; color: #fff; border: none; cursor: pointer;
     background: linear-gradient(120deg, var(--blue-500), var(--orange));
@@ -300,7 +304,7 @@
   }
   .btn-primary:hover { background-position: 100% 0%; transform: translateY(-2px); box-shadow: 0 8px 40px rgba(192, 107, 53, 0.45); }
   .btn-secondary {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 0.8rem; font-weight: 600;
     letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
     padding: 0.9rem 2.2rem; background: transparent; color: var(--blue-600);
     border: 1px solid rgba(209, 154, 107, 0.35); cursor: pointer;
@@ -340,7 +344,7 @@
   .video-thumb:hover .play-btn { transform: scale(1.12); }
   .video-thumb-meta { padding: 1.1rem 1.3rem; }
   .video-thumb-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; color: var(--accent-text); text-transform: uppercase; margin-bottom: 0.4rem; }
-  .video-thumb-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-strong); }
+  .video-thumb-title { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-strong); }
 
   .video-more {
     display: flex; align-items: center; text-decoration: none; border-radius: 16px;
@@ -356,7 +360,7 @@
     width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(196,118,106,0.3);
     display: flex; align-items: center; justify-content: center;
   }
-  .video-more-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.5rem; }
+  .video-more-title { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.5rem; }
   .video-more-sub { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
   .video-more-cta { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--accent-text); text-transform: uppercase; }
 
@@ -388,7 +392,7 @@
     color: var(--text-faint); position: absolute; top: 1.5rem; right: 1.5rem; opacity: 0.9;
   }
   .theme-emoji { font-size: 2rem; margin-bottom: 1rem; }
-  .theme-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.6rem; }
+  .theme-title { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.6rem; }
   .theme-desc { font-size: 0.85rem; font-weight: 450; color: var(--text-muted); line-height: 1.7; }
 
   .story-cta {
@@ -398,7 +402,7 @@
     border: 1px solid rgba(192, 107, 53, 0.25);
     box-shadow: 0 10px 30px -16px rgba(192, 107, 53, 0.4);
   }
-  .story-cta-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.5rem; }
+  .story-cta-title { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.5rem; }
   .story-cta-sub { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; max-width: 480px; }
 
   @media (max-width: 768px) {
@@ -421,7 +425,7 @@
   section.in-group { padding-top: 3rem; padding-bottom: 3rem; }
   section.in-group + section.in-group { padding-top: 0; }
   .block-title {
-    font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.35rem; font-weight: 700;
     color: var(--text-strong); letter-spacing: -0.015em; line-height: 1.4;
     margin-bottom: 1rem; padding-left: 0.85rem; border-left: 3px solid var(--blue-500);
   }
@@ -432,7 +436,7 @@
     color: var(--accent-text);
   }
   .section-title {
-    font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.85rem, 4.2vw, 2.9rem);
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: clamp(1.85rem, 4.2vw, 2.9rem);
     font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem;
     color: var(--text-strong);
   }
@@ -453,15 +457,10 @@
   .about-poster img { width: 100%; height: auto; display: block; }
 
   /* ── ABOUT: 포스터 + 지원 CTA 2열 ── */
-  .poster-row {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 3.5rem; align-items: center; margin-top: 4.5rem;
-  }
-  .poster-row .about-poster { margin-top: 0; }
 
   .poster-cta { display: flex; flex-direction: column; gap: 1.3rem; }
   .poster-cta-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
     line-height: 1.3; letter-spacing: -0.01em; color: var(--text-strong);
   }
@@ -492,7 +491,6 @@
   .poster-cta-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.5rem; }
 
   @media (max-width: 900px) {
-    .poster-row { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 3rem; }
   }
 
   .classes-grid { display: flex; flex-direction: column; gap: 1rem; }
@@ -522,7 +520,7 @@
   .badge-beginner { color: #8A4515; background: rgba(224, 180, 138, 0.18); }
   .badge-mid { color: #8A4515; background: rgba(168, 90, 48, 0.18); }
   .badge-stage { color: #A33F10; background: rgba(194, 84, 31, 0.16); }
-  .class-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-strong); margin-bottom: 0.4rem; }
+  .class-name { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-strong); margin-bottom: 0.4rem; }
   .class-desc { font-size: 0.84rem; font-weight: 450; color: var(--text-muted); line-height: 1.65; }
   .class-req { display: inline-block; margin-top: 0.5rem; font-size: 0.76rem; color: #8A4515; font-weight: 500; }
 
@@ -543,7 +541,7 @@
     display: flex; align-items: center; justify-content: center;
     background: linear-gradient(135deg, rgba(224,180,138,0.2), rgba(168,90,48,0.15));
   }
-  .part-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-strong); }
+  .part-name { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-strong); }
   .part-req { font-size: 0.86rem; font-weight: 450; color: var(--text-muted); line-height: 1.7; }
   /* 파트별 모집 현황 배지 */
   .part-head { position: relative; }
@@ -606,7 +604,7 @@
   }
   .review-card::before {
     content: '“'; position: absolute; top: -0.35em; right: 0.25em;
-    font-family: 'Space Grotesk', serif; font-size: 6rem; line-height: 1;
+    font-family: 'Bricolage Grotesque', serif; font-size: 6rem; line-height: 1;
     color: rgba(192, 107, 53, 0.1); pointer-events: none;
   }
   .review-text {
@@ -615,14 +613,14 @@
   }
   .review-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
   .review-name {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 0.9rem; font-weight: 700;
     color: var(--text-strong); letter-spacing: -0.01em;
   }
   .review-name + .review-part::before {
     content: '·'; margin-right: 0.4rem; color: var(--text-faint); font-weight: 400;
   }
   .review-part {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; font-weight: 600;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 0.86rem; font-weight: 600;
     color: var(--text-muted);
   }
   .review-tag {
@@ -661,7 +659,7 @@
     box-shadow: 0 16px 40px -20px rgba(192,107,53,0.45);
   }
   .sig-title {
-    font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.4rem, 6vw, 4rem);
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: clamp(2.4rem, 6vw, 4rem);
     font-weight: 700; letter-spacing: -0.02em; line-height: 1;
     background: linear-gradient(90deg, #8A4515, #A85A30, #96512B);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
@@ -750,7 +748,7 @@
     margin: 1.2rem 0 1.6rem;
   }
   .sig-quote {
-    font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.05rem;
     font-weight: 500; font-style: italic; line-height: 1.7;
     color: #8A4F22; margin-bottom: 1.2rem;
     padding-left: 1rem; border-left: 2px solid rgba(163, 95, 40, 0.4);
@@ -794,7 +792,7 @@
   .set-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.2rem; }
   .set-char { width: 62px; height: auto; flex-shrink: 0; transition: transform 0.3s; }
   .set-card:hover .set-char { transform: scale(1.1) rotate(-5deg); }
-  .set-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.2rem; }
+  .set-name { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-strong); margin-bottom: 0.2rem; }
   .set-tag { font-size: 0.78rem; font-weight: 500; color: var(--text-faint); }
 
   .set-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.1rem; }
@@ -814,7 +812,7 @@
     background: linear-gradient(90deg, transparent, rgba(192,107,53,0.35), transparent);
   }
   .season-label {
-    font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.05rem; font-weight: 700;
     color: var(--text-strong); white-space: nowrap; letter-spacing: -0.01em;
   }
   .season-sub {
@@ -875,7 +873,7 @@
   .artist-card.hidden { display: none; }
   .artist-initial {
     position: absolute; top: 1.1rem; right: 1.2rem; z-index: 2;
-    font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 3.5rem; font-weight: 700;
     color: rgba(255,255,255,0.14); line-height: 1;
   }
   .artist-card-body { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 1.4rem; }
@@ -883,7 +881,7 @@
     font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.15em;
     text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.6rem;
   }
-  .artist-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 0.15rem; }
+  .artist-name { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 0.15rem; }
   .artist-name-ko { font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-bottom: 0.6rem; }
   .artist-card-cta {
     font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
@@ -924,7 +922,7 @@
     font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.5rem;
   }
-  .modal-name { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--text-strong); line-height: 1; text-shadow: 0 2px 12px rgba(255,255,255,0.5); }
+  .modal-name { font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--text-strong); line-height: 1; text-shadow: 0 2px 12px rgba(255,255,255,0.5); }
   .modal-name-ko { font-size: 0.95rem; color: var(--text-muted); margin-top: 0.4rem; }
   .modal-close {
     position: absolute; top: 1.2rem; right: 1.2rem; z-index: 3;
@@ -974,7 +972,7 @@
     position: relative; overflow: hidden;
   }
   .album-cover-text {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 0.9rem; font-weight: 600;
     color: rgba(255,255,255,0.9); text-align: center; padding: 0.5rem; z-index: 1;
     line-height: 1.2;
   }
@@ -992,7 +990,7 @@
   footer { padding: 4rem 2rem 3rem; border-top: 1px solid rgba(209, 154, 107, 0.1); }
   .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
   .footer-logo {
-    font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 0.04em;
+    font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 0.04em;
     background: linear-gradient(90deg, var(--blue-600), var(--cyan-500), var(--coral));
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
@@ -1074,19 +1072,6 @@
 </head>
 <body>
 
-<div class="bg-collage" aria-hidden="true">
-  <div class="bg-img" style="background-image:url('images/jannabi/legend.jpg'); top:8%; left:4%; --rot:-8deg;"></div>
-  <div class="bg-img" style="background-image:url('images/hanroro/jamong.jpg'); top:22%; right:6%; --rot:6deg; --d:-3s;"></div>
-  <div class="bg-img" style="background-image:url('images/jannabi/monkeyhotel.jpg'); top:48%; left:12%; --rot:5deg; --d:-7s;"></div>
-  <div class="bg-img" style="background-image:url('images/hyukoh/album24.jpg'); top:62%; right:10%; --rot:-6deg; --d:-2s;"></div>
-  <div class="bg-img" style="background-image:url('images/10cm/album1.jpg'); top:80%; left:6%; --rot:9deg; --d:-9s;"></div>
-  <div class="bg-img" style="background-image:url('images/hyukoh/album23.jpg'); top:38%; right:24%; --rot:-4deg; --d:-5s;"></div>
-  <div class="bg-img" style="background-image:url('images/nerd/cinema.jpg'); top:12%; left:42%; --rot:7deg; --d:-6s;"></div>
-  <div class="bg-img" style="background-image:url('images/hanroro/home.jpg'); top:70%; left:38%; --rot:-5deg; --d:-4s;"></div>
-  <div class="bg-img" style="background-image:url('images/gnr/appetite.jpg'); top:30%; left:2%; --rot:8deg; --d:-8s;"></div>
-  <div class="bg-img" style="background-image:url('images/yonezu/straysheep.jpg'); top:88%; right:30%; --rot:-7deg; --d:-1s;"></div>
-  <div class="bg-img" style="background-image:url('images/aimyon/sixsense.jpg'); top:50%; right:2%; --rot:5deg; --d:-10s;"></div>
-</div>
 
 <div class="bubbles" aria-hidden="true">
   <div class="bubble" style="--x:6%;  --sz:18px; --dur:16s; --dly:0s;    --op:0.45;"></div>
@@ -1162,18 +1147,61 @@
 
 <section class="hero" id="top">
   <div class="hero-bg"></div>
-  <div class="hero-orb orb-1"></div>
-  <div class="hero-orb orb-2"></div>
-  <div class="hero-orb orb-3"></div>
-  <p class="rename-note">
-    <s>하이볼 블루</s> → <b>블루아워</b>로 이름을 바꿨어요 · 모집과 활동은 그대로 이어집니다
-  </p>
-  <p class="hero-tag">🌆 연합 취미밴드 — Seoul, 2026</p>
-  <h1 class="hero-title"><span class="l1">BLUE</span><br><span class="l2">HOUR</span></h1>
-  <p class="hero-subtitle">해가 지고 뜨기 전, 가장 푸른 한 시간<br>20대 연합 취미밴드</p>
-  <div class="hero-cta-group">
-    <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기">지원하기</a>
-    <a href="#artists" class="btn-secondary">아티스트 보기</a>
+  <div class="hero-split">
+    <div class="hero-poster">
+      <img src="images/poster-collage.jpg" alt="블루아워 3기 부원 모집 포스터" width="900" height="1125" fetchpriority="high">
+    </div>
+    <div class="hero-content">
+      <p class="rename-note">
+        <s>하이볼 블루</s> → <b>블루아워</b>로 이름을 바꿨어요 · 모집과 활동은 그대로 이어집니다
+      </p>
+      <p class="hero-tag">🌆 연합 취미밴드 — Seoul, 2026</p>
+      <h1 class="hero-title"><span class="l1">BLUE</span> <span class="l2">HOUR</span></h1>
+      <p class="hero-subtitle">해가 지고 뜨기 전, 가장 푸른 한 시간</p>
+        <div class="poster-cta">
+          <h3 class="poster-cta-title">가장 푸른 시간,<br><span class="accent">지금 함께해요</span></h3>
+          <p class="poster-cta-sub">
+            실력보다 중요한 건 즐기려는 마음. 구글폼 작성 후 간단한 비대면 인터뷰만 거치면
+            바로 합주실에서 만날 수 있어요.
+          </p>
+
+          <div class="poster-facts">
+            <div class="poster-fact">
+              <span class="poster-fact-icon">📅</span>
+              <div>
+                <span class="poster-fact-label">Deadline</span>
+                <span class="poster-fact-value">12월 20일까지 3기 모집</span>
+              </div>
+            </div>
+            <div class="poster-fact">
+              <span class="poster-fact-icon">🎯</span>
+              <div>
+                <span class="poster-fact-label">Who</span>
+                <span class="poster-fact-value">20대 대학생 · 직장인</span>
+              </div>
+            </div>
+            <div class="poster-fact">
+              <span class="poster-fact-icon">✉️</span>
+              <div>
+                <span class="poster-fact-label">Contact</span>
+                <span class="poster-fact-value"><a href="mailto:bandwithme3@gmail.com" style="color:inherit">bandwithme3@gmail.com</a></span>
+              </div>
+            </div>
+            <div class="poster-fact">
+              <span class="poster-fact-icon">⏱️</span>
+              <div>
+                <span class="poster-fact-label">Process</span>
+                <span class="poster-fact-value">구글폼 → 비대면 인터뷰 (약 5분)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="poster-cta-actions">
+            <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기 →">지원하기 →</a>
+            <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
+          </div>
+        </div>
+    </div>
   </div>
 </section>
 
@@ -1229,54 +1257,6 @@
       </div>
     </div>
 
-    <div class="poster-row fade-in">
-      <div class="about-poster">
-        <img src="images/poster-collage.jpg" alt="블루아워 모집 포스터" loading="lazy">
-      </div>
-      <div class="poster-cta">
-        <h3 class="poster-cta-title">가장 푸른 시간,<br><span class="accent">지금 함께해요</span></h3>
-        <p class="poster-cta-sub">
-          실력보다 중요한 건 즐기려는 마음. 구글폼 작성 후 간단한 비대면 인터뷰만 거치면
-          바로 합주실에서 만날 수 있어요.
-        </p>
-
-        <div class="poster-facts">
-          <div class="poster-fact">
-            <span class="poster-fact-icon">📅</span>
-            <div>
-              <span class="poster-fact-label">Deadline</span>
-              <span class="poster-fact-value">12월 20일까지 3기 모집</span>
-            </div>
-          </div>
-          <div class="poster-fact">
-            <span class="poster-fact-icon">🎯</span>
-            <div>
-              <span class="poster-fact-label">Who</span>
-              <span class="poster-fact-value">20대 대학생 · 직장인</span>
-            </div>
-          </div>
-          <div class="poster-fact">
-            <span class="poster-fact-icon">✉️</span>
-            <div>
-              <span class="poster-fact-label">Contact</span>
-              <span class="poster-fact-value"><a href="mailto:bandwithme3@gmail.com" style="color:inherit">bandwithme3@gmail.com</a></span>
-            </div>
-          </div>
-          <div class="poster-fact">
-            <span class="poster-fact-icon">⏱️</span>
-            <div>
-              <span class="poster-fact-label">Process</span>
-              <span class="poster-fact-value">구글폼 → 비대면 인터뷰 (약 5분)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="poster-cta-actions">
-          <a href="https://forms.gle/QJ2ubzY75XRUnh5k7" target="_blank" class="btn-primary" data-closed-text="4기 소식 받기 →">지원하기 →</a>
-          <a href="https://www.youtube.com/@highballblue" target="_blank" class="btn-secondary">활동 영상 보기 ↗</a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
